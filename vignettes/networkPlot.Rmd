@@ -1,0 +1,150 @@
+---
+title: "Enriching and plotting a networkGen network"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Enriching and plotting a networkGen network}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+`networkPlot` takes a network built by `networkGen` and produces two things:
+its **pathway enrichment** and its **interactive HTML rendering** (plus
+kinase-by-pathway heatmaps). This vignette covers the inputs, the
+enrichment call, reading the pathway output, and every knob on the HTML.
+
+```{r setup}
+library(networkPlot)
+```
+
+## 1. Inputs
+
+Everything starts from a `networkGen` result -- its `nodes` and `edges`
+data frames. `nodes` carries `Protein`, `type` (`Kinase`, `Sensitivity`,
+`Protein-Kinase`, ..., or `Hidden` for the Steiner connector nodes PCSF
+added), `prize`, `LogFC`, `degree`. `edges` carries `from`, `to`, `weight`
+(how many of the randomized PCSF runs kept the edge) and `cost` (the
+reference PPI's interaction cost -- lower = a stronger interaction).
+
+```{r toy}
+nodes <- data.frame(
+  Protein = c("EGFR", "AKT1", "MTOR", "RPS6KB1", "MAPK1", "BRAF", "STEINER1"),
+  type    = c("Protein-Kinase", "Kinase", "Kinase", "Kinase", "Kinase", "Kinase", "Hidden"),
+  prize   = c(0.95, 0.9, 0.85, 0.7, 0.8, 0.75, 2),
+  LogFC   = c(2.4, 1.8, -1.2, -2.0, 1.1, 0.6, 0),
+  degree  = c(6, 5, 4, 2, 3, 2, 4)
+)
+edges <- data.frame(
+  from = c("EGFR", "EGFR", "AKT1", "MTOR", "MAPK1", "BRAF"),
+  to   = c("AKT1", "MAPK1", "MTOR", "RPS6KB1", "STEINER1", "MAPK1"),
+  weight = c(8, 7, 8, 5, 3, 6),
+  cost   = c(0.08, 0.12, 0.05, 0.30, 0.45, 0.10)
+)
+```
+
+For enrichment you also need the Reactome reference tables. A snapshot
+ships with the package -- `reactome_refs()` loads it. Refresh it when
+Reactome cuts a new release with `download_reactome_refs(dir)`; it is never
+fetched automatically.
+
+## 2. Enrichment
+
+`enrich_network()` runs one Enrichr query (via the `enrichR` package) over
+**every node of the network except the Steiner connectors** (`type ==
+"Hidden"`), keeps pathways whose gene overlap is at least `min_hits`, and
+returns the pathway table plus a `pathway` column joined onto `nodes`.
+
+**Only Reactome is wired end to end today.** The reference database is a
+swap point: `databases` is passed straight to Enrichr, which ships many
+libraries (KEGG, WikiPathways, GO, MSigDB Hallmark, ...). Anything
+Reactome-specific -- collapsing redundant terms by shared parent, dropping
+over-general top-level terms, filtering WikiPathways by ontology tag --
+lives in the `postprocess` argument (`reactome_postprocess()` by default;
+pass `NULL` to skip it). Trying the other Enrichr libraries is a planned
+next step.
+
+```{r enrich, eval = FALSE}
+res <- enrich_network(
+  nodes,
+  databases = "Reactome_Pathways_2024",
+  min_hits  = 2,
+  out_dir   = "results/DrugA",           # optional: also write the CSVs
+  label     = "DrugA_vs_DMSO_spec0.7"    # -> pathways_<label>.csv / _all.csv
+)
+res$short   # one pathway per gene set
+res$nodes   # `nodes` + a `pathway` column, ready for plot_network()
+```
+
+`enrich_network()` writes two files per comparison: `pathways_<label>_all.csv`
+(every candidate) and `pathways_<label>.csv` (a *provisional*
+one-pathway-per-gene-set pick). Once every comparison for a `spec_cutoff`
+is done, `reconcile_pathways_dir(res_dir, spec_cutoff)` re-reads the `_all`
+files and rewrites each short table so the pathway that recurs across the
+most comparisons wins -- that way the same biology sits under the same
+label in every comparison, and the combined heatmaps line up.
+
+## 3. Reading the pathway output
+
+Each row of the pathway table is one enriched pathway: `Pathway` /
+`Group_Pw` (the name, `Group_Pw` prefixed with its Reactome top group),
+`Genes` (the network genes in it, `;`-joined), `n_hits` / `pathway_size` /
+`overlap`, `Adjusted.P.value.mean`, `Combined.Score.mean`.
+
+`plot_pathway_heatmaps(comparisons, out_dir)` (or the folder wrapper
+`plot_pathway_heatmaps_dir()`) draws, per `spec_cutoff`: one pathway x
+kinase `LogFC` heatmap per comparison, a heatmap of the pathways common to
+*all* comparisons, and -- for two comparisons -- a "unique to each"
+heatmap, or for three-plus, one pairwise-overlap heatmap per pair.
+
+## 4. The interactive HTML
+
+```{r plot}
+w <- plot_network(nodes, edges, title = "DrugA vs DMSO", theme = networkplot_theme())
+class(w)
+```
+
+```{r save, eval = FALSE}
+save_network_html(w, "results/DrugA/DrugA_vs_DMSO.html")
+```
+
+### Where the theme lives
+
+Every visual choice is a field on the list `networkplot_theme()` returns,
+passed as `theme =`. Calling it with no arguments gives the standard look;
+override a field by name to change just that one thing.
+
+```{r theme}
+th <- networkplot_theme(
+  shapes     = c(Kinase = "diamond"),            # merged over the defaults
+  edge_width = list(column = "cost", invert = TRUE)  # thicker edge = stronger interaction
+)
+names(th)
+```
+
+Tunable HTML features and their theme fields:
+
+| Feature | Field(s) |
+|---|---|
+| node shape per `type` | `shapes` (merged over the default map), `shape_default` |
+| node fill = diverging `LogFC` scale | `logfc_palette`, `logfc_limit_fn` |
+| high-degree node highlight | `highlight_degree`, `highlight_border`, `border_default`, `highlight_border_width`, `border_width_default` |
+| edge colour | `edge_colour` |
+| **edge boldness** | `edge_width` -- `NULL` for constant, or `list(column, scale, invert)`; use `column = "cost", invert = TRUE` for interaction strength, or `column = "weight"` for run-frequency robustness |
+| fonts | `node_font_size`, `legend_font_size` |
+| layout | `layout`, `seed` |
+
+The pathway multi-select dropdown and the node-search box are always on;
+the dropdown appears whenever `nodes` has a `pathway` column and
+`colour_by = "pathway"` (the default).
+
+## 5. End to end
+
+```{r e2e, eval = FALSE}
+res <- enrich_network(nodes, out_dir = "results/DrugA", label = "DrugA_vs_DMSO_spec0.7")
+w   <- plot_network(res$nodes, edges, title = "DrugA vs DMSO",
+                    theme = networkplot_theme(edge_width = list(column = "cost", invert = TRUE)))
+save_network_html(w, "results/DrugA/DrugA_vs_DMSO.html")
+```

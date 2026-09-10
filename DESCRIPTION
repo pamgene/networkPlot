@@ -1,0 +1,45 @@
+Package: networkPlot
+Title: Enrich and Visualise PCSF Networks Built by networkGen
+Version: 0.0.0.9000
+Authors@R:
+    person("Dora", "Schuller", email = "dschuller@pamgene.com",
+           role = c("aut", "cre"))
+Description: Pathway enrichment (via Enrichr) of a prize-collecting
+    Steiner-forest network built by networkGen, and the interactive
+    visNetwork HTML rendering of it, plus kinase-by-pathway heatmaps.
+    The enrichment reference database (Reactome by default) is a pluggable
+    post-processing step, and every styling choice for the HTML lives in a
+    single theme object.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends:
+    R (>= 4.1)
+Imports:
+    dplyr,
+    grDevices,
+    htmlwidgets,
+    purrr,
+    readr,
+    rlang,
+    scales,
+    stats,
+    stringr,
+    tibble,
+    tidyr,
+    utils,
+    visNetwork
+Suggests:
+    circlize,
+    ComplexHeatmap,
+    enrichR,
+    httr,
+    jsonlite,
+    knitr,
+    networkGen,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder:
+    knitr
+Config/testthat/edition: 3
