@@ -26,22 +26,23 @@ test_that("reconcile_pathways() re-picks the pathway present in the most compari
   expect_equal(out$B$Group_Pw, "PW_shared")
 })
 
-test_that("reconcile_pathways_dir() rewrites each comparison's short csv in place", {
+test_that("reconcile_pathways_dir() rewrites each comparison's short csv in place, inside Network_pathways", {
   d <- file.path(tempdir(), "reconcile_dir_test")
   unlink(d, recursive = TRUE)
-  dir.create(d)
+  pw_dir <- file.path(d, "Network_pathways")
+  dir.create(pw_dir, recursive = TRUE)
   readr::write_csv(rbind(mk("PW_shared", "K1;K2", cs = 5), mk("PW_onlyA", "K1;K2", cs = 9)),
-                   file.path(d, "pathways_A_spec0.7_all.csv"))
+                   file.path(pw_dir, "pathways_A_spec0.7_all.csv"))
   readr::write_csv(rbind(mk("PW_shared", "K1;K2", cs = 1), mk("PW_onlyB", "K1;K2", cs = 9)),
-                   file.path(d, "pathways_B_spec0.7_all.csv"))
+                   file.path(pw_dir, "pathways_B_spec0.7_all.csv"))
   # provisional shorts (wrong picks) that should get overwritten
-  readr::write_csv(mk("PW_onlyA", "K1;K2"), file.path(d, "pathways_A_spec0.7.csv"))
-  readr::write_csv(mk("PW_onlyB", "K1;K2"), file.path(d, "pathways_B_spec0.7.csv"))
+  readr::write_csv(mk("PW_onlyA", "K1;K2"), file.path(pw_dir, "pathways_A_spec0.7.csv"))
+  readr::write_csv(mk("PW_onlyB", "K1;K2"), file.path(pw_dir, "pathways_B_spec0.7.csv"))
 
   reconcile_pathways_dir(d, spec_cutoff = 0.7)
 
-  a <- readr::read_csv(file.path(d, "pathways_A_spec0.7.csv"), show_col_types = FALSE)
-  b <- readr::read_csv(file.path(d, "pathways_B_spec0.7.csv"), show_col_types = FALSE)
+  a <- readr::read_csv(file.path(pw_dir, "pathways_A_spec0.7.csv"), show_col_types = FALSE)
+  b <- readr::read_csv(file.path(pw_dir, "pathways_B_spec0.7.csv"), show_col_types = FALSE)
   expect_equal(a$Group_Pw, "PW_shared")
   expect_equal(b$Group_Pw, "PW_shared")
 })

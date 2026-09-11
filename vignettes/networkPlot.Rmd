@@ -79,14 +79,19 @@ knitr::kable(head(res$short, 2), digits = 3, row.names = FALSE, caption = "Top e
 
 Pass `out_dir` and `label` (e.g. `label = "DrugA_vs_DMSO_spec0.7"`) to also
 write `pathways_<label>_all.csv` (every candidate) and `pathways_<label>.csv`
-(the *provisional* one-pathway-per-gene-set pick shown above) to disk --
-omitted here so this vignette doesn't write files. Once every comparison
-for a `spec_cutoff` is done, `reconcile_pathways_dir(res_dir, spec_cutoff)`
-re-reads the `_all` files and rewrites each short table so the pathway that
-recurs across the most comparisons wins -- that way the same biology sits
-under the same label in every comparison, and the combined heatmaps line
-up. Re-running with `refresh = FALSE` (the default) skips the Enrichr call
-and reads the existing `pathways_<label>.csv` back instead.
+(the *provisional* one-pathway-per-gene-set pick shown above) to a
+`Network_pathways` subfolder of `out_dir` -- omitted here so this vignette
+doesn't write files. `networkGen`'s own output
+(`nodes_*`/`edges_*`/`wc_df_*`/`missing_nodes_*`) lands directly in that
+same `out_dir`, with no subfolder of its own; only the pathway CSVs (here)
+and the HTML (`save_network_html()`, section 4) get one. Once every
+comparison for a `spec_cutoff` is done, `reconcile_pathways_dir(out_dir,
+spec_cutoff)` re-reads the `_all` files and rewrites each short table so
+the pathway that recurs across the most comparisons wins -- that way the
+same biology sits under the same label in every comparison, and the
+combined heatmaps line up. Re-running with `refresh = FALSE` (the default)
+skips the Enrichr call and reads the existing `pathways_<label>.csv` back
+instead.
 
 ## 3. Reading the pathway output
 

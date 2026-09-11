@@ -87,10 +87,15 @@ plot_pathway_heatmaps <- function(comparisons, out_dir, min_kinases = 3,
 #' Draw the kinase-pathway heatmaps for one result folder
 #'
 #' Discovers `pathways_<comparison>_spec<cutoff>.csv` (excluding `_all.csv`)
-#' and the matching `nodes_<comparison>_spec<cutoff>.csv` in `res_dir`,
-#' builds the `comparisons` list, and calls [plot_pathway_heatmaps()].
+#' in `res_dir`'s `Network_pathways` subfolder ([network_pathways_dir()],
+#' same place [enrich_network()] writes them) and the matching
+#' `nodes_<comparison>_spec<cutoff>.csv` directly in `res_dir` (`networkGen`'s
+#' own output, never nested), builds the `comparisons` list, and calls
+#' [plot_pathway_heatmaps()].
 #'
-#' @param res_dir Folder holding the `pathways_*` / `nodes_*` CSVs.
+#' @param res_dir The run's main output folder (holds the `nodes_*` CSVs
+#'   directly, and the `pathways_*` CSVs in its `Network_pathways`
+#'   subfolder).
 #' @param spec_cutoff The `spec<cutoff>` value to render.
 #' @param out_dir Where to write the PNGs (default: `<res_dir>/kinase_pathway_heatmaps/spec_<cutoff>`).
 #' @param min_kinases,w,h,w_combined Passed to [plot_pathway_heatmaps()].
@@ -102,16 +107,17 @@ plot_pathway_heatmaps_dir <- function(res_dir, spec_cutoff, out_dir = NULL,
   if (is.null(out_dir)) {
     out_dir <- file.path(res_dir, "kinase_pathway_heatmaps", paste0("spec_", spec_cutoff))
   }
+  pw_dir <- network_pathways_dir(res_dir)
   suffix <- paste0("_spec", spec_cutoff, ".csv")
-  files <- list.files(res_dir, full.names = TRUE)
+  files <- list.files(pw_dir, full.names = TRUE)
   bn <- basename(files)
   pw_files <- files[startsWith(bn, "pathways_") & endsWith(bn, suffix) & !endsWith(bn, "_all.csv")]
-  if (length(pw_files) == 0) stop("No pathways_*", suffix, " files in ", res_dir, call. = FALSE)
+  if (length(pw_files) == 0) stop("No pathways_*", suffix, " files in ", pw_dir, call. = FALSE)
 
   comparisons <- list()
   for (pf in pw_files) {
     cmp <- sub(paste0("_spec", spec_cutoff, "$"), "", sub("^pathways_", "", sub("\\.csv$", "", basename(pf))))
-    nf <- file.path(dirname(pf), sub("^pathways_", "nodes_", basename(pf)))
+    nf <- file.path(res_dir, sub("^pathways_", "nodes_", basename(pf)))
     if (!file.exists(nf)) {
       warning("No nodes file for '", cmp, "' (expected ", basename(nf), "); skipping.", call. = FALSE)
       next

@@ -7,7 +7,8 @@
 reconcile_pathways_dir(res_dir, spec_cutoff)
 }
 \arguments{
-\item{res_dir}{Folder holding the \verb{pathways_*} CSVs.}
+\item{res_dir}{The run's main output folder (not the \code{Network_pathways}
+subfolder itself).}
 
 \item{spec_cutoff}{The \verb{spec<cutoff>} value whose files to reconcile.}
 }
@@ -15,8 +16,10 @@ reconcile_pathways_dir(res_dir, spec_cutoff)
 The reconciled tables (named list), invisibly.
 }
 \description{
-Discovers \verb{pathways_<comparison>_spec<cutoff>_all.csv} files for one
-\code{spec_cutoff}, runs \code{\link[=reconcile_pathways]{reconcile_pathways()}}, and \strong{overwrites} each
-comparison's short \verb{pathways_<comparison>_spec<cutoff>.csv} in place.
-No-op when fewer than two comparisons are found.
+Discovers \verb{pathways_<comparison>_spec<cutoff>_all.csv} files (in
+\code{res_dir}'s \code{Network_pathways} subfolder -- see \code{\link[=network_pathways_dir]{network_pathways_dir()}},
+same place \code{\link[=enrich_network]{enrich_network()}} writes them) for one \code{spec_cutoff}, runs
+\code{\link[=reconcile_pathways]{reconcile_pathways()}}, and \strong{overwrites} each comparison's short
+\verb{pathways_<comparison>_spec<cutoff>.csv} in place. No-op when fewer than
+two comparisons are found.
 }

@@ -58,19 +58,23 @@ reconcile_pathways <- function(all_tables) {
 
 #' Reconcile pathway picks for every comparison in a result folder
 #'
-#' Discovers `pathways_<comparison>_spec<cutoff>_all.csv` files for one
-#' `spec_cutoff`, runs [reconcile_pathways()], and **overwrites** each
-#' comparison's short `pathways_<comparison>_spec<cutoff>.csv` in place.
-#' No-op when fewer than two comparisons are found.
+#' Discovers `pathways_<comparison>_spec<cutoff>_all.csv` files (in
+#' `res_dir`'s `Network_pathways` subfolder -- see [network_pathways_dir()],
+#' same place [enrich_network()] writes them) for one `spec_cutoff`, runs
+#' [reconcile_pathways()], and **overwrites** each comparison's short
+#' `pathways_<comparison>_spec<cutoff>.csv` in place. No-op when fewer than
+#' two comparisons are found.
 #'
-#' @param res_dir Folder holding the `pathways_*` CSVs.
+#' @param res_dir The run's main output folder (not the `Network_pathways`
+#'   subfolder itself).
 #' @param spec_cutoff The `spec<cutoff>` value whose files to reconcile.
 #'
 #' @return The reconciled tables (named list), invisibly.
 #' @export
 reconcile_pathways_dir <- function(res_dir, spec_cutoff) {
+  pw_dir <- network_pathways_dir(res_dir)
   suffix <- paste0("_spec", spec_cutoff, "_all.csv")
-  files <- list.files(res_dir, full.names = TRUE)
+  files <- list.files(pw_dir, full.names = TRUE)
   bn <- basename(files)
   files <- files[startsWith(bn, "pathways_") & endsWith(bn, suffix)]
   if (length(files) < 2) return(invisible(NULL))
@@ -86,7 +90,7 @@ reconcile_pathways_dir <- function(res_dir, spec_cutoff) {
   for (cmp in names(reconciled)) {
     readr::write_csv(
       reconciled[[cmp]],
-      file.path(res_dir, paste0("pathways_", cmp, "_spec", spec_cutoff, ".csv"))
+      file.path(pw_dir, paste0("pathways_", cmp, "_spec", spec_cutoff, ".csv"))
     )
   }
   invisible(reconciled)

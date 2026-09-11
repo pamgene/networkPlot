@@ -26,13 +26,14 @@
 #'   `reactome_postprocess(reactome_refs())`.
 #' @param out_dir If given, write `pathways_<label>_all.csv` (all candidates)
 #'   and `pathways_<label>.csv` (a provisional one-pathway-per-gene-set
-#'   pick) here. Requires `label`.
+#'   pick) to its `Network_pathways` subfolder ([network_pathways_dir()]).
+#'   Requires `label`.
 #' @param label Filename stem for `out_dir` output -- use
-#'   `"<comparison>_spec<cutoff>"` so [reconcile_pathways()] /
+#'   `"<comparison>_spec<cutoff>"` so [reconcile_pathways_dir()] /
 #'   [plot_pathway_heatmaps_dir()] can parse it back.
-#' @param refresh If `FALSE` (default) and `out_dir/pathways_<label>.csv`
-#'   already exists, read it and skip the Enrichr call. `TRUE` always calls
-#'   Enrichr.
+#' @param refresh If `FALSE` (default) and
+#'   `out_dir/Network_pathways/pathways_<label>.csv` already exists, read it
+#'   and skip the Enrichr call. `TRUE` always calls Enrichr.
 #'
 #' @return A list: `all` (all filtered + post-processed candidate pathways),
 #'   `short` (one pathway per gene set), `nodes` (`nodes` with a `pathway`
@@ -48,8 +49,9 @@ enrich_network <- function(nodes,
   if (!is.null(out_dir) && is.null(label)) {
     stop("`label` is required when `out_dir` is given.", call. = FALSE)
   }
-  short_path <- if (!is.null(out_dir)) file.path(out_dir, paste0("pathways_", label, ".csv")) else NULL
-  all_path <- if (!is.null(out_dir)) file.path(out_dir, paste0("pathways_", label, "_all.csv")) else NULL
+  pw_dir <- if (!is.null(out_dir)) network_pathways_dir(out_dir) else NULL
+  short_path <- if (!is.null(pw_dir)) file.path(pw_dir, paste0("pathways_", label, ".csv")) else NULL
+  all_path <- if (!is.null(pw_dir)) file.path(pw_dir, paste0("pathways_", label, "_all.csv")) else NULL
 
   if (!refresh && !is.null(short_path) && file.exists(short_path)) {
     short <- readr::read_csv(short_path, show_col_types = FALSE)
@@ -98,7 +100,7 @@ enrich_network <- function(nodes,
   }
 
   if (!is.null(out_dir)) {
-    dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+    dir.create(pw_dir, showWarnings = FALSE, recursive = TRUE)
     readr::write_csv(filt, all_path)
     readr::write_csv(short, short_path)
   }

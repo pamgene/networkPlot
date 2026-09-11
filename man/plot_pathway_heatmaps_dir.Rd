@@ -15,7 +15,9 @@ plot_pathway_heatmaps_dir(
 )
 }
 \arguments{
-\item{res_dir}{Folder holding the \verb{pathways_*} / \verb{nodes_*} CSVs.}
+\item{res_dir}{The run's main output folder (holds the \verb{nodes_*} CSVs
+directly, and the \verb{pathways_*} CSVs in its \code{Network_pathways}
+subfolder).}
 
 \item{spec_cutoff}{The \verb{spec<cutoff>} value to render.}
 
@@ -28,6 +30,9 @@ plot_pathway_heatmaps_dir(
 }
 \description{
 Discovers \verb{pathways_<comparison>_spec<cutoff>.csv} (excluding \verb{_all.csv})
-and the matching \verb{nodes_<comparison>_spec<cutoff>.csv} in \code{res_dir},
-builds the \code{comparisons} list, and calls \code{\link[=plot_pathway_heatmaps]{plot_pathway_heatmaps()}}.
+in \code{res_dir}'s \code{Network_pathways} subfolder (\code{\link[=network_pathways_dir]{network_pathways_dir()}},
+same place \code{\link[=enrich_network]{enrich_network()}} writes them) and the matching
+\verb{nodes_<comparison>_spec<cutoff>.csv} directly in \code{res_dir} (\code{networkGen}'s
+own output, never nested), builds the \code{comparisons} list, and calls
+\code{\link[=plot_pathway_heatmaps]{plot_pathway_heatmaps()}}.
 }

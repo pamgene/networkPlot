@@ -40,15 +40,16 @@ filtered hits, or \code{NULL} to skip. Default
 
 \item{out_dir}{If given, write \verb{pathways_<label>_all.csv} (all candidates)
 and \verb{pathways_<label>.csv} (a provisional one-pathway-per-gene-set
-pick) here. Requires \code{label}.}
+pick) to its \code{Network_pathways} subfolder (\code{\link[=network_pathways_dir]{network_pathways_dir()}}).
+Requires \code{label}.}
 
 \item{label}{Filename stem for \code{out_dir} output -- use
-\code{"<comparison>_spec<cutoff>"} so \code{\link[=reconcile_pathways]{reconcile_pathways()}} /
+\code{"<comparison>_spec<cutoff>"} so \code{\link[=reconcile_pathways_dir]{reconcile_pathways_dir()}} /
 \code{\link[=plot_pathway_heatmaps_dir]{plot_pathway_heatmaps_dir()}} can parse it back.}
 
-\item{refresh}{If \code{FALSE} (default) and \verb{out_dir/pathways_<label>.csv}
-already exists, read it and skip the Enrichr call. \code{TRUE} always calls
-Enrichr.}
+\item{refresh}{If \code{FALSE} (default) and
+\verb{out_dir/Network_pathways/pathways_<label>.csv} already exists, read it
+and skip the Enrichr call. \code{TRUE} always calls Enrichr.}
 
 \item{clusters}{Optional data frame with columns \code{id}, \code{cluster}
 (a \code{networkGen} result's \code{wc_df}); merged onto the nodes for reference.}

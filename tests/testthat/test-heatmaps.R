@@ -36,3 +36,31 @@ test_that("plot_pathway_heatmaps() needs ComplexHeatmap", {
           "ComplexHeatmap installed -- the missing-dep guard can't be exercised")
   expect_error(plot_pathway_heatmaps(list(), tempfile()), "ComplexHeatmap")
 })
+
+test_that("plot_pathway_heatmaps_dir() reads pathways from Network_pathways but nodes flat from res_dir", {
+  skip_if_not_installed("ComplexHeatmap")
+  d <- file.path(tempdir(), "heatmap_dir_test")
+  unlink(d, recursive = TRUE)
+  dir.create(file.path(d, "Network_pathways"), recursive = TRUE)
+
+  readr::write_csv(
+    data.frame(Group_Pw = "PW_big", Genes = "K1;K2;K3", stringsAsFactors = FALSE),
+    file.path(d, "Network_pathways", "pathways_condA_spec0.7.csv")
+  )
+  # deliberately also drop an _all.csv in Network_pathways -- must be excluded
+  readr::write_csv(
+    data.frame(Group_Pw = "PW_big", Genes = "K1;K2;K3", stringsAsFactors = FALSE),
+    file.path(d, "Network_pathways", "pathways_condA_spec0.7_all.csv")
+  )
+  # nodes file lives flat in res_dir (networkGen's own output), not nested
+  readr::write_csv(
+    data.frame(Protein = c("K1", "K2", "K3"), type = "Kinase",
+              LogFC = c(1, -2, 3), stringsAsFactors = FALSE),
+    file.path(d, "nodes_condA_spec0.7.csv")
+  )
+
+  out_dir <- file.path(d, "heatmaps_out")
+  plot_pathway_heatmaps_dir(d, spec_cutoff = 0.7, out_dir = out_dir, min_kinases = 3)
+
+  expect_true(length(list.files(out_dir, pattern = "\\.png$")) >= 1)
+})
