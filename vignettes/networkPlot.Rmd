@@ -118,8 +118,14 @@ w
 ```
 
 ```{r save, eval = FALSE}
-save_network_html(w, "results/DrugA/DrugA_vs_DMSO.html")
+save_network_html(w, "results/DrugA", "DrugA_vs_DMSO.html") # -> results/DrugA/Network_html/DrugA_vs_DMSO.html
 ```
+
+`save_network_html()` always writes into a `Network_html` subfolder of the
+output folder you give it -- kept separate from `networkGen`'s own output
+(`nodes_*`/`edges_*`/`wc_df_*`/`missing_nodes_*`) and `enrich_network()`'s
+`pathways_*` CSVs, which all land directly in that same folder with no
+subfolder of their own.
 
 ### Where the theme lives
 
@@ -162,7 +168,7 @@ out <- enrich_and_plot_network(
   nodes, edges, title = "DrugA vs DMSO",
   theme = networkplot_theme(edge_width = list(column = "cost", invert = TRUE))
 )
-save_network_html(out$widget, "results/DrugA/DrugA_vs_DMSO.html")
+save_network_html(out$widget, "results/DrugA", "DrugA_vs_DMSO.html")
 ```
 
 Call `enrich_network()` and `plot_network()` separately instead of the

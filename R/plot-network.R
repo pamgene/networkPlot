@@ -165,12 +165,20 @@ build_legend <- function(nodes_vis, theme, lim) {
 #' was inlined (three nested `tryCatch`es) in
 #' `Network_generation/R/kinograte_PG.R`, in one place.
 #'
-#' @param widget A `visNetwork` htmlwidget, e.g. from [plot_network()].
-#' @param path Output `.html` path.
+#' Writes into a `Network_html` subfolder of `out_dir` -- kept separate from
+#' `networkGen`'s own output (`nodes_*`/`edges_*`/`wc_df_*`/`missing_nodes_*`
+#' CSVs, and [enrich_network()]'s `pathways_*` CSVs), which all land directly
+#' in `out_dir` with no subfolder of their own.
 #'
-#' @return `path`, invisibly.
+#' @param widget A `visNetwork` htmlwidget, e.g. from [plot_network()].
+#' @param out_dir The run's main output folder. The file is written to
+#'   `out_dir/Network_html/filename`, not directly into `out_dir`.
+#' @param filename Output file name, e.g. `"DrugA_vs_DMSO.html"`.
+#'
+#' @return The full path written (`out_dir/Network_html/filename`), invisibly.
 #' @export
-save_network_html <- function(widget, path) {
+save_network_html <- function(widget, out_dir, filename) {
+  path <- file.path(out_dir, "Network_html", filename)
   dir.create(dirname(path), showWarnings = FALSE, recursive = TRUE)
   ok <- tryCatch(
     {

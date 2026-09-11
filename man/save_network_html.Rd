@@ -4,18 +4,27 @@
 \alias{save_network_html}
 \title{Write a network widget to a self-contained HTML file}
 \usage{
-save_network_html(widget, path)
+save_network_html(widget, out_dir, filename)
 }
 \arguments{
 \item{widget}{A \code{visNetwork} htmlwidget, e.g. from \code{\link[=plot_network]{plot_network()}}.}
 
-\item{path}{Output \code{.html} path.}
+\item{out_dir}{The run's main output folder. The file is written to
+\code{out_dir/Network_html/filename}, not directly into \code{out_dir}.}
+
+\item{filename}{Output file name, e.g. \code{"DrugA_vs_DMSO.html"}.}
 }
 \value{
-\code{path}, invisibly.
+The full path written (\code{out_dir/Network_html/filename}), invisibly.
 }
 \description{
 The \code{htmlwidgets::saveWidget()} -> \code{visNetwork::visSave()} fallback that
 was inlined (three nested \code{tryCatch}es) in
 \code{Network_generation/R/kinograte_PG.R}, in one place.
+}
+\details{
+Writes into a \code{Network_html} subfolder of \code{out_dir} -- kept separate from
+\code{networkGen}'s own output (\verb{nodes_*}/\verb{edges_*}/\verb{wc_df_*}/\verb{missing_nodes_*}
+CSVs, and \code{\link[=enrich_network]{enrich_network()}}'s \verb{pathways_*} CSVs), which all land directly
+in \code{out_dir} with no subfolder of their own.
 }
