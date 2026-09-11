@@ -66,25 +66,23 @@ lives in the `postprocess` argument (`reactome_postprocess()` by default;
 pass `NULL` to skip it). Trying the other Enrichr libraries is a planned
 next step.
 
-```{r enrich, eval = FALSE}
-res <- enrich_network(
-  nodes,
-  databases = "Reactome_Pathways_2024",
-  min_hits  = 2,
-  out_dir   = "results/DrugA",           # optional: also write the CSVs
-  label     = "DrugA_vs_DMSO_spec0.7"    # -> pathways_<label>.csv / _all.csv
-)
-res$short   # one pathway per gene set
-res$nodes   # `nodes` + a `pathway` column, ready for plot_network()
+```{r enrich}
+res <- enrich_network(nodes, databases = "Reactome_Pathways_2024", min_hits = 2)
+# res$short is one pathway per gene set; the pathway table can be long, so
+# just a peek here -- see the next section for what each column means.
+head(res$short, 2)
 ```
 
-`enrich_network()` writes two files per comparison: `pathways_<label>_all.csv`
-(every candidate) and `pathways_<label>.csv` (a *provisional*
-one-pathway-per-gene-set pick). Once every comparison for a `spec_cutoff`
-is done, `reconcile_pathways_dir(res_dir, spec_cutoff)` re-reads the `_all`
-files and rewrites each short table so the pathway that recurs across the
-most comparisons wins -- that way the same biology sits under the same
-label in every comparison, and the combined heatmaps line up.
+Pass `out_dir` and `label` (e.g. `label = "DrugA_vs_DMSO_spec0.7"`) to also
+write `pathways_<label>_all.csv` (every candidate) and `pathways_<label>.csv`
+(the *provisional* one-pathway-per-gene-set pick shown above) to disk --
+omitted here so this vignette doesn't write files. Once every comparison
+for a `spec_cutoff` is done, `reconcile_pathways_dir(res_dir, spec_cutoff)`
+re-reads the `_all` files and rewrites each short table so the pathway that
+recurs across the most comparisons wins -- that way the same biology sits
+under the same label in every comparison, and the combined heatmaps line
+up. Re-running with `refresh = FALSE` (the default) skips the Enrichr call
+and reads the existing `pathways_<label>.csv` back instead.
 
 ## 3. Reading the pathway output
 
@@ -101,9 +99,18 @@ heatmap, or for three-plus, one pairwise-overlap heatmap per pair.
 
 ## 4. The interactive HTML
 
+`plot_network()` returns a `visNetwork` htmlwidget -- printing it (or, as
+here, just letting it be the chunk's last value) embeds the live,
+interactive network right in this page. Plotting `res$nodes` (from the
+enrichment step above, so it carries the `pathway` column) turns on the
+pathway multi-select dropdown -- try it:
+
 ```{r plot}
-w <- plot_network(nodes, edges, title = "DrugA vs DMSO", theme = networkplot_theme())
-class(w)
+w <- plot_network(
+  res$nodes, edges, title = "DrugA vs DMSO",
+  theme = networkplot_theme(edge_width = list(column = "cost", invert = TRUE))
+)
+w
 ```
 
 ```{r save, eval = FALSE}
@@ -140,11 +147,26 @@ The pathway multi-select dropdown and the node-search box are always on;
 the dropdown appears whenever `nodes` has a `pathway` column and
 `colour_by = "pathway"` (the default).
 
-## 5. End to end
+## 5. End to end, in one call
 
-```{r e2e, eval = FALSE}
-res <- enrich_network(nodes, out_dir = "results/DrugA", label = "DrugA_vs_DMSO_spec0.7")
-w   <- plot_network(res$nodes, edges, title = "DrugA vs DMSO",
-                    theme = networkplot_theme(edge_width = list(column = "cost", invert = TRUE)))
-save_network_html(w, "results/DrugA/DrugA_vs_DMSO.html")
+Enriching and plotting is almost always done together, so
+`enrich_and_plot_network()` wraps both steps -- call it once and get both
+results back:
+
+```{r e2e}
+out <- enrich_and_plot_network(
+  nodes, edges, title = "DrugA vs DMSO",
+  theme = networkplot_theme(edge_width = list(column = "cost", invert = TRUE))
+)
+head(out$enrichment$short, 2)
+out$widget
 ```
+
+```{r save2, eval = FALSE}
+save_network_html(out$widget, "results/DrugA/DrugA_vs_DMSO.html")
+```
+
+Call `enrich_network()` and `plot_network()` separately instead of the
+wrapper when you need `reconcile_pathways()` across several comparisons
+before plotting any of them, or already have an enrichment result from
+elsewhere.

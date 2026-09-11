@@ -131,6 +131,13 @@ enrichr_query <- function(genes, databases) {
     stop("`enrichR` is required for enrich_network(). Install it with install.packages('enrichR').", call. = FALSE)
   }
   if (length(genes) == 0) stop("No genes to enrich (every node was type 'Hidden'?).", call. = FALSE)
+  # enrichR sets its base URLs and does its "Connection is Live!" check in
+  # .onAttach(), which only runs when the package is attached (library()) --
+  # requireNamespace() above loads it without attaching, so the options
+  # enrichr() needs are never set. Attach it explicitly (once).
+  if (!"enrichR" %in% .packages()) {
+    suppressPackageStartupMessages(attachNamespace("enrichR"))
+  }
   res <- enrichR::enrichr(genes, databases)
   out <- purrr::imap(res, function(df, db) {
     if (is.null(df) || nrow(df) == 0) return(NULL)
