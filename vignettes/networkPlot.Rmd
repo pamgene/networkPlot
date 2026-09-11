@@ -38,8 +38,8 @@ nodes <- data.frame(
   degree  = c(6, 5, 4, 2, 3, 2, 4)
 )
 edges <- data.frame(
-  from = c("EGFR", "EGFR", "AKT1", "MTOR", "MAPK1", "BRAF"),
-  to   = c("AKT1", "MAPK1", "MTOR", "RPS6KB1", "STEINER1", "MAPK1"),
+  from = c("EGFR", "EGFR", "AKT1", "MTOR", "MAPK1", "STEINER1"),
+  to   = c("AKT1", "MAPK1", "MTOR", "RPS6KB1", "STEINER1", "BRAF"),
   weight = c(8, 7, 8, 5, 3, 6),
   cost   = c(0.08, 0.12, 0.05, 0.30, 0.45, 0.10)
 )
@@ -68,9 +68,13 @@ next step.
 
 ```{r enrich}
 res <- enrich_network(nodes, databases = "Reactome_Pathways_2024", min_hits = 2)
-# res$short is one pathway per gene set; the pathway table can be long, so
-# just a peek here -- see the next section for what each column means.
-head(res$short, 2)
+```
+
+`res$short` is one pathway per gene set; the full table can be long, so
+just a peek here -- see the next section for what each column means:
+
+```{r enrich-table, echo = FALSE}
+knitr::kable(head(res$short, 2), digits = 3, row.names = FALSE, caption = "Top enriched pathways (first 2 rows)")
 ```
 
 Pass `out_dir` and `label` (e.g. `label = "DrugA_vs_DMSO_spec0.7"`) to also
@@ -151,18 +155,13 @@ the dropdown appears whenever `nodes` has a `pathway` column and
 
 Enriching and plotting is almost always done together, so
 `enrich_and_plot_network()` wraps both steps -- call it once and get both
-results back:
+results back (same result as sections 2 and 4 combined, so not re-run here):
 
-```{r e2e}
+```{r e2e, eval = FALSE}
 out <- enrich_and_plot_network(
   nodes, edges, title = "DrugA vs DMSO",
   theme = networkplot_theme(edge_width = list(column = "cost", invert = TRUE))
 )
-head(out$enrichment$short, 2)
-out$widget
-```
-
-```{r save2, eval = FALSE}
 save_network_html(out$widget, "results/DrugA/DrugA_vs_DMSO.html")
 ```
 
