@@ -2,64 +2,32 @@
 % Please edit documentation in R/enrich.R
 \name{enrich_network}
 \alias{enrich_network}
-\title{Pathway-enrich a PCSF network}
+\title{Pathway-enrich a network}
 \usage{
-enrich_network(
-  nodes,
-  databases = "Reactome_Pathways_2024",
-  min_hits = 2,
-  postprocess = reactome_postprocess(reactome_refs()),
-  out_dir = NULL,
-  label = NULL,
-  refresh = FALSE
-)
+enrich_network(nodes, out_dir = NULL, label = NULL, ...)
 }
 \arguments{
-\item{nodes}{A \code{networkGen} result's \code{nodes} data frame (needs
-\code{Protein}, \code{type}).}
+\item{nodes}{The network's node table.}
 
-\item{databases}{Character vector of Enrichr library names.}
+\item{out_dir}{If given, write the pathway CSVs to its \code{Network_pathways}
+subfolder (\code{\link[=network_pathways_dir]{network_pathways_dir()}}): \verb{pathways_<label>_all.csv},
+\verb{pathways_<label>.csv} (the selected pathways, one per hit list) and
+\verb{pathways_<label>_pw_params.csv}. Requires \code{label}.}
 
-\item{min_hits}{Keep a pathway when its overlap with the gene list is
-\verb{>= min_hits} genes.}
-
-\item{postprocess}{\verb{function(pathway_df) -> pathway_df} applied to the
-filtered hits, or \code{NULL} to skip. Default
-\code{reactome_postprocess(reactome_refs())}.}
-
-\item{out_dir}{If given, write \verb{pathways_<label>_all.csv} (all candidates)
-and \verb{pathways_<label>.csv} (a provisional one-pathway-per-gene-set
-pick) to its \code{Network_pathways} subfolder (\code{\link[=network_pathways_dir]{network_pathways_dir()}}).
-Requires \code{label}.}
-
-\item{label}{Filename stem for \code{out_dir} output -- use
-\code{"<comparison>_spec<cutoff>"} so \code{\link[=reconcile_pathways_dir]{reconcile_pathways_dir()}} /
+\item{label}{Filename stem -- use \code{"<comparison>_spec<cutoff>"} so
 \code{\link[=plot_pathway_heatmaps_dir]{plot_pathway_heatmaps_dir()}} can parse it back.}
 
-\item{refresh}{If \code{FALSE} (default) and
-\verb{out_dir/Network_pathways/pathways_<label>.csv} already exists, read it
-and skip the Enrichr call. \code{TRUE} always calls Enrichr.}
+\item{...}{Passed to \code{\link[=enrich_kinases]{enrich_kinases()}} (\code{pathway_table},
+\code{interactome_ids}, \code{min_n_hits}, ...).}
 }
 \value{
-A list: \code{all} (all filtered + post-processed candidate pathways),
-\code{short} (one pathway per gene set), \code{nodes} (\code{nodes} with a \code{pathway}
-column joined on).
+The \code{\link[=enrich_kinases]{enrich_kinases()}} list plus \code{nodes}: \code{nodes} with a \code{pathway}
+column, the selector pathways each node belongs to (","-joined), for
+\code{\link[=plot_network]{plot_network()}}'s pathway multi-select. Connector nodes are annotated
+too when their UniProt ID is known (SIGNOR \code{id}, or a name in UKAdb).
 }
 \description{
-Runs one Enrichr query (via the \code{enrichR} package) over the network's
-nodes and returns the enriched pathways plus a per-node \code{pathway}
-annotation. Ports the \code{per_cluster = FALSE} path of
-\code{Network_generation/R/network_enrichment_and_vis.R::do_network_enrichment()}
--- the per-cluster / topGO machinery is not carried over.
-}
-\details{
-\strong{Which nodes}: every node \emph{except} \code{type == "Hidden"} (the Steiner
-connector nodes PCSF adds, which carry no input identity). This widens
-the original code, which enriched only kinase-typed nodes.
-
-\strong{Reference database}: \code{databases} is passed straight to Enrichr, so any
-Enrichr library works. Anything Reactome-specific (collapsing redundant
-terms by shared parent, dropping top-level terms, filtering WikiPathways
-by ontology tag) lives in \code{postprocess} -- swap it, or pass \code{NULL}, for a
-different database.
+Runs \code{\link[=enrich_kinases]{enrich_kinases()}} on the network's input kinases (\code{\link[=network_roles]{network_roles()}}):
+connector nodes are never tested. Works on networkGen's PCSF nodes
+(\code{Protein}, \code{type}) and on SIGNOR nodes CSVs (\code{id}, \code{name}, \code{role}).
 }

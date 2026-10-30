@@ -13,9 +13,8 @@ network_pathways_dir(out_dir)
 \code{file.path(out_dir, "Network_pathways")}.
 }
 \description{
-\code{\link[=enrich_network]{enrich_network()}}, \code{\link[=reconcile_pathways_dir]{reconcile_pathways_dir()}}, and
-\code{\link[=plot_pathway_heatmaps_dir]{plot_pathway_heatmaps_dir()}} all read/write the \verb{pathways_*} CSVs here,
-kept separate from \code{networkGen}'s own output
+\code{\link[=enrich_network]{enrich_network()}} writes and \code{\link[=plot_pathway_heatmaps_dir]{plot_pathway_heatmaps_dir()}} reads the
+\verb{pathways_*} CSVs here, kept separate from \code{networkGen}'s own output
 (\verb{nodes_*}/\verb{edges_*}/\verb{wc_df_*}/\verb{missing_nodes_*}), which lands directly in
 \code{out_dir} with no subfolder of its own -- and from \code{\link[=save_network_html]{save_network_html()}}'s
 \code{Network_html} subfolder.

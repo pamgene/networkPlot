@@ -1,32 +1,59 @@
-#' Kinase-by-pathway LogFC heatmaps
+#' Kinase-by-pathway heatmaps
 #'
-#' Ported from
-#' `Network_generation/R/plotting_functions.R::plot_kinase_pathway_heatmaps()`
-#' and its `create_*` helpers, with the folder discovery split into
-#' [plot_pathway_heatmaps_dir()]. The dead `create_union_combined_heatmap()`
-#' (its call site was already commented out) is dropped.
+#' Draws the selected pathways (`in_selector`, at least `min_kinases` hits)
+#' of each comparison with their hit kinases, filled with the kinase
+#' statistic. Two layouts:
 #'
-#' For each comparison it draws one heatmap (pathways x kinases, filled with
-#' `LogFC`). Then, across comparisons: a heatmap of the pathways common to
-#' *all* of them; for exactly two comparisons, a "unique to each" heatmap;
-#' for three or more, one pairwise-overlap heatmap per pair (in a
-#' `pairwise_overlaps/` subfolder).
+#' - `"wrapped"` (default): one small panel per pathway, wrapped into rows;
+#'   one figure per comparison and one per pair of comparisons with the
+#'   pathways selected in both (see [plot_wrapped_heatmaps()]).
+#'
+#' With `pair_groups`, pair figures (both layouts) are drawn only for two
+#' comparisons of the same group, e.g. the same UKA Supergroup.
+#' - `"classic"`: for each comparison one heatmap (pathways x kinases).
+#'   Then, across comparisons: a heatmap of the pathways common to *all* of
+#'   them; for exactly two comparisons, a "unique to each" heatmap; for three
+#'   or more, one pairwise-overlap heatmap per pair (in a
+#'   `pairwise_overlaps/` subfolder).
 #'
 #' @param comparisons Named list, one entry per comparison, each a list
 #'   `list(pathways = <pathway data frame>, nodes = <nodes data frame>)`.
-#'   `pathways` needs `Group_Pw`, `Genes`; `nodes` needs `Protein`, `type`,
-#'   `LogFC`.
+#'   `pathways` is [enrich_network()]'s / [enrich_uka()]'s one-pathway-per-
+#'   hit-list table (`pw_id`, `pw_name`, `category`, `hits`, `p_value`,
+#'   `in_selector`); `nodes` gives the kinase statistic: `Protein` + `LogFC`
+#'   (PCSF nodes) or `name` + `kinase_statistic` (SIGNOR nodes CSV,
+#'   [enrich_uka()]'s input-kinases CSV).
 #' @param out_dir Directory to write the PNGs into.
-#' @param min_kinases Keep a pathway row only if it has at least this many
-#'   distinct kinase/artificial nodes.
-#' @param w,h,w_combined PNG sizes in cm.
+#' @param layout `"wrapped"` (default) or `"classic"`.
+#' @param min_kinases Keep a pathway only if it has at least this many hits.
+#' @param max_row_cells Wrapped layout: maximum kinase columns per row of
+#'   panels.
+#' @param w,h,w_combined Classic layout: PNG sizes in cm.
+#' @param pair_groups Optional named character vector, comparison -> group
+#'   (e.g. its UKA Supergroup). Pair figures only for comparisons of the
+#'   same group; a comparison without a group gets none. `NULL` (default):
+#'   every pair.
 #'
 #' @return `out_dir`, invisibly.
 #' @export
-plot_pathway_heatmaps <- function(comparisons, out_dir, min_kinases = 3,
-                                  w = 20, h = 14, w_combined = 25) {
+plot_pathway_heatmaps <- function(comparisons, out_dir, layout = c("wrapped", "classic"),
+                                  min_kinases = 3, max_row_cells = 40,
+                                  w = 20, h = 14, w_combined = 25, pair_groups = NULL) {
+  layout <- match.arg(layout)
   require_heatmap_pkgs()
   dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+
+  if (layout == "wrapped") {
+    hits <- dplyr::bind_rows(lapply(names(comparisons), function(nm) {
+      selected_hits(comparisons[[nm]]$pathways, comparisons[[nm]]$nodes, min_kinases, nm)
+    }))
+    if (nrow(hits) == 0) {
+      warning("No selected pathways with at least ", min_kinases, " hits; no heatmaps.", call. = FALSE)
+      return(invisible(out_dir))
+    }
+    plot_wrapped_heatmaps(hits, out_dir, max_row_cells, pair_groups = pair_groups)
+    return(invisible(out_dir))
+  }
 
   col_fun <- circlize::colorRamp2
   Heatmap <- ComplexHeatmap::Heatmap
@@ -78,7 +105,7 @@ plot_pathway_heatmaps <- function(comparisons, out_dir, min_kinases = 3,
       create_unique_heatmap_comparison(heatmap_data_list, w_combined, h, out_dir)
     } else {
       create_pairwise_combined_heatmaps(heatmap_data_list, w_combined, h,
-                                        file.path(out_dir, "pairwise_overlaps"))
+                                        file.path(out_dir, "pairwise_overlaps"), pair_groups)
     }
   }
   invisible(out_dir)
@@ -86,68 +113,104 @@ plot_pathway_heatmaps <- function(comparisons, out_dir, min_kinases = 3,
 
 #' Draw the kinase-pathway heatmaps for one result folder
 #'
-#' Discovers `pathways_<comparison>_spec<cutoff>.csv` (excluding `_all.csv`)
-#' in `res_dir`'s `Network_pathways` subfolder ([network_pathways_dir()],
-#' same place [enrich_network()] writes them) and the matching
-#' `nodes_<comparison>_spec<cutoff>.csv` directly in `res_dir` (`networkGen`'s
-#' own output, never nested), builds the `comparisons` list, and calls
-#' [plot_pathway_heatmaps()].
+#' Discovers the selected-pathway tables
+#' `Network_pathways/pathways_<comparison>_spec<cutoff>.csv` ([enrich_network()];
+#' not `_all` / `_pw_params`) and the matching networkGen nodes CSVs
+#' `nodes_<comparison>_spec<cutoff>.csv` in `res_dir`, builds the
+#' `comparisons` list, and calls [plot_pathway_heatmaps()]. For UKA mode use
+#' [plot_uka_pathway_heatmaps()].
 #'
-#' @param res_dir The run's main output folder (holds the `nodes_*` CSVs
-#'   directly, and the `pathways_*` CSVs in its `Network_pathways`
-#'   subfolder).
+#' @param res_dir The run's main output folder.
 #' @param spec_cutoff The `spec<cutoff>` value to render.
-#' @param out_dir Where to write the PNGs (default: `<res_dir>/kinase_pathway_heatmaps/spec_<cutoff>`).
-#' @param min_kinases,w,h,w_combined Passed to [plot_pathway_heatmaps()].
+#' @param out_dir Where to write the PNGs (default:
+#'   `<res_dir>/kinase_pathway_heatmaps/spec_<cutoff>`).
+#' @param ... Passed to [plot_pathway_heatmaps()] (`layout`, `min_kinases`,
+#'   `max_row_cells`, `w`, `h`, `w_combined`, `pair_groups`).
 #'
 #' @return `out_dir`, invisibly.
 #' @export
-plot_pathway_heatmaps_dir <- function(res_dir, spec_cutoff, out_dir = NULL,
-                                      min_kinases = 3, w = 20, h = 14, w_combined = 25) {
-  if (is.null(out_dir)) {
-    out_dir <- file.path(res_dir, "kinase_pathway_heatmaps", paste0("spec_", spec_cutoff))
-  }
+plot_pathway_heatmaps_dir <- function(res_dir, spec_cutoff, out_dir = NULL, ...) {
+  if (is.null(out_dir)) out_dir <- file.path(res_dir, "kinase_pathway_heatmaps", paste0("spec_", spec_cutoff))
   pw_dir <- network_pathways_dir(res_dir)
+  prefix <- "pathways_"
   suffix <- paste0("_spec", spec_cutoff, ".csv")
   files <- list.files(pw_dir, full.names = TRUE)
   bn <- basename(files)
-  pw_files <- files[startsWith(bn, "pathways_") & endsWith(bn, suffix) & !endsWith(bn, "_all.csv")]
-  if (length(pw_files) == 0) stop("No pathways_*", suffix, " files in ", pw_dir, call. = FALSE)
+  pw_files <- files[startsWith(bn, prefix) & endsWith(bn, suffix)]
+  if (length(pw_files) == 0) stop("No ", prefix, "*", suffix, " files in ", pw_dir, call. = FALSE)
 
   comparisons <- list()
   for (pf in pw_files) {
-    cmp <- sub(paste0("_spec", spec_cutoff, "$"), "", sub("^pathways_", "", sub("\\.csv$", "", basename(pf))))
+    cmp <- sub(paste0("_spec", spec_cutoff, "$"), "", sub(paste0("^", prefix), "", sub("\\.csv$", "", basename(pf))))
     nf <- file.path(res_dir, sub("^pathways_", "nodes_", basename(pf)))
     if (!file.exists(nf)) {
       warning("No nodes file for '", cmp, "' (expected ", basename(nf), "); skipping.", call. = FALSE)
       next
     }
     comparisons[[cmp]] <- list(
-      pathways = readr::read_csv(pf, show_col_types = FALSE),
+      pathways = readr::read_csv(pf, show_col_types = FALSE,
+                                 col_types = readr::cols(p_value = "d", n_hits = "i", in_selector = "l")),
       nodes = readr::read_csv(nf, show_col_types = FALSE)
     )
   }
-  plot_pathway_heatmaps(comparisons, out_dir, min_kinases, w, h, w_combined)
+  plot_pathway_heatmaps(comparisons, out_dir, ...)
 }
 
-#' Build one comparison's pathway x kinase LogFC matrix
+#' Draw the kinase-pathway heatmaps for UKA mode
+#'
+#' Takes [enrich_uka()]'s result (per comparison its selected pathways and
+#' its input kinases with their kinase statistic) and calls
+#' [plot_pathway_heatmaps()], with the comparison names as in the UKA data.
+#'
+#' @param uka_res The list returned by [enrich_uka()].
+#' @param out_dir Where to write the PNGs.
+#' @param ... Passed to [plot_pathway_heatmaps()] (`layout`, `min_kinases`,
+#'   `pair_groups`, ...).
+#'
+#' @return `out_dir`, invisibly.
+#' @export
+plot_uka_pathway_heatmaps <- function(uka_res, out_dir, ...) {
+  comparisons <- lapply(uka_res, function(r) list(pathways = r$short, nodes = r$nodes))
+  names(comparisons) <- sub("_spec[^_]*$", "", sub("^uka_", "", names(uka_res)))
+  plot_pathway_heatmaps(comparisons, out_dir, ...)
+}
+
+#' Hits of the selected pathways of one comparison, with their kinase statistic
+#'
+#' @return Long table: `comparison`, `pw_id`, `pw_name`, `category`,
+#'   `p_value`, `kinase`, `statistic`.
+#' @keywords internal
+selected_hits <- function(pathways_df, nodes_df, min_kinases, comparison = NA_character_) {
+  pw <- pathways_df[pathways_df$in_selector %in% TRUE & pathways_df$n_hits >= min_kinases, ]
+  if (!"category" %in% names(pw)) pw$category <- NA_character_
+  stats <- node_statistics(nodes_df)
+  pw %>%
+    dplyr::transmute(comparison = comparison, .data$pw_id, .data$pw_name, category = as.character(.data$category),
+                     .data$p_value, kinase = .data$hits) %>%
+    tidyr::separate_longer_delim("kinase", delim = ";") %>%
+    dplyr::filter(!is.na(.data$kinase), .data$kinase != "") %>%
+    dplyr::mutate(statistic = stats$statistic[match(.data$kinase, stats$name)])
+}
+
+#' name + kinase statistic of the nodes: PCSF (`Protein`, `LogFC`) or SIGNOR
+#' (`name`, `kinase_statistic`) schema.
+#' @keywords internal
+node_statistics <- function(nodes_df) {
+  if (all(c("Protein", "LogFC") %in% names(nodes_df))) {
+    return(tibble::tibble(name = nodes_df$Protein, statistic = as.numeric(nodes_df$LogFC)))
+  }
+  if (all(c("name", "kinase_statistic") %in% names(nodes_df))) {
+    return(tibble::tibble(name = nodes_df$name, statistic = as.numeric(nodes_df$kinase_statistic)))
+  }
+  stop("Nodes need `Protein` + `LogFC` (PCSF) or `name` + `kinase_statistic` (SIGNOR) for the heatmaps.", call. = FALSE)
+}
+
+#' Build one comparison's pathway x kinase matrix of the kinase statistic
 #' @keywords internal
 build_heatmap_data <- function(pathways_df, nodes_df, min_kinases) {
-  expanded <- pathways_df %>%
-    dplyr::select("Group_Pw", "Genes") %>%
-    tidyr::separate_longer_delim("Genes", delim = ";") %>%
-    dplyr::filter(!is.na(.data$Genes), .data$Genes != "", !is.na(.data$Group_Pw), .data$Group_Pw != "") %>%
-    dplyr::rename(pathway = "Group_Pw", Protein = "Genes") %>%
-    dplyr::left_join(dplyr::select(nodes_df, "Protein", "type", "LogFC"), by = "Protein") %>%
-    dplyr::filter(.data$type %in% c("Kinase", "Artificial")) %>%
-    dplyr::select("Protein", "pathway", "LogFC") %>%
+  expanded <- selected_hits(pathways_df, nodes_df, min_kinases) %>%
+    dplyr::transmute(pathway = .data$pw_name, Protein = .data$kinase, LogFC = .data$statistic) %>%
     dplyr::distinct()
-  if (nrow(expanded) == 0) return(NULL)
-
-  expanded <- expanded %>%
-    dplyr::group_by(.data$pathway) %>%
-    dplyr::filter(dplyr::n_distinct(.data$Protein) >= min_kinases) %>%
-    dplyr::ungroup()
   if (nrow(expanded) == 0) return(NULL)
 
   m <- expanded %>%
@@ -219,9 +282,9 @@ create_combined_heatmap <- function(heatmap_data_list, w_combined, h, save_folde
 }
 
 #' @keywords internal
-create_pairwise_combined_heatmaps <- function(heatmap_data_list, w_combined, h, save_folder) {
-  dir.create(save_folder, showWarnings = FALSE, recursive = TRUE)
-  pairs <- utils::combn(names(heatmap_data_list), 2, simplify = FALSE)
+create_pairwise_combined_heatmaps <- function(heatmap_data_list, w_combined, h, save_folder, pair_groups = NULL) {
+  pairs <- comparison_pairs(names(heatmap_data_list), pair_groups)
+  if (length(pairs)) dir.create(save_folder, showWarnings = FALSE, recursive = TRUE)
   for (pair in pairs) {
     safe <- gsub("[^A-Za-z0-9_-]", "_", pair)
     create_combined_heatmap(
@@ -296,4 +359,15 @@ require_heatmap_pkgs <- function() {
       stop("`", p, "` is required for the pathway heatmaps. Install it (Bioconductor for ComplexHeatmap).", call. = FALSE)
     }
   }
+}
+
+#' The pairs of comparisons to draw overlap figures for: all pairs, or with
+#' `pair_groups` (comparison -> group) only pairs within one group.
+#' @keywords internal
+comparison_pairs <- function(comps, pair_groups = NULL) {
+  if (length(comps) < 2) return(list())
+  pairs <- utils::combn(comps, 2, simplify = FALSE)
+  if (is.null(pair_groups)) return(pairs)
+  g <- unname(pair_groups[comps]); names(g) <- comps
+  Filter(function(pr) !is.na(g[[pr[1]]]) && identical(g[[pr[1]]], g[[pr[2]]]), pairs)
 }

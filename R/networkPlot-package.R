@@ -1,10 +1,12 @@
-#' networkPlot: enrich and visualise PCSF networks built by networkGen
+#' networkPlot: pathway enrichment and visualisation of kinase networks
 #'
 #' Two halves of one workflow:
 #'
-#' - [enrich_network()] runs Enrichr on a network's nodes and returns a
-#'   pathway table plus a per-node `pathway` annotation; the reference
-#'   database (Reactome by default) is a pluggable `postprocess` step.
+#' - [enrich_network()] runs the pathway enrichment ([enrich_kinases()]:
+#'   one-sided Fisher + Benjamini-Hochberg on Reactome v2, against the
+#'   kinases UKA can predict) on a network's input kinases and returns the
+#'   pathway tables plus a per-node `pathway` annotation; [enrich_uka()]
+#'   runs it on UKA data directly, without a network.
 #' - [plot_network()] renders the interactive `visNetwork` HTML, with every
 #'   style choice on [networkplot_theme()]; [plot_pathway_heatmaps()] draws
 #'   the kinase-by-pathway heatmaps.

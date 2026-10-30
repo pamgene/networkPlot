@@ -4,35 +4,27 @@
 \alias{plot_pathway_heatmaps_dir}
 \title{Draw the kinase-pathway heatmaps for one result folder}
 \usage{
-plot_pathway_heatmaps_dir(
-  res_dir,
-  spec_cutoff,
-  out_dir = NULL,
-  min_kinases = 3,
-  w = 20,
-  h = 14,
-  w_combined = 25
-)
+plot_pathway_heatmaps_dir(res_dir, spec_cutoff, out_dir = NULL, ...)
 }
 \arguments{
-\item{res_dir}{The run's main output folder (holds the \verb{nodes_*} CSVs
-directly, and the \verb{pathways_*} CSVs in its \code{Network_pathways}
-subfolder).}
+\item{res_dir}{The run's main output folder.}
 
 \item{spec_cutoff}{The \verb{spec<cutoff>} value to render.}
 
-\item{out_dir}{Where to write the PNGs (default: \verb{<res_dir>/kinase_pathway_heatmaps/spec_<cutoff>}).}
+\item{out_dir}{Where to write the PNGs (default:
+\verb{<res_dir>/kinase_pathway_heatmaps/spec_<cutoff>}).}
 
-\item{min_kinases, w, h, w_combined}{Passed to \code{\link[=plot_pathway_heatmaps]{plot_pathway_heatmaps()}}.}
+\item{...}{Passed to \code{\link[=plot_pathway_heatmaps]{plot_pathway_heatmaps()}} (\code{layout}, \code{min_kinases},
+\code{max_row_cells}, \code{w}, \code{h}, \code{w_combined}, \code{pair_groups}).}
 }
 \value{
 \code{out_dir}, invisibly.
 }
 \description{
-Discovers \verb{pathways_<comparison>_spec<cutoff>.csv} (excluding \verb{_all.csv})
-in \code{res_dir}'s \code{Network_pathways} subfolder (\code{\link[=network_pathways_dir]{network_pathways_dir()}},
-same place \code{\link[=enrich_network]{enrich_network()}} writes them) and the matching
-\verb{nodes_<comparison>_spec<cutoff>.csv} directly in \code{res_dir} (\code{networkGen}'s
-own output, never nested), builds the \code{comparisons} list, and calls
-\code{\link[=plot_pathway_heatmaps]{plot_pathway_heatmaps()}}.
+Discovers the selected-pathway tables
+\verb{Network_pathways/pathways_<comparison>_spec<cutoff>.csv} (\code{\link[=enrich_network]{enrich_network()}};
+not \verb{_all} / \verb{_pw_params}) and the matching networkGen nodes CSVs
+\verb{nodes_<comparison>_spec<cutoff>.csv} in \code{res_dir}, builds the
+\code{comparisons} list, and calls \code{\link[=plot_pathway_heatmaps]{plot_pathway_heatmaps()}}. For UKA mode use
+\code{\link[=plot_uka_pathway_heatmaps]{plot_uka_pathway_heatmaps()}}.
 }

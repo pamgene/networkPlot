@@ -4,15 +4,17 @@
 \name{networkPlot-package}
 \alias{networkPlot}
 \alias{networkPlot-package}
-\title{networkPlot: enrich and visualise PCSF networks built by networkGen}
+\title{networkPlot: pathway enrichment and visualisation of kinase networks}
 \description{
 Two halves of one workflow:
 }
 \details{
 \itemize{
-\item \code{\link[=enrich_network]{enrich_network()}} runs Enrichr on a network's nodes and returns a
-pathway table plus a per-node \code{pathway} annotation; the reference
-database (Reactome by default) is a pluggable \code{postprocess} step.
+\item \code{\link[=enrich_network]{enrich_network()}} runs the pathway enrichment (\code{\link[=enrich_kinases]{enrich_kinases()}}:
+one-sided Fisher + Benjamini-Hochberg on Reactome v2, against the
+kinases UKA can predict) on a network's input kinases and returns the
+pathway tables plus a per-node \code{pathway} annotation; \code{\link[=enrich_uka]{enrich_uka()}}
+runs it on UKA data directly, without a network.
 \item \code{\link[=plot_network]{plot_network()}} renders the interactive \code{visNetwork} HTML, with every
 style choice on \code{\link[=networkplot_theme]{networkplot_theme()}}; \code{\link[=plot_pathway_heatmaps]{plot_pathway_heatmaps()}} draws
 the kinase-by-pathway heatmaps.

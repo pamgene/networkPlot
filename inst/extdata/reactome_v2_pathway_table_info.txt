@@ -1,0 +1,63 @@
+Reactome v2 pathway table (data/reactome_v2_pathway_table.csv), built by tools/build_reactome_pathway_table.R
+built: 2026-10-26
+Reactome release: 97 (current release when the files were downloaded, per reactome.org ContentService)
+Reactome flat files (download date = file date):
+  ReactomePathways.txt                2026-10-22
+  ReactomePathwaysRelation.txt        2026-10-22
+  UniProt2Reactome_All_Levels.txt     2026-10-22
+
+Depth per top-level category (1 = the category itself):
+  Autophagy                                               2
+  Cell Cycle                                              3
+  Cell-Cell communication                                 2
+  Cellular responses to stimuli                           3
+  Chromatin organization                                  2
+  Circadian clock                                         2
+  Developmental Biology                                   3
+  Digestion and absorption                                2
+  Disease                                                 4
+  DNA Repair                                              2
+  DNA Replication                                         2
+  Drug ADME                                               2
+  Extracellular matrix organization                       2
+  Gene expression (Transcription)                         3
+  Hemostasis                                              2
+  Immune System                                           3
+  Metabolism                                              3
+  Metabolism of proteins                                  3
+  Metabolism of RNA                                       2
+  Muscle contraction                                      2
+  Neuronal System                                         3
+  Organelle biogenesis and maintenance                    2
+  Programmed Cell Death                                   3
+  Protein localization                                    2
+  Reproduction                                            3
+  Sensory Perception                                      2
+  Transport of small molecules                            2
+  Vesicle-mediated transport                              2
+Depth per Signal Transduction subcategory (1 = the subcategory itself):
+  Signaling by Receptor Tyrosine Kinases                  2
+  Signaling by TGFB family members                        2
+  Signaling by GPCR                                       2
+  Signaling by NOTCH                                      1
+  Signaling by Hippo                                      1
+  Signaling by Hedgehog                                   2
+  Signaling by Leptin                                     1
+  Integrin signaling                                      1
+  Signaling by Nuclear Receptors                          2
+  MAPK family signaling cascades                          2
+  Intracellular signaling by second messengers            2
+  Signaling by Rho GTPases, Miro GTPases and RHOBTB3      2
+  Signaling by Non-Receptor Tyrosine Kinases              1
+  MTOR signalling                                         1
+  Death Receptor Signaling                                2
+  Signaling by Erythropoietin                             1
+  Signaling by WNT                                        2
+Unlisted categories (default depth 2): none
+
+terminal pathways: 710
+pathways in the table (with human UniProt members): 706
+proteins: 11832
+rows (pathway-protein pairs): 34410
+annotation: data/reactome_v2_pathway_annotation.csv - 706 pathways, 292 disease ( 11 infectious_disease, 281 mutated_proteins) 
+kinase universe (UKAdb kinases known to SIGNOR): 415 ; pathways with >= 3 of them (min_3_kin): 147 of which with mutant/defect or infection: 28 ; excluded by default: 17

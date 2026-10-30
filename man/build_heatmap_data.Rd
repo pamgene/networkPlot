@@ -2,11 +2,11 @@
 % Please edit documentation in R/heatmaps.R
 \name{build_heatmap_data}
 \alias{build_heatmap_data}
-\title{Build one comparison's pathway x kinase LogFC matrix}
+\title{Build one comparison's pathway x kinase matrix of the kinase statistic}
 \usage{
 build_heatmap_data(pathways_df, nodes_df, min_kinases)
 }
 \description{
-Build one comparison's pathway x kinase LogFC matrix
+Build one comparison's pathway x kinase matrix of the kinase statistic
 }
 \keyword{internal}

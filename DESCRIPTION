@@ -1,14 +1,14 @@
 Package: networkPlot
-Title: Enrich and Visualise PCSF Networks Built by networkGen
-Version: 0.0.0.9000
+Title: Pathway Enrichment and Visualisation of Kinase Networks
+Version: 0.1.0
 Authors@R:
     person("Dora", "Schuller", email = "dschuller@pamgene.com",
            role = c("aut", "cre"))
-Description: Pathway enrichment (via Enrichr) of a prize-collecting
-    Steiner-forest network built by networkGen, and the interactive
-    visNetwork HTML rendering of it, plus kinase-by-pathway heatmaps.
-    The enrichment reference database (Reactome by default) is a pluggable
-    post-processing step, and every styling choice for the HTML lives in a
+Description: Pathway enrichment (one-sided Fisher with Benjamini-Hochberg
+    correction on Reactome v2, against the kinases UKA can predict) of the
+    input kinases of a kinase network built by networkGen (or of UKA data
+    directly), the interactive visNetwork HTML rendering of the network, and
+    kinase-by-pathway heatmaps. Every styling choice for the HTML lives in a
     single theme object.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -19,13 +19,12 @@ Depends:
 Imports:
     dplyr,
     grDevices,
+    grid,
     htmlwidgets,
-    purrr,
     readr,
     rlang,
     scales,
     stats,
-    stringr,
     tibble,
     tidyr,
     utils,
@@ -33,9 +32,6 @@ Imports:
 Suggests:
     circlize,
     ComplexHeatmap,
-    enrichR,
-    httr,
-    jsonlite,
     knitr,
     networkGen,
     rmarkdown,

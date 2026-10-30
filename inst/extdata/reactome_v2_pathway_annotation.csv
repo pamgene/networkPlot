@@ -1,0 +1,707 @@
+pathway_id,pathway_name,category,is_in_disease,disease,normal_pathway,disease_group,parent_category,normal_pathway_id,n_kin,min_3_kin,n_kin_not_in_normal,kin_not_in_normal,excluded_by_default
+R-HSA-166658,Complement cascade,Immune System,FALSE,,,,Innate Immune System,,0,FALSE,,,FALSE
+R-HSA-198933,Immunoregulatory interactions between a Lymphoid and a non-Lymphoid cell,Immune System,FALSE,,,,Adaptive Immune System,,1,FALSE,,,FALSE
+R-HSA-202733,Cell surface interactions at the vascular wall,Hemostasis,FALSE,,,,,,8,TRUE,,,FALSE
+R-HSA-2029480,Fcgamma receptor (FCGR) dependent phagocytosis,Immune System,FALSE,,,,Innate Immune System,,17,TRUE,,,FALSE
+R-HSA-2173782,Binding and Uptake of Ligands by Scavenger Receptors,Vesicle-mediated transport,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-2454202,Fc epsilon receptor (FCERI) signaling,Immune System,FALSE,,,,Innate Immune System,,24,TRUE,,,FALSE
+R-HSA-9658195,Leishmania infection,Disease,TRUE,cutaneous leishmaniasis,,infectious_disease,Parasitic Infection Pathways,,22,TRUE,,,FALSE
+R-HSA-9679506,SARS-CoV Infections,Disease,TRUE,Coronavirus infectious disease,,infectious_disease,Viral Infection Pathways,,28,TRUE,,,FALSE
+R-HSA-983705,Signaling by the B Cell Receptor (BCR),Immune System,FALSE,,,,Adaptive Immune System,,10,TRUE,,,FALSE
+R-HSA-9938026,Immunoglobulin maturation,Immune System,FALSE,,,,Adaptive Immune System,,1,FALSE,,,FALSE
+R-HSA-194315,Signaling by Rho GTPases,Signal Transduction,FALSE,,,,"Signaling by Rho GTPases, Miro GTPases and RHOBTB3",,45,TRUE,,,FALSE
+R-HSA-611105,Respiratory electron transport,Metabolism,FALSE,,,,Aerobic respiration and respiratory electron transport,,0,FALSE,,,FALSE
+R-HSA-202403,TCR signaling,Immune System,FALSE,,,,Adaptive Immune System,,15,TRUE,,,FALSE
+R-HSA-388841,Regulation of T cell activation by CD28 family,Immune System,FALSE,,,,Adaptive Immune System,,28,TRUE,,,FALSE
+R-HSA-9640148,Infection with Enterobacteria,Disease,TRUE,bacterial infectious disease,,infectious_disease,Bacterial Infection Pathways,,0,FALSE,,,FALSE
+R-HSA-9686114,Non-canonical inflammasome activation,Immune System,FALSE,,,,Innate Immune System,,0,FALSE,,,FALSE
+R-HSA-6809371,Formation of the cornified envelope,Developmental Biology,FALSE,,,,Keratinization,,0,FALSE,,,FALSE
+R-HSA-9819196,Zygotic genome activation (ZGA),Developmental Biology,FALSE,,,,Maternal to zygotic transition (MZT),,0,FALSE,,,FALSE
+R-HSA-5617833,Cilium Assembly,Organelle biogenesis and maintenance,FALSE,,,,,,10,TRUE,,,FALSE
+R-HSA-8852135,Protein ubiquitination,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,1,FALSE,,,FALSE
+R-HSA-212436,Generic Transcription Pathway,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,64,TRUE,,,FALSE
+R-HSA-983169,Class I MHC mediated antigen processing & presentation,Immune System,FALSE,,,,Adaptive Immune System,,4,TRUE,,,FALSE
+R-HSA-9839923,Dengue Virus Infection,Disease,TRUE,dengue disease,,infectious_disease,Viral Infection Pathways,,15,TRUE,,,FALSE
+R-HSA-9845576,Glycosphingolipid transport,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-381340,Transcriptional regulation of white adipocyte differentiation,Developmental Biology,FALSE,,,,Adipogenesis,,3,TRUE,,,FALSE
+R-HSA-400206,Regulation of lipid metabolism by PPARalpha,Metabolism,FALSE,,,,Metabolism of lipids,,3,TRUE,,,FALSE
+R-HSA-9820952,Respiratory Syncytial Virus Infection Pathway,Disease,TRUE,respiratory syncytial virus infectious disease,,infectious_disease,Viral Infection Pathways,,10,TRUE,,,FALSE
+R-HSA-422475,Axon guidance,Developmental Biology,FALSE,,,,Nervous system development,,57,TRUE,,,FALSE
+R-HSA-425407,SLC-mediated transmembrane transport,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9856651,MITF-M-dependent gene expression,Developmental Biology,FALSE,,,,MITF-M-regulated melanocyte development,,5,TRUE,,,FALSE
+R-HSA-169911,Regulation of Apoptosis,Programmed Cell Death,FALSE,,,,Apoptosis,,1,FALSE,,,FALSE
+R-HSA-983712,Ion channel transport,Transport of small molecules,FALSE,,,,,,16,TRUE,,,FALSE
+R-HSA-977225,Amyloid fiber formation,Metabolism of proteins,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-193704,p75 NTR receptor-mediated signalling,Signal Transduction,FALSE,,,,Death Receptor Signaling,,5,TRUE,,,FALSE
+R-HSA-388396,GPCR downstream signalling,Signal Transduction,FALSE,,,,Signaling by GPCR,,42,TRUE,,,FALSE
+R-HSA-1221632,Meiotic synapsis,Cell Cycle; Reproduction,FALSE,,,,Meiosis,,1,FALSE,,,FALSE
+R-HSA-8978868,Fatty acid metabolism,Metabolism,FALSE,,,,Metabolism of lipids,,2,FALSE,,,FALSE
+R-HSA-9842860,Regulation of endogenous retroelements,Gene expression (Transcription),FALSE,,,,Epigenetic regulation of gene expression,,0,FALSE,,,FALSE
+R-HSA-199991,Membrane Trafficking,Vesicle-mediated transport,FALSE,,,,,,12,TRUE,,,FALSE
+R-HSA-71064,Lysine catabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-72306,tRNA processing,Metabolism of RNA,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-446203,Asparagine N-linked glycosylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,1,FALSE,,,FALSE
+R-HSA-3906995,Diseases associated with O-glycosylation of proteins,Disease,TRUE,congenital disorder of glycosylation,O-linked glycosylation,mutated_proteins,Diseases of glycosylation,R-HSA-5173105,0,FALSE,0,,TRUE
+R-HSA-5173105,O-linked glycosylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-381753,Olfactory Signaling Pathway,Sensory Perception,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-8873719,RAB geranylgeranylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-5693532,DNA Double-Strand Break Repair,DNA Repair,FALSE,,,,,,8,TRUE,,,FALSE
+R-HSA-6783310,Fanconi Anemia Pathway,DNA Repair,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-9659379,Sensory processing of sound,Sensory Perception,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-8964572,Lipid particle organization,Metabolism,FALSE,,,,Metabolism of lipids,,0,FALSE,,,FALSE
+R-HSA-162906,HIV Infection,Disease,TRUE,Human immunodeficiency virus infectious disease,,infectious_disease,Viral Infection Pathways,,6,TRUE,,,FALSE
+R-HSA-9609646,HCMV Infection,Disease,TRUE,viral infectious disease,,infectious_disease,Viral Infection Pathways,,1,FALSE,,,FALSE
+R-HSA-9615710,Late endosomal microautophagy,Autophagy,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9907900,Proteasome assembly,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-112314,Neurotransmitter receptors and postsynaptic signal transmission,Neuronal System,FALSE,,,,Transmission across Chemical Synapses,,28,TRUE,,,FALSE
+R-HSA-429914,Deadenylation-dependent mRNA decay,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9820841,M-decay: degradation of maternal mRNAs by maternally stored factors,Developmental Biology,FALSE,,,,Maternal to zygotic transition (MZT),,0,FALSE,,,FALSE
+R-HSA-70921,Histidine catabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-749476,RNA Polymerase III Abortive And Retractive Initiation,Gene expression (Transcription),FALSE,,,,RNA Polymerase III Transcription,,0,FALSE,,,FALSE
+R-HSA-76046,RNA Polymerase III Transcription Initiation,Gene expression (Transcription),FALSE,,,,RNA Polymerase III Transcription,,0,FALSE,,,FALSE
+R-HSA-5688426,Deubiquitination,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,7,TRUE,,,FALSE
+R-HSA-163125,Post-translational modification: synthesis of GPI-anchored proteins,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-1483257,Phospholipid metabolism,Metabolism,FALSE,,,,Metabolism of lipids,,5,TRUE,,,FALSE
+R-HSA-163841,"Gamma carboxylation, hypusinylation, hydroxylation, and arylsulfatase activation",Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-8979227,Triglyceride metabolism,Metabolism,FALSE,,,,Metabolism of lipids,,3,TRUE,,,FALSE
+R-HSA-428157,Sphingolipid metabolism,Metabolism,FALSE,,,,Metabolism of lipids,,5,TRUE,,,FALSE
+R-HSA-71403,Citric acid cycle (TCA cycle),Metabolism,FALSE,,,,Aerobic respiration and respiratory electron transport,,0,FALSE,,,FALSE
+R-HSA-156580,Phase II - Conjugation of compounds,Metabolism,FALSE,,,,Biological oxidations,,0,FALSE,,,FALSE
+R-HSA-5423646,Aflatoxin activation and detoxification,Metabolism,FALSE,,,,Biological oxidations,,0,FALSE,,,FALSE
+R-HSA-9753281,Paracetamol ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-977347,Serine metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-1474228,Degradation of the extracellular matrix,Extracellular matrix organization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-1632852,Macroautophagy,Autophagy,FALSE,,,,,,11,TRUE,,,FALSE
+R-HSA-2132295,MHC class II antigen presentation,Immune System,FALSE,,,,Adaptive Immune System,,0,FALSE,,,FALSE
+R-HSA-3371497,HSP90 chaperone cycle for steroid hormone receptors (SHR) in the presence of ligand,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,0,FALSE,,,FALSE
+R-HSA-389977,Post-chaperonin tubulin folding pathway,Metabolism of proteins,FALSE,,,,Protein folding,,0,FALSE,,,FALSE
+R-HSA-390466,Chaperonin-mediated protein folding,Metabolism of proteins,FALSE,,,,Protein folding,,3,TRUE,,,FALSE
+R-HSA-453274,Mitotic G2-G2/M phases,Cell Cycle,FALSE,,,,"Cell Cycle, Mitotic",,14,TRUE,,,FALSE
+R-HSA-68886,M Phase,Cell Cycle,FALSE,,,,"Cell Cycle, Mitotic",,24,TRUE,,,FALSE
+R-HSA-8955332,Carboxyterminal post-translational modifications of tubulin,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-913531,Interferon Signaling,Immune System,FALSE,,,,Cytokine Signaling in Immune system,,19,TRUE,,,FALSE
+R-HSA-983231,Factors involved in megakaryocyte development and platelet production,Hemostasis,FALSE,,,,,,10,TRUE,,,FALSE
+R-HSA-212300,PRC2 methylates histones and DNA,Gene expression (Transcription),FALSE,,,,Epigenetic regulation of gene expression,,0,FALSE,,,FALSE
+R-HSA-9711097,Cellular response to starvation,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,3,TRUE,,,FALSE
+R-HSA-9793380,Formation of paraxial mesoderm,Developmental Biology,FALSE,,,,Gastrulation,,2,FALSE,,,FALSE
+R-HSA-1234174,Cellular response to hypoxia,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,0,FALSE,,,FALSE
+R-HSA-9857492,Protein lipoylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-8951664,Neddylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-2172127,DAP12 interactions,Immune System,FALSE,,,,Innate Immune System,,5,TRUE,,,FALSE
+R-HSA-1474290,Collagen formation,Extracellular matrix organization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-186797,Signaling by PDGF,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,4,TRUE,,,FALSE
+R-HSA-216083,Integrin cell surface interactions,Extracellular matrix organization,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-3000178,ECM proteoglycans,Extracellular matrix organization,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-70326,Glucose metabolism,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,4,TRUE,,,FALSE
+R-HSA-446728,Cell junction organization,Cell-Cell communication,FALSE,,,,,,13,TRUE,,,FALSE
+R-HSA-5358346,Hedgehog ligand biogenesis,Signal Transduction,FALSE,,,,Signaling by Hedgehog,,0,FALSE,,,FALSE
+R-HSA-168255,Influenza Infection,Disease,TRUE,influenza,,infectious_disease,Viral Infection Pathways,,1,FALSE,,,FALSE
+R-HSA-1855170,IPs transport between nucleus and cytosol,Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-1855196,IP3 and IP4 transport between cytosol and nucleus,Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-1855229,IP6 and IP7 transport between cytosol and nucleus,Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-194441,Metabolism of non-coding RNA,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-2990846,SUMOylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,6,TRUE,,,FALSE
+R-HSA-3371556,Cellular response to heat stress,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,11,TRUE,,,FALSE
+R-HSA-5619107,Defective TPR may confer susceptibility towards thyroid papillary carcinoma (TPC),Disease,TRUE,papillary carcinoma,Glucose metabolism,mutated_proteins,SLC transporter disorders,R-HSA-70326,0,FALSE,0,,TRUE
+R-HSA-72203,Processing of Capped Intron-Containing Pre-mRNA,Metabolism of RNA,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-5632684,Hedgehog 'on' state,Signal Transduction,FALSE,,,,Signaling by Hedgehog,,3,TRUE,,,FALSE
+R-HSA-157118,Signaling by NOTCH,Signal Transduction,FALSE,,,,,,5,TRUE,,,FALSE
+R-HSA-2644602,Signaling by NOTCH1 PEST Domain Mutants in Cancer,Disease,TRUE,cancer,Signaling by NOTCH1,mutated_proteins,Signaling by NOTCH1 in Cancer,R-HSA-1980143,1,FALSE,0,,TRUE
+R-HSA-2691230,Signaling by NOTCH1 HD Domain Mutants in Cancer,Disease,TRUE,T-cell acute lymphoblastic leukemia; cancer,Signaling by NOTCH1,mutated_proteins,Signaling by NOTCH1 in Cancer,R-HSA-1980143,0,FALSE,0,,TRUE
+R-HSA-2894858,Signaling by NOTCH1 HD+PEST Domain Mutants in Cancer,Disease,TRUE,T-cell acute lymphoblastic leukemia; cancer,Signaling by NOTCH1,mutated_proteins,Signaling by NOTCH1 in Cancer,R-HSA-1980143,1,FALSE,0,,TRUE
+R-HSA-774815,Nucleosome assembly,Cell Cycle,FALSE,,,,Chromosome Maintenance,,0,FALSE,,,FALSE
+R-HSA-400508,"Incretin synthesis, secretion, and inactivation",Metabolism of proteins,FALSE,,,,Peptide hormone metabolism,,0,FALSE,,,FALSE
+R-HSA-76002,"Platelet activation, signaling and aggregation",Hemostasis,FALSE,,,,,,23,TRUE,,,FALSE
+R-HSA-8939211,ESR-mediated signaling,Signal Transduction,FALSE,,,,Signaling by Nuclear Receptors,,15,TRUE,,,FALSE
+R-HSA-9717189,Sensory perception of taste,Sensory Perception,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9796292,Formation of axial mesoderm,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-9711123,Cellular response to chemical stress,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,12,TRUE,,,FALSE
+R-HSA-9917777,Epigenetic regulation by WDR5-containing histone modifying complexes,Gene expression (Transcription),FALSE,,,,Epigenetic regulation of gene expression,,4,TRUE,,,FALSE
+R-HSA-6803157,Antimicrobial peptides,Immune System,FALSE,,,,Innate Immune System,,0,FALSE,,,FALSE
+R-HSA-9033241,Peroxisomal protein import,Protein localization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-1300642,Sperm Motility And Taxes,Reproduction,FALSE,,,,Fertilization,,0,FALSE,,,FALSE
+R-HSA-1257604,PIP3 activates AKT signaling,Signal Transduction,FALSE,,,,Intracellular signaling by second messengers,,39,TRUE,,,FALSE
+R-HSA-5674400,Constitutive Signaling by AKT1 E17K in Cancer,Disease,TRUE,cancer,PIP3 activates AKT signaling,mutated_proteins,PI3K/AKT Signaling in Cancer,R-HSA-1257604,9,TRUE,0,,TRUE
+R-HSA-211945,Phase I - Functionalization of compounds,Metabolism,FALSE,,,,Biological oxidations,,0,FALSE,,,FALSE
+R-HSA-6798695,Neutrophil degranulation,Immune System,FALSE,,,,Innate Immune System,,10,TRUE,,,FALSE
+R-HSA-8957322,Metabolism of steroids,Metabolism,FALSE,,,,Metabolism of lipids,,0,FALSE,,,FALSE
+R-HSA-5357769,Caspase activation via extrinsic apoptotic signalling pathway,Programmed Cell Death,FALSE,,,,Apoptosis,,4,TRUE,,,FALSE
+R-HSA-8848584,Wax and plasmalogen biosynthesis,Metabolism,FALSE,,,,Metabolism of lipids,,0,FALSE,,,FALSE
+R-HSA-69618,Mitotic Spindle Checkpoint,Cell Cycle,FALSE,,,,Cell Cycle Checkpoints,,4,TRUE,,,FALSE
+R-HSA-166520,Signaling by NTRKs,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,26,TRUE,,,FALSE
+R-HSA-8956321,Nucleotide salvage,Metabolism,FALSE,,,,Metabolism of nucleotides,,0,FALSE,,,FALSE
+R-HSA-500792,GPCR ligand binding,Signal Transduction,FALSE,,,,Signaling by GPCR,,0,FALSE,,,FALSE
+R-HSA-5250913,Positive epigenetic regulation of rRNA expression,Gene expression (Transcription),FALSE,,,,Epigenetic regulation of gene expression,,1,FALSE,,,FALSE
+R-HSA-5576891,Cardiac conduction,Muscle contraction,FALSE,,,,,,9,TRUE,,,FALSE
+R-HSA-449147,Signaling by Interleukins,Immune System,FALSE,,,,Cytokine Signaling in Immune system,,49,TRUE,,,FALSE
+R-HSA-1296346,Tandem pore domain potassium channels,Neuronal System,FALSE,,,,Potassium Channels,,0,FALSE,,,FALSE
+R-HSA-6802952,Signaling by BRAF and RAF1 fusions,Disease,TRUE,cancer,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,15,TRUE,0,,TRUE
+R-HSA-168898,Toll-like Receptor Cascades,Immune System,FALSE,,,,Innate Immune System,,35,TRUE,,,FALSE
+R-HSA-5602498,MyD88 deficiency (TLR2/4),Disease,TRUE,primary immunodeficiency disease,MyD88:MAL(TIRAP) cascade initiated on plasma membrane,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-166058,1,FALSE,0,,TRUE
+R-HSA-5603041,IRAK4 deficiency (TLR2/4),Disease,TRUE,primary immunodeficiency disease,MyD88:MAL(TIRAP) cascade initiated on plasma membrane,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-166058,2,FALSE,0,,TRUE
+R-HSA-9707616,Heme signaling,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,0,FALSE,,,FALSE
+R-HSA-1630316,Glycosaminoglycan metabolism,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-5213460,RIPK1-mediated regulated necrosis,Programmed Cell Death,FALSE,,,,Regulated Necrosis,,2,FALSE,,,FALSE
+R-HSA-75158,TRAIL  signaling,Signal Transduction,FALSE,,,,Death Receptor Signaling,,0,FALSE,,,FALSE
+R-HSA-195253,Degradation of beta-catenin by the destruction complex,Signal Transduction,FALSE,,,,Signaling by WNT,,2,FALSE,,,FALSE
+R-HSA-201681,TCF dependent signaling in response to WNT,Signal Transduction,FALSE,,,,Signaling by WNT,,10,TRUE,,,FALSE
+R-HSA-351202,Metabolism of polyamines,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-382556,ABC-family protein mediated transport,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-3858494,Beta-catenin independent WNT signaling,Signal Transduction,FALSE,,,,Signaling by WNT,,11,TRUE,,,FALSE
+R-HSA-450531,Regulation of mRNA stability by proteins that bind AU-rich elements,Metabolism of RNA,FALSE,,,,,,6,TRUE,,,FALSE
+R-HSA-453276,Regulation of mitotic cell cycle,Cell Cycle,FALSE,,,,"Cell Cycle, Mitotic",,6,TRUE,,,FALSE
+R-HSA-453279,Mitotic G1 phase and G1/S transition,Cell Cycle,FALSE,,,,"Cell Cycle, Mitotic",,17,TRUE,,,FALSE
+R-HSA-5362768,Hh mutants are degraded by ERAD,Disease,TRUE,holoprosencephaly; 46 XY gonadal dysgenesis,Hedgehog ligand biogenesis,mutated_proteins,Hh mutants abrogate ligand secretion,R-HSA-5358346,0,FALSE,0,,TRUE
+R-HSA-5610787,Hedgehog 'off' state,Signal Transduction,FALSE,,,,Signaling by Hedgehog,,7,TRUE,,,FALSE
+R-HSA-5621481,C-type lectin receptors (CLRs),Immune System,FALSE,,,,Innate Immune System,,19,TRUE,,,FALSE
+R-HSA-5668541,TNFR2 non-canonical NF-kB pathway,Immune System,FALSE,,,,Cytokine Signaling in Immune system,,2,FALSE,,,FALSE
+R-HSA-5678895,Defective CFTR causes cystic fibrosis,Disease,TRUE,cystic fibrosis,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5684996,MAPK1/MAPK3 signaling,Signal Transduction,FALSE,,,,MAPK family signaling cascades,,41,TRUE,,,FALSE
+R-HSA-5687128,MAPK6/MAPK4 signaling,Signal Transduction,FALSE,,,,MAPK family signaling cascades,,9,TRUE,,,FALSE
+R-HSA-69002,DNA Replication Pre-Initiation,DNA Replication,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-69239,Synthesis of DNA,Cell Cycle; DNA Replication,FALSE,,,,S Phase,,1,FALSE,,,FALSE
+R-HSA-69242,S Phase,Cell Cycle,FALSE,,,,"Cell Cycle, Mitotic",,9,TRUE,,,FALSE
+R-HSA-69481,G2/M Checkpoints,Cell Cycle,FALSE,,,,Cell Cycle Checkpoints,,9,TRUE,,,FALSE
+R-HSA-69615,G1/S DNA Damage Checkpoints,Cell Cycle,FALSE,,,,Cell Cycle Checkpoints,,11,TRUE,,,FALSE
+R-HSA-9932298,Degradation of CRY and PER proteins,Circadian clock,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9948299,Ribosome-associated quality control,Metabolism of proteins,FALSE,,,,Translation,,0,FALSE,,,FALSE
+R-HSA-201451,Signaling by BMP,Signal Transduction,FALSE,,,,Signaling by TGFB family members,,6,TRUE,,,FALSE
+R-HSA-391160,Signal regulatory protein family interactions,Cell-Cell communication,FALSE,,,,,,3,TRUE,,,FALSE
+R-HSA-170834,Signaling by TGF-beta Receptor Complex,Signal Transduction,FALSE,,,,Signaling by TGFB family members,,7,TRUE,,,FALSE
+R-HSA-381426,Regulation of Insulin-like Growth Factor (IGF) transport and uptake by Insulin-like Growth Factor Binding Proteins (IGFBPs),Metabolism of proteins,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-8957275,Post-translational protein phosphorylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,1,FALSE,,,FALSE
+R-HSA-9976102,Differentiation of naive CD4+ T cells to T helper 2 cells (Th2 cells),Developmental Biology,FALSE,,,,Differentiation of T cells,,0,FALSE,,,FALSE
+R-HSA-2559583,Cellular Senescence,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,26,TRUE,,,FALSE
+R-HSA-9609523,Insertion of tail-anchored proteins into the endoplasmic reticulum membrane,Protein localization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-674695,RNA Polymerase II Pre-transcription Events,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,2,FALSE,,,FALSE
+R-HSA-6807505,RNA polymerase II transcribes snRNA genes,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,2,FALSE,,,FALSE
+R-HSA-72086,mRNA Capping,Metabolism of RNA,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-75955,RNA Polymerase II Transcription Elongation,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,2,FALSE,,,FALSE
+R-HSA-77075,RNA Pol II CTD phosphorylation and interaction with CE,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,1,FALSE,,,FALSE
+R-HSA-73779,RNA Polymerase II Transcription Pre-Initiation And Promoter Opening,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,1,FALSE,,,FALSE
+R-HSA-76042,RNA Polymerase II Transcription Initiation And Promoter Clearance,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,1,FALSE,,,FALSE
+R-HSA-75153,Apoptotic execution phase,Programmed Cell Death,FALSE,,,,Apoptosis,,8,TRUE,,,FALSE
+R-HSA-9700645,ALK mutants bind TKIs,Disease,TRUE,cancer,Signaling by ALK,mutated_proteins,Signaling by ALK in cancer,R-HSA-201556,2,FALSE,1,EIF2AK3,FALSE
+R-HSA-9725370,Signaling by ALK fusions and activated point mutants,Disease,TRUE,cancer,Signaling by ALK,mutated_proteins,Signaling by ALK in cancer,R-HSA-201556,9,TRUE,7,EIF2AK3;MAPK1;MAPK3;MAPK8;MAPK9;TYK2;ZAP70,FALSE
+R-HSA-1433617,Regulation of signaling by NODAL,Developmental Biology,FALSE,,,,Signaling by NODAL,,4,TRUE,,,FALSE
+R-HSA-72613,Eukaryotic Translation Initiation,Metabolism of proteins,FALSE,,,,Translation,,0,FALSE,,,FALSE
+R-HSA-112308,Presynaptic depolarization and calcium channel opening,Neuronal System,FALSE,,,,Transmission across Chemical Synapses,,0,FALSE,,,FALSE
+R-HSA-1368108,"BMAL1:CLOCK,NPAS2 activates circadian expression",Circadian clock,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9931509,"Expression of BMAL (ARNTL), CLOCK, and NPAS2",Circadian clock,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9931510,Phosphorylated BMAL1:CLOCK (ARNTL:CLOCK) activates expression of core clock genes,Circadian clock,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-9931512,"Phosphorylation of CLOCK, acetylation of BMAL1 (ARNTL) at target gene promoters",Circadian clock,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9931521,The CRY:PER:kinase complex represses transactivation by the BMAL:CLOCK (ARNTL:CLOCK) complex,Circadian clock,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-9931529,Phosphorylation and nuclear translocation of BMAL1 (ARNTL) and CLOCK,Circadian clock,FALSE,,,,,,3,TRUE,,,FALSE
+R-HSA-2219530,Constitutive Signaling by Aberrant PI3K in Cancer,Disease,TRUE,cancer,PIP3 activates AKT signaling,mutated_proteins,PI3K/AKT Signaling in Cancer,R-HSA-1257604,19,TRUE,0,,TRUE
+R-HSA-9006335,Signaling by Erythropoietin,Signal Transduction,FALSE,,,,,,3,TRUE,,,FALSE
+R-HSA-9680350,Signaling by CSF1 (M-CSF) in myeloid cells,Immune System,FALSE,,,,Cytokine Signaling in Immune system,,7,TRUE,,,FALSE
+R-HSA-9860931,Response of endothelial cells to shear stress,Cellular responses to stimuli,FALSE,,,,Cellular responses to mechanical stimuli,,19,TRUE,,,FALSE
+R-HSA-5362517,Signaling by Retinoic Acid,Signal Transduction,FALSE,,,,Signaling by Nuclear Receptors,,2,FALSE,,,FALSE
+R-HSA-70268,Pyruvate metabolism,Metabolism,FALSE,,,,Aerobic respiration and respiratory electron transport,,4,TRUE,,,FALSE
+R-HSA-112310,Neurotransmitter release cycle,Neuronal System,FALSE,,,,Transmission across Chemical Synapses,,0,FALSE,,,FALSE
+R-HSA-5619061,Defective SLC33A1 causes spastic paraplegia 42 (SPG42),Disease,TRUE,cataract; hereditary spastic paraplegia; neurodegenerative disease; sensorineural hearing loss,"Transport of vitamins, nucleosides, and related molecules",mutated_proteins,SLC transporter disorders,R-HSA-425397,0,FALSE,0,,TRUE
+R-HSA-203641,NOSTRIN mediated eNOS trafficking,Metabolism,FALSE,,,,Metabolism of nitric oxide: NOS3 activation and regulation,,0,FALSE,,,FALSE
+R-HSA-373753,Nephrin family interactions,Cell-Cell communication,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-418346,Platelet homeostasis,Hemostasis,FALSE,,,,,,4,TRUE,,,FALSE
+R-HSA-1592230,Mitochondrial biogenesis,Organelle biogenesis and maintenance,FALSE,,,,,,5,TRUE,,,FALSE
+R-HSA-163282,Mitochondrial transcription initiation,Gene expression (Transcription),FALSE,,,,Transcription from mitochondrial promoters,,0,FALSE,,,FALSE
+R-HSA-9913635,Strand-asynchronous mitochondrial DNA replication,DNA Replication,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-165159,MTOR signalling,Signal Transduction,FALSE,,,,,,9,TRUE,,,FALSE
+R-HSA-3247509,Chromatin modifying enzymes,Chromatin organization,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-5250941,Negative epigenetic regulation of rRNA expression,Gene expression (Transcription),FALSE,,,,Epigenetic regulation of gene expression,,1,FALSE,,,FALSE
+R-HSA-428359,Insulin-like Growth Factor-2 mRNA Binding Proteins (IGF2BPs/IMPs/VICKZs) bind RNA,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-422356,Regulation of insulin secretion,Metabolism,FALSE,,,,Integration of energy metabolism,,6,TRUE,,,FALSE
+R-HSA-1433557,Signaling by SCF-KIT,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,13,TRUE,,,FALSE
+R-HSA-194138,Signaling by VEGF,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,33,TRUE,,,FALSE
+R-HSA-201556,Signaling by ALK,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,4,TRUE,,,FALSE
+R-HSA-2404192,Signaling by Type 1 Insulin-like Growth Factor 1 Receptor (IGF1R),Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,10,TRUE,,,FALSE
+R-HSA-74752,Signaling by Insulin receptor,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,12,TRUE,,,FALSE
+R-HSA-9670439,"Signaling by phosphorylated juxtamembrane, extracellular and kinase domain KIT mutants",Disease,TRUE,cancer,Signaling by SCF-KIT,mutated_proteins,Signaling by KIT in disease,R-HSA-1433557,8,TRUE,0,,TRUE
+R-HSA-9673767,"Signaling by PDGFRA transmembrane, juxtamembrane and kinase domain mutants",Disease,TRUE,cancer,Signaling by PDGF,mutated_proteins,Signaling by PDGFR in disease,R-HSA-186797,2,FALSE,0,,TRUE
+R-HSA-9673770,Signaling by PDGFRA extracellular domain mutants,Disease,TRUE,cancer,Signaling by PDGF,mutated_proteins,Signaling by PDGFR in disease,R-HSA-186797,2,FALSE,0,,TRUE
+R-HSA-9842640,Signaling by LTK in cancer,Disease,TRUE,cancer; non-small cell lung carcinoma,Signaling by LTK,mutated_proteins,Diseases of signal transduction by growth factor receptors and second messengers,R-HSA-9842663,3,TRUE,2,MAPK1;MAPK3,FALSE
+R-HSA-9842663,Signaling by LTK,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,3,TRUE,,,FALSE
+R-HSA-8853383,Lysosomal oligosaccharide catabolism,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-2187338,Visual phototransduction,Sensory Perception,FALSE,,,,,,5,TRUE,,,FALSE
+R-HSA-3000171,Non-integrin membrane-ECM interactions,Extracellular matrix organization,FALSE,,,,,,3,TRUE,,,FALSE
+R-HSA-3560782,Diseases associated with glycosaminoglycan metabolism,Disease,TRUE,congenital disorder of glycosylation,,mutated_proteins,Diseases of glycosylation,,0,FALSE,,,FALSE
+R-HSA-6806667,Metabolism of fat-soluble vitamins,Metabolism,FALSE,,,,Metabolism of vitamins and cofactors,,0,FALSE,,,FALSE
+R-HSA-9769740,Coagulation pathway,Hemostasis,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5617472,Activation of anterior HOX genes in hindbrain development during early embryogenesis,Developmental Biology,FALSE,,,,Activation of HOX genes during differentiation,,0,FALSE,,,FALSE
+R-HSA-264876,Insulin processing,Metabolism of proteins,FALSE,,,,Peptide hormone metabolism,,0,FALSE,,,FALSE
+R-HSA-8851680,Butyrophilin (BTN) family interactions,Immune System,FALSE,,,,Adaptive Immune System,,0,FALSE,,,FALSE
+R-HSA-210747,Regulation of gene expression in early pancreatic precursor cells,Developmental Biology,FALSE,,,,Regulation of beta-cell development,,0,FALSE,,,FALSE
+R-HSA-72312,rRNA processing,Metabolism of RNA,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-2660825,Signaling by NOTCH1 t(7;9)(NOTCH1:M1580_K2555) Translocation Mutant,Disease,TRUE,T-cell acute lymphoblastic leukemia; cancer,Signaling by NOTCH1,mutated_proteins,Signaling by NOTCH1 in Cancer,R-HSA-1980143,0,FALSE,0,,TRUE
+R-HSA-9734779,Developmental Cell Lineages of the Integumentary System,Developmental Biology,FALSE,,,,Developmental Cell Lineages,,3,TRUE,,,FALSE
+R-HSA-9831926,Nephron development,Developmental Biology,FALSE,,,,Kidney development,,0,FALSE,,,FALSE
+R-HSA-9823739,Formation of the anterior neural plate,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-9832991,Formation of the posterior neural plate,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-9603798,Class I peroxisomal membrane protein import,Protein localization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-8935690,Digestion,Digestion and absorption,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-525793,Myogenesis,Developmental Biology,FALSE,,,,,,5,TRUE,,,FALSE
+R-HSA-73980,RNA Polymerase III Transcription Termination,Gene expression (Transcription),FALSE,,,,RNA Polymerase III Transcription,,0,FALSE,,,FALSE
+R-HSA-9659787,Aberrant regulation of mitotic G1/S transition in cancer due to RB1 defects,Disease,TRUE,cancer,,mutated_proteins,Aberrant regulation of mitotic cell cycle due to RB1 defects,,4,TRUE,,,FALSE
+R-HSA-157579,Telomere Maintenance,Cell Cycle,FALSE,,,,Chromosome Maintenance,,1,FALSE,,,FALSE
+R-HSA-3238698,WNT ligand biogenesis and trafficking,Signal Transduction,FALSE,,,,Signaling by WNT,,0,FALSE,,,FALSE
+R-HSA-499943,Interconversion of nucleotide di- and triphosphates,Metabolism,FALSE,,,,Metabolism of nucleotides,,0,FALSE,,,FALSE
+R-HSA-9749641,Aspirin ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9687136,Aberrant regulation of mitotic exit in cancer due to RB1 defects,Disease,TRUE,cancer,Regulation of mitotic cell cycle,mutated_proteins,Aberrant regulation of mitotic cell cycle due to RB1 defects,R-HSA-453276,0,FALSE,0,,TRUE
+R-HSA-163765,ChREBP activates metabolic gene expression,Metabolism,FALSE,,,,Integration of energy metabolism,,0,FALSE,,,FALSE
+R-HSA-196849,Metabolism of water-soluble vitamins and cofactors,Metabolism,FALSE,,,,Metabolism of vitamins and cofactors,,0,FALSE,,,FALSE
+R-HSA-9024446,NR1H2 and NR1H3-mediated signaling,Signal Transduction,FALSE,,,,Signaling by Nuclear Receptors,,0,FALSE,,,FALSE
+R-HSA-9635486,Infection with Mycobacterium tuberculosis,Disease,TRUE,tuberculosis,,infectious_disease,Bacterial Infection Pathways,,3,TRUE,,,FALSE
+R-HSA-6794361,Neurexins and neuroligins,Neuronal System,FALSE,,,,Protein-protein interactions at synapses,,0,FALSE,,,FALSE
+R-HSA-9932444,ATP-dependent chromatin remodelers,Chromatin organization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9607240,FLT3 Signaling,Immune System,FALSE,,,,Cytokine Signaling in Immune system,,11,TRUE,,,FALSE
+R-HSA-982772,Growth hormone receptor signaling,Immune System,FALSE,,,,Cytokine Signaling in Immune system,,4,TRUE,,,FALSE
+R-HSA-1227986,Signaling by ERBB2,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,16,TRUE,,,FALSE
+R-HSA-1236394,Signaling by ERBB4,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,5,TRUE,,,FALSE
+R-HSA-9006927,Signaling by Non-Receptor Tyrosine Kinases,Signal Transduction,FALSE,,,,,,10,TRUE,,,FALSE
+R-HSA-9664565,Signaling by ERBB2 KD Mutants,Disease,TRUE,cancer,Signaling by ERBB2,mutated_proteins,Signaling by ERBB2 in Cancer,R-HSA-1227986,5,TRUE,0,,TRUE
+R-HSA-9665686,Signaling by ERBB2 TMD/JMD mutants,Disease,TRUE,cancer,Signaling by ERBB2,mutated_proteins,Signaling by ERBB2 in Cancer,R-HSA-1227986,4,TRUE,0,,TRUE
+R-HSA-445717,Aquaporin-mediated transport,Transport of small molecules,FALSE,,,,,,5,TRUE,,,FALSE
+R-HSA-2586552,Signaling by Leptin,Signal Transduction,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-9674555,Signaling by CSF3 (G-CSF),Immune System,FALSE,,,,Cytokine Signaling in Immune system,,6,TRUE,,,FALSE
+R-HSA-5368287,Mitochondrial translation,Metabolism of proteins,FALSE,,,,Translation,,0,FALSE,,,FALSE
+R-HSA-381119,Unfolded Protein Response (UPR),Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,3,TRUE,,,FALSE
+R-HSA-1296065,Inwardly rectifying K+ channels,Neuronal System,FALSE,,,,Potassium Channels,,0,FALSE,,,FALSE
+R-HSA-2028269,Signaling by Hippo,Signal Transduction,FALSE,,,,,,4,TRUE,,,FALSE
+R-HSA-177929,Signaling by EGFR,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,4,TRUE,,,FALSE
+R-HSA-3296469,Defects in cobalamin (B12) metabolism,Disease,TRUE,vitamin B12 deficiency,,mutated_proteins,Defects in vitamin and cofactor metabolism,,0,FALSE,,,FALSE
+R-HSA-5683329,Defective ABCD4 causes MAHCJ,Disease,TRUE,homocystinuria; methylmalonic acidemia,Metabolism of water-soluble vitamins and cofactors,mutated_proteins,ABC transporter disorders; Defects in cobalamin (B12) metabolism,R-HSA-196849,0,FALSE,0,,TRUE
+R-HSA-9944997,Loss of Function of KMT2D in MLL4 Complex Formation in Kabuki Syndrome,Disease,TRUE,Kabuki syndrome,Formation of WDR5-containing histone-modifying complexes,mutated_proteins,Loss of Function of KMT2D in Kabuki Syndrome,R-HSA-9772755,0,FALSE,0,,TRUE
+R-HSA-109606,Intrinsic Pathway for Apoptosis,Programmed Cell Death,FALSE,,,,Apoptosis,,6,TRUE,,,FALSE
+R-HSA-1855183,"Synthesis of IP2, IP, and Ins in the cytosol",Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-5339562,Uptake and actions of bacterial toxins,Disease,TRUE,primary bacterial infectious disease,,infectious_disease,Bacterial Infection Pathways,,7,TRUE,,,FALSE
+R-HSA-9856649,Transcriptional and post-translational regulation of MITF-M expression and activity,Developmental Biology,FALSE,,,,MITF-M-regulated melanocyte development,,7,TRUE,,,FALSE
+R-HSA-1834949,Cytosolic sensors of pathogen-associated DNA,Immune System,FALSE,,,,Innate Immune System,,7,TRUE,,,FALSE
+R-HSA-73780,RNA Polymerase III Chain Elongation,Gene expression (Transcription),FALSE,,,,RNA Polymerase III Transcription,,0,FALSE,,,FALSE
+R-HSA-9660537,Signaling by MRAS-complex mutants,Disease,TRUE,Noonan syndrome; esophageal carcinoma,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,3,TRUE,0,,TRUE
+R-HSA-5578998,Defective OPLAH causes OPLAHD,Disease,TRUE,inherited metabolic disorder,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-168643,"Nucleotide-binding domain, leucine rich repeat containing receptor (NLR) signaling pathways",Immune System,FALSE,,,,Innate Immune System,,11,TRUE,,,FALSE
+R-HSA-70895,Branched-chain amino acid catabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,1,FALSE,,,FALSE
+R-HSA-9912481,Branched-chain ketoacid dehydrogenase kinase deficiency,Disease,TRUE,branched-chain keto acid dehydrogenase kinase deficiency; amino acid metabolic disorder,Branched-chain amino acid catabolism,mutated_proteins,Diseases of branched-chain amino acid catabolism,R-HSA-70895,1,FALSE,0,,TRUE
+R-HSA-190236,Signaling by FGFR,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,10,TRUE,,,FALSE
+R-HSA-9839373,Signaling by TGFBR3,Signal Transduction,FALSE,,,,Signaling by TGFB family members,,3,TRUE,,,FALSE
+R-HSA-168928,DDX58/IFIH1-mediated induction of interferon-alpha/beta,Immune System,FALSE,,,,Innate Immune System,,7,TRUE,,,FALSE
+R-HSA-5602636,IKBKB deficiency causes SCID,Disease,TRUE,severe combined immunodeficiency,TAK1-dependent IKK and NF-kappa-B activation  ,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-445989,3,TRUE,0,,TRUE
+R-HSA-5603027,IKBKG deficiency causes anhidrotic ectodermal dysplasia with immunodeficiency (EDA-ID) (via TLR),Disease,TRUE,primary immunodeficiency disease,TAK1-dependent IKK and NF-kappa-B activation  ,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-445989,3,TRUE,0,,TRUE
+R-HSA-5603029,IkBA variant leads to EDA-ID,Disease,TRUE,primary immunodeficiency disease,TAK1-dependent IKK and NF-kappa-B activation  ,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-445989,3,TRUE,0,,TRUE
+R-HSA-75893,TNF signaling,Signal Transduction,FALSE,,,,Death Receptor Signaling,,9,TRUE,,,FALSE
+R-HSA-1268020,Mitochondrial protein import,Protein localization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-73893,DNA Damage Bypass,DNA Repair,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5638302,Signaling by Overexpressed Wild-Type EGFR in Cancer,Disease,TRUE,cancer,Signaling by EGFR,mutated_proteins,Signaling by EGFR in Cancer,R-HSA-177929,1,FALSE,0,,TRUE
+R-HSA-9837999,Mitochondrial protein degradation,Metabolism of proteins,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-445355,Smooth Muscle Contraction,Muscle contraction,FALSE,,,,,,3,TRUE,,,FALSE
+R-HSA-6806834,Signaling by MET,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,4,TRUE,,,FALSE
+R-HSA-8876384,Listeria monocytogenes entry into host cells,Disease,TRUE,listeriosis,,infectious_disease,Bacterial Infection Pathways,,2,FALSE,,,FALSE
+R-HSA-9706019,RHOBTB3 ATPase cycle,Signal Transduction,FALSE,,,,"Signaling by Rho GTPases, Miro GTPases and RHOBTB3",,0,FALSE,,,FALSE
+R-HSA-9821002,Chromatin modifications during the maternal to zygotic transition (MZT),Developmental Biology,FALSE,,,,Maternal to zygotic transition (MZT),,0,FALSE,,,FALSE
+R-HSA-9931530,Phosphorylation and nuclear translocation of the CRY:PER:kinase complex,Circadian clock,FALSE,,,,,,6,TRUE,,,FALSE
+R-HSA-8956320,Nucleotide biosynthesis,Metabolism,FALSE,,,,Metabolism of nucleotides,,0,FALSE,,,FALSE
+R-HSA-174824,"Plasma lipoprotein assembly, remodeling, and clearance",Transport of small molecules,FALSE,,,,,,3,TRUE,,,FALSE
+R-HSA-73762,RNA Polymerase I Transcription Initiation,Gene expression (Transcription),FALSE,,,,RNA Polymerase I Transcription,,1,FALSE,,,FALSE
+R-HSA-73772,RNA Polymerase I Promoter Escape,Gene expression (Transcription),FALSE,,,,RNA Polymerase I Transcription,,1,FALSE,,,FALSE
+R-HSA-73863,RNA Polymerase I Transcription Termination,Gene expression (Transcription),FALSE,,,,RNA Polymerase I Transcription,,1,FALSE,,,FALSE
+R-HSA-5655302,Signaling by FGFR1 in disease,Disease,TRUE,cancer; bone development disease,Signaling by FGFR1,mutated_proteins,Signaling by FGFR in disease,R-HSA-5654736,2,FALSE,0,,TRUE
+R-HSA-4839735,Signaling by AXIN mutants,Disease,TRUE,cancer,,mutated_proteins,Signaling by WNT in cancer,,2,FALSE,,,FALSE
+R-HSA-4839743,Signaling by CTNNB1 phospho-site mutants,Disease,TRUE,cancer,,mutated_proteins,Signaling by WNT in cancer,,2,FALSE,,,FALSE
+R-HSA-4839744,Signaling by APC mutants,Disease,TRUE,cancer,,mutated_proteins,Signaling by WNT in cancer,,2,FALSE,,,FALSE
+R-HSA-4839748,Signaling by AMER1 mutants,Disease,TRUE,cancer; kidney cancer; nephroblastoma,,mutated_proteins,Signaling by WNT in cancer,,2,FALSE,,,FALSE
+R-HSA-5339716,Signaling by GSK3beta mutants,Disease,TRUE,chronic myeloid leukemia,Degradation of beta-catenin by the destruction complex,mutated_proteins,Signaling by WNT in cancer,R-HSA-195253,2,FALSE,0,,TRUE
+R-HSA-9733709,Cardiogenesis,Developmental Biology,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9754189,Germ layer formation at gastrulation,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-9758919,Epithelial-Mesenchymal Transition (EMT) during gastrulation,Developmental Biology,FALSE,,,,Gastrulation,,1,FALSE,,,FALSE
+R-HSA-9823730,Formation of definitive endoderm,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-71240,Tryptophan catabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-3000157,Laminin interactions,Extracellular matrix organization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9820448,Developmental Cell Lineages of the Exocrine Pancreas,Developmental Biology,FALSE,,,,Developmental Cell Lineages,,0,FALSE,,,FALSE
+R-HSA-9981148,Developmental Lineage of Pancreatic Endocrine Mid Progenitor Cells,Developmental Biology,FALSE,,,,Developmental Cell Lineages,,0,FALSE,,,FALSE
+R-HSA-927802,Nonsense-Mediated Decay (NMD),Metabolism of RNA,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-112311,Neurotransmitter clearance,Neuronal System,FALSE,,,,Transmission across Chemical Synapses,,0,FALSE,,,FALSE
+R-HSA-2161522,Abacavir ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9793528,Ciprofloxacin ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-390522,Striated Muscle Contraction,Muscle contraction,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-5609975,Diseases associated with glycosylation precursor biosynthesis,Disease,TRUE,congenital disorder of glycosylation,,mutated_proteins,Diseases of glycosylation,,0,FALSE,,,FALSE
+R-HSA-9701190,Defective homologous recombination repair (HRR) due to BRCA2 loss of function,Disease,TRUE,cancer,,mutated_proteins,Diseases of DNA Double-Strand Break Repair,,2,FALSE,,,FALSE
+R-HSA-9701192,Defective homologous recombination repair (HRR) due to BRCA1 loss of function,Disease,TRUE,cancer,HDR through Homologous Recombination (HRR) or Single Strand Annealing (SSA),mutated_proteins,Diseases of DNA Double-Strand Break Repair,R-HSA-5693567,1,FALSE,0,,TRUE
+R-HSA-9701193,Defective homologous recombination repair (HRR) due to PALB2 loss of function,Disease,TRUE,cancer,,mutated_proteins,Diseases of DNA Double-Strand Break Repair,,1,FALSE,,,FALSE
+R-HSA-1222556,ROS and RNS production in phagocytes,Immune System,FALSE,,,,Innate Immune System,,0,FALSE,,,FALSE
+R-HSA-917937,Iron uptake and transport,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-1855204,Synthesis of IP3 and IP4 in the cytosol,Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-9005895,Pervasive developmental disorders,Disease,TRUE,pervasive developmental disorder,,mutated_proteins,Disorders of Nervous System Development,,2,FALSE,,,FALSE
+R-HSA-9933387,"RORA,B,C and NR1D1 (REV-ERBA) regulate gene expression",Circadian clock,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5578749,Transcriptional regulation by small RNAs,Gene expression (Transcription),FALSE,,,,Gene Silencing by RNA,,0,FALSE,,,FALSE
+R-HSA-8849932,Synaptic adhesion-like molecules,Neuronal System,FALSE,,,,Protein-protein interactions at synapses,,0,FALSE,,,FALSE
+R-HSA-9748787,Azathioprine ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5602410,TLR3 deficiency - HSE,Disease,TRUE,primary immunodeficiency disease,Toll Like Receptor 3 (TLR3) Cascade,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-168164,0,FALSE,0,,TRUE
+R-HSA-5602415,UNC93B1 deficiency - HSE,Disease,TRUE,primary immunodeficiency disease,Trafficking and processing of endosomal TLR,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-1679131,0,FALSE,0,,TRUE
+R-HSA-5602566,TICAM1 deficiency - HSE,Disease,TRUE,primary immunodeficiency disease,Toll Like Receptor 3 (TLR3) Cascade,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-168164,0,FALSE,0,,TRUE
+R-HSA-5602571,TRAF3 deficiency - HSE,Disease,TRUE,primary immunodeficiency disease,Toll Like Receptor 3 (TLR3) Cascade,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-168164,0,FALSE,0,,TRUE
+R-HSA-912446,Meiotic recombination,Cell Cycle; Reproduction,FALSE,,,,Meiosis,,3,TRUE,,,FALSE
+R-HSA-3229121,Glycogen storage diseases,Disease,TRUE,glycogen storage disease,,mutated_proteins,Diseases of carbohydrate metabolism,,0,FALSE,,,FALSE
+R-HSA-8982491,Glycogen metabolism,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,3,TRUE,,,FALSE
+R-HSA-203927,MicroRNA (miRNA) biogenesis,Gene expression (Transcription),FALSE,,,,Gene Silencing by RNA,,0,FALSE,,,FALSE
+R-HSA-5601884,PIWI-interacting RNA (piRNA) biogenesis,Gene expression (Transcription),FALSE,,,,Gene Silencing by RNA,,0,FALSE,,,FALSE
+R-HSA-5655253,Signaling by FGFR2 in disease,Disease,TRUE,cancer; bone development disease,Signaling by FGFR2,mutated_proteins,Signaling by FGFR in disease,R-HSA-5654738,2,FALSE,0,,TRUE
+R-HSA-5696398,Nucleotide Excision Repair,DNA Repair,FALSE,,,,,,1,FALSE,,,FALSE
+R-HSA-73884,Base Excision Repair,DNA Repair,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9656249,Defective Base Excision Repair Associated with OGG1,Disease,TRUE,cancer; Alzheimer's disease,,mutated_proteins,Diseases of Base Excision Repair,,0,FALSE,,,FALSE
+R-HSA-5579014,Defective CYP27B1 causes VDDR1A,Disease,TRUE,rickets,Vitamin D (calciferol) metabolism,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-196791,0,FALSE,0,,TRUE
+R-HSA-354192,Integrin signaling,Hemostasis; Signal Transduction,FALSE,,,,Platelet Aggregation (Plug Formation),,6,TRUE,,,FALSE
+R-HSA-1296052,Ca2+ activated K+ channels,Neuronal System,FALSE,,,,Potassium Channels,,0,FALSE,,,FALSE
+R-HSA-5221030,"TET1,2,3 and TDG demethylate DNA",Gene expression (Transcription),FALSE,,,,Epigenetic regulation of gene expression,,0,FALSE,,,FALSE
+R-HSA-203615,eNOS activation,Metabolism,FALSE,,,,Metabolism of nitric oxide: NOS3 activation and regulation,,1,FALSE,,,FALSE
+R-HSA-8941237,Invadopodia formation,Extracellular matrix organization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9830674,Formation of the ureteric bud,Developmental Biology,FALSE,,,,Kidney development,,1,FALSE,,,FALSE
+R-HSA-2408522,Selenoamino acid metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-70688,Proline catabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-8852405,Signaling by MST1,Signal Transduction,FALSE,,,,Signaling by Receptor Tyrosine Kinases,,1,FALSE,,,FALSE
+R-HSA-1489509,DAG and IP3 signaling,Signal Transduction,FALSE,,,,Intracellular signaling by second messengers,,18,TRUE,,,FALSE
+R-HSA-163359,Glucagon signaling in metabolic regulation,Metabolism,FALSE,,,,Integration of energy metabolism,,5,TRUE,,,FALSE
+R-HSA-1855167,Synthesis of pyrophosphates in the cytosol,Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-210746,Regulation of gene expression in endocrine-committed (NEUROG3+) progenitor cells,Developmental Biology,FALSE,,,,Regulation of beta-cell development,,0,FALSE,,,FALSE
+R-HSA-9645460,Alpha-protein kinase 1 signaling pathway,Immune System,FALSE,,,,Innate Immune System,,2,FALSE,,,FALSE
+R-HSA-5655332,Signaling by FGFR3 in disease,Disease,TRUE,cancer; bone development disease,Signaling by FGFR3,mutated_proteins,Signaling by FGFR in disease,R-HSA-5654741,2,FALSE,0,,TRUE
+R-HSA-5658034,HHAT G278V doesn't palmitoylate Hh-Np,Disease,TRUE,46 XY gonadal dysgenesis,Hedgehog ligand biogenesis,mutated_proteins,Hh mutants abrogate ligand secretion,R-HSA-5358346,0,FALSE,0,,TRUE
+R-HSA-9690406,Transcriptional regulation of testis differentiation,Developmental Biology,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-379724,tRNA Aminoacylation,Metabolism of proteins,FALSE,,,,Translation,,0,FALSE,,,FALSE
+R-HSA-9827857,Specification of primordial germ cells,Reproduction,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-1296072,Voltage gated Potassium channels,Neuronal System,FALSE,,,,Potassium Channels,,0,FALSE,,,FALSE
+R-HSA-9841251,Mitochondrial unfolded protein response (UPRmt),Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,1,FALSE,,,FALSE
+R-HSA-422085,"Synthesis, secretion, and deacylation of Ghrelin",Metabolism of proteins,FALSE,,,,Peptide hormone metabolism,,0,FALSE,,,FALSE
+R-HSA-2534343,Interaction With Cumulus Cells And The Zona Pellucida,Reproduction,FALSE,,,,Fertilization,,0,FALSE,,,FALSE
+R-HSA-5619046,Defective SLC26A4 causes Pendred syndrome (PDS),Disease,TRUE,sensorineural hearing loss; goiter,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-8863678,Neurodegenerative Diseases,Disease,TRUE,neurodegenerative disease,,mutated_proteins,Defective Intrinsic Pathway for Apoptosis,,1,FALSE,,,FALSE
+R-HSA-1475029,Reversible hydration of carbon dioxide,Metabolism,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-8956319,Nucleotide catabolism,Metabolism,FALSE,,,,Metabolism of nucleotides,,0,FALSE,,,FALSE
+R-HSA-5620971,Pyroptosis,Programmed Cell Death,FALSE,,,,Regulated Necrosis,,0,FALSE,,,FALSE
+R-HSA-8963691,Phenylalanine and tyrosine metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-163680,AMPK inhibits chREBP transcriptional activation activity,Metabolism,FALSE,,,,Integration of energy metabolism,,2,FALSE,,,FALSE
+R-HSA-73856,RNA Polymerase II Transcription Termination,Gene expression (Transcription),FALSE,,,,RNA Polymerase II Transcription,,0,FALSE,,,FALSE
+R-HSA-75067,Processing of Capped Intronless Pre-mRNA,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9673766,Signaling by cytosolic PDGFRA and PDGFRB fusion proteins,Disease,TRUE,cancer,Signaling by PDGF,mutated_proteins,Signaling by PDGFR in disease,R-HSA-186797,0,FALSE,0,,TRUE
+R-HSA-9033658,Blood group systems biosynthesis,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-9755088,Ribavirin ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9930044,Nuclear RNA decay,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9715370,Miro GTPase Cycle,Signal Transduction,FALSE,,,,"Signaling by Rho GTPases, Miro GTPases and RHOBTB3",,0,FALSE,,,FALSE
+R-HSA-5340588,Signaling by RNF43 mutants,Disease,TRUE,cancer,TCF dependent signaling in response to WNT,mutated_proteins,Signaling by WNT in cancer,R-HSA-201681,0,FALSE,0,,TRUE
+R-HSA-5682910,LGI-ADAM interactions,Developmental Biology,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-210744,Regulation of gene expression in late stage (branching morphogenesis) pancreatic bud precursor cells,Developmental Biology,FALSE,,,,Regulation of beta-cell development,,0,FALSE,,,FALSE
+R-HSA-9710421,Defective pyroptosis,Disease,TRUE,cancer; breast carcinoma; colon adenocarcinoma; gastric adenocarcinoma; head and neck squamous cell carcinoma; lung adenocarcinoma; melanoma,Pyroptosis,mutated_proteins,Diseases of programmed cell death,R-HSA-5620971,0,FALSE,0,,TRUE
+R-HSA-2892247,"POU5F1 (OCT4), SOX2, NANOG activate genes related to proliferation",Developmental Biology,FALSE,,,,Transcriptional regulation of pluripotent stem cells,,1,FALSE,,,FALSE
+R-HSA-9662001,Defective factor VIII causes hemophilia A,Disease,TRUE,factor VIII deficiency,,mutated_proteins,Defects of Coagulation cascade,,0,FALSE,,,FALSE
+R-HSA-9843743,Transcriptional regulation of brown and beige adipocyte differentiation,Developmental Biology,FALSE,,,,Adipogenesis,,0,FALSE,,,FALSE
+R-HSA-5602680,MyD88 deficiency (TLR5),Disease,TRUE,primary immunodeficiency disease,MyD88 cascade initiated on plasma membrane,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-975871,0,FALSE,0,,TRUE
+R-HSA-5603037,IRAK4 deficiency (TLR5),Disease,TRUE,primary immunodeficiency disease,MyD88 cascade initiated on plasma membrane,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-975871,1,FALSE,0,,TRUE
+R-HSA-9613829,Chaperone Mediated Autophagy,Autophagy,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-1170546,Prolactin receptor signaling,Immune System,FALSE,,,,Cytokine Signaling in Immune system,,1,FALSE,,,FALSE
+R-HSA-6802946,Signaling by moderate kinase activity BRAF mutants,Disease,TRUE,cancer,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,16,TRUE,0,,TRUE
+R-HSA-6802949,Signaling by RAS mutants,Disease,TRUE,cancer; Noonan syndrome,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,16,TRUE,0,,TRUE
+R-HSA-6802955,Paradoxical activation of RAF signaling by kinase inactive BRAF,Disease,TRUE,cancer,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,16,TRUE,0,,TRUE
+R-HSA-9656223,Signaling by RAF1 mutants,Disease,TRUE,Noonan syndrome; cancer; Costello syndrome; LEOPARD syndrome; hypertrophic cardiomyopathy,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,15,TRUE,0,,TRUE
+R-HSA-8876725,Protein methylation,Metabolism of proteins,FALSE,,,,Post-translational protein modification,,0,FALSE,,,FALSE
+R-HSA-9942503,Differentiation of naive CD4+ T cells to T helper 1 cells (Th1 cells),Developmental Biology,FALSE,,,,Differentiation of T cells,,0,FALSE,,,FALSE
+R-HSA-5678420,"Defective ABCC9 causes CMD10, ATFB12 and Cantu syndrome",Disease,TRUE,dilated cardiomyopathy; familial atrial fibrillation; osteochondrodysplasia; hypertrichosis,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5619077,Defective SLC24A1 causes congenital stationary night blindness 1D (CSNB1D),Disease,TRUE,congenital stationary night blindness,Visual phototransduction,mutated_proteins,SLC transporter disorders,R-HSA-2187338,0,FALSE,0,,TRUE
+R-HSA-1296061,HCN channels,Neuronal System,FALSE,,,,Potassium Channels,,0,FALSE,,,FALSE
+R-HSA-5334118,DNA methylation,Gene expression (Transcription),FALSE,,,,Epigenetic regulation of gene expression,,0,FALSE,,,FALSE
+R-HSA-73728,RNA Polymerase I Promoter Opening,Gene expression (Transcription),FALSE,,,,RNA Polymerase I Transcription,,1,FALSE,,,FALSE
+R-HSA-9616222,Transcriptional regulation of granulopoiesis,Developmental Biology,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-9821993,Replacement of protamines by nucleosomes in the male pronucleus,Developmental Biology,FALSE,,,,Maternal to zygotic transition (MZT),,1,FALSE,,,FALSE
+R-HSA-9970672,FXIIa activates plasma kallikrein-kinin system,Immune System,FALSE,,,,Innate Immune System,,0,FALSE,,,FALSE
+R-HSA-5223345,Miscellaneous transport and binding events,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-2564830,Cytosolic iron-sulfur cluster assembly,Metabolism,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-388844,Receptor-type tyrosine-protein phosphatases,Neuronal System,FALSE,,,,Protein-protein interactions at synapses,,1,FALSE,,,FALSE
+R-HSA-5661270,Formation of xylulose-5-phosphate,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-5339717,Signaling by LRP5 mutants,Disease,TRUE,breast cancer; parathyroid carcinoma,TCF dependent signaling in response to WNT,mutated_proteins,Signaling by WNT in cancer,R-HSA-201681,0,FALSE,0,,TRUE
+R-HSA-8978934,Metabolism of cofactors,Metabolism,FALSE,,,,Metabolism of vitamins and cofactors,,2,FALSE,,,FALSE
+R-HSA-3781860,Diseases associated with N-glycosylation of proteins,Disease,TRUE,congenital disorder of glycosylation,,mutated_proteins,Diseases of glycosylation,,0,FALSE,,,FALSE
+R-HSA-8949215,Mitochondrial calcium ion transport,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-426486,Small interfering RNA (siRNA) biogenesis,Gene expression (Transcription),FALSE,,,,Gene Silencing by RNA,,0,FALSE,,,FALSE
+R-HSA-75892,Platelet Adhesion to exposed collagen,Hemostasis,FALSE,,,,,,2,FALSE,,,FALSE
+R-HSA-1502540,Signaling by Activin,Signal Transduction,FALSE,,,,Signaling by TGFB family members,,6,TRUE,,,FALSE
+R-HSA-8963693,Aspartate and asparagine metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-2022377,Metabolism of Angiotensinogen to Angiotensins,Metabolism of proteins,FALSE,,,,Peptide hormone metabolism,,0,FALSE,,,FALSE
+R-HSA-9757110,Prednisone ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9648895,Response of EIF2AK1 (HRI) to heme deficiency,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,2,FALSE,,,FALSE
+R-HSA-2978092,Abnormal conversion of 2-oxoglutarate to 2-hydroxyglutarate,Disease,TRUE,glioblastoma,,mutated_proteins,Diseases of metabolism,,0,FALSE,,,FALSE
+R-HSA-5579013,Defective CYP7B1 causes SPG5A and CBAS3,Disease,TRUE,hereditary spastic paraplegia,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-71262,Carnitine synthesis,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-163210,Formation of ATP by chemiosmotic coupling,Metabolism,FALSE,,,,Aerobic respiration and respiratory electron transport,,0,FALSE,,,FALSE
+R-HSA-5619053,Defective SLC22A5 causes systemic primary carnitine deficiency (CDSP),Disease,TRUE,systemic primary carnitine deficiency disease,SLC-mediated transport of organic cations,mutated_proteins,SLC transporter disorders,R-HSA-549127,0,FALSE,0,,TRUE
+R-HSA-1799339,SRP-dependent cotranslational protein targeting to membrane,Metabolism of proteins,FALSE,,,,Translation,,0,FALSE,,,FALSE
+R-HSA-8964539,Glutamate and glutamine metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-189483,Heme degradation,Metabolism,FALSE,,,,Metabolism of porphyrins,,0,FALSE,,,FALSE
+R-HSA-9754706,Atorvastatin ADME,Drug ADME,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-210745,Regulation of gene expression in beta cells,Developmental Biology,FALSE,,,,Regulation of beta-cell development,,3,TRUE,,,FALSE
+R-HSA-9856532,Mechanical load activates signaling by PIEZO1 and integrins in osteocytes,Cellular responses to stimuli,FALSE,,,,Cellular responses to mechanical stimuli,,1,FALSE,,,FALSE
+R-HSA-2453864,Retinoid cycle disease events,Disease,TRUE,retinal disease,,mutated_proteins,Diseases associated with visual transduction,,0,FALSE,,,FALSE
+R-HSA-5690338,Defective ABCC6 causes PXE,Disease,TRUE,pseudoxanthoma elasticum,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-166187,Mitochondrial Uncoupling,Metabolism,FALSE,,,,Aerobic respiration and respiratory electron transport,,0,FALSE,,,FALSE
+R-HSA-392517,Rap1 signalling,Immune System,FALSE,,,,Adaptive Immune System,,5,TRUE,,,FALSE
+R-HSA-5545619,XAV939 stabilizes AXIN,Disease,TRUE,cancer,TCF dependent signaling in response to WNT,mutated_proteins,Signaling by WNT in cancer,R-HSA-201681,0,FALSE,0,,TRUE
+R-HSA-71336,Pentose phosphate pathway,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-5678520,Defective ABCB11 causes PFIC2 and BRIC2,Disease,TRUE,intrahepatic cholestasis,Bile acid and bile salt metabolism,mutated_proteins,ABC transporter disorders,R-HSA-194068,0,FALSE,0,,TRUE
+R-HSA-1566948,Elastic fibre formation,Extracellular matrix organization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-3304349,Loss of Function of SMAD2/3 in Cancer,Disease,TRUE,cancer,,mutated_proteins,Signaling by TGF-beta Receptor Complex in Cancer,,2,FALSE,,,FALSE
+R-HSA-3656534,Loss of Function of TGFBR1 in Cancer,Disease,TRUE,cancer,,mutated_proteins,Signaling by TGF-beta Receptor Complex in Cancer,,2,FALSE,,,FALSE
+R-HSA-5619045,Defective SLC34A2 causes pulmonary alveolar microlithiasis (PALM),Disease,TRUE,pulmonary alveolar microlithiasis,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-5683826,Surfactant metabolism,Metabolism of proteins,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5687583,Defective SLC34A2 causes PALM,Disease,TRUE,pulmonary alveolar microlithiasis,Surfactant metabolism,mutated_proteins,Diseases associated with surfactant metabolism,R-HSA-5683826,0,FALSE,0,,TRUE
+R-HSA-5682113,Defective ABCA1 causes TGD,Disease,TRUE,Tangier disease,"Plasma lipoprotein assembly, remodeling, and clearance",mutated_proteins,ABC transporter disorders,R-HSA-174824,0,FALSE,0,,TRUE
+R-HSA-5619068,Defective SLC2A10 causes arterial tortuosity syndrome (ATS),Disease,TRUE,arterial tortuosity syndrome,Cellular hexose transport,mutated_proteins,SLC transporter disorders,R-HSA-189200,0,FALSE,0,,TRUE
+R-HSA-1614635,Sulfur amino acid metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-9937008,Mitochondrial mRNA modification,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5652084,Fructose metabolism,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-2160456,Phenylketonuria,Disease,TRUE,phenylketonuria,Phenylalanine and tyrosine metabolism,mutated_proteins,Diseases of metabolism,R-HSA-8963691,0,FALSE,0,,TRUE
+R-HSA-5619049,Defective SLC40A1 causes hemochromatosis 4 (HFE4) (macrophages),Disease,TRUE,hemochromatosis,Iron uptake and transport,mutated_proteins,SLC transporter disorders,R-HSA-917937,0,FALSE,0,,TRUE
+R-HSA-5619060,Defective CP causes aceruloplasminemia (ACERULOP),Disease,TRUE,aceruloplasminemia,Iron uptake and transport,mutated_proteins,SLC transporter disorders,R-HSA-917937,0,FALSE,0,,TRUE
+R-HSA-9668250,Defective factor IX causes hemophilia B,Disease,TRUE,hemophilia B,,mutated_proteins,Defects of Coagulation cascade,,0,FALSE,,,FALSE
+R-HSA-9672383,Defective factor IX causes thrombophilia,Disease,TRUE,thrombophilia,Coagulation pathway,mutated_proteins,Defects of Coagulation cascade,R-HSA-9769740,0,FALSE,0,,TRUE
+R-HSA-70635,Urea cycle,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-9956522,OTC variants cause OTC deficiency,Disease,TRUE,ornithine carbamoyltransferase deficiency,Urea cycle,mutated_proteins,Diseases of the urea cycle,R-HSA-70635,0,FALSE,0,,TRUE
+R-HSA-9735786,Nucleotide catabolism defects,Disease,TRUE,purine-pyrimidine metabolic disorder,,mutated_proteins,Diseases of nucleotide metabolism,,0,FALSE,,,FALSE
+R-HSA-9734207,Nucleotide salvage defects,Disease,TRUE,purine-pyrimidine metabolic disorder,Nucleotide salvage,mutated_proteins,Diseases of nucleotide metabolism,R-HSA-8956321,0,FALSE,0,,TRUE
+R-HSA-389661,Glyoxylate metabolism and glycine degradation,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-5637812,Signaling by EGFRvIII in Cancer,Disease,TRUE,cancer,Signaling by EGFR,mutated_proteins,Signaling by EGFR in Cancer,R-HSA-177929,2,FALSE,0,,TRUE
+R-HSA-5637815,Signaling by Ligand-Responsive EGFR Variants in Cancer,Disease,TRUE,cancer,Signaling by EGFR,mutated_proteins,Signaling by EGFR in Cancer,R-HSA-177929,2,FALSE,0,,TRUE
+R-HSA-9665348,Signaling by ERBB2 ECD mutants,Disease,TRUE,cancer,Signaling by ERBB2,mutated_proteins,Signaling by ERBB2 in Cancer,R-HSA-1227986,3,TRUE,0,,TRUE
+R-HSA-5653890,Lactose synthesis,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-9657688,Defective factor XII causes hereditary angioedema,Disease,TRUE,hereditary angioedema,FXIIa activates plasma kallikrein-kinin system,mutated_proteins,Defects of contact activation system and kallikrein-kinin system,R-HSA-9970672,0,FALSE,0,,TRUE
+R-HSA-75205,Dissolution of Fibrin Clot,Hemostasis,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9657689,Defective SERPING1 causes hereditary angioedema,Disease,TRUE,C1 inhibitor deficiency; hereditary angioedema,FXIIa activates plasma kallikrein-kinin system,mutated_proteins,Defects of contact activation system and kallikrein-kinin system,R-HSA-9970672,0,FALSE,0,,TRUE
+R-HSA-9936900,Aggregated β-amyloid induces FXII autocatalysis,Disease,TRUE,Alzheimer's disease,FXIIa activates plasma kallikrein-kinin system,mutated_proteins,Defects of contact activation system and kallikrein-kinin system,R-HSA-9970672,0,FALSE,0,,TRUE
+R-HSA-1480926,O2/CO2 exchange in erythrocytes,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9956520,ASS1 variants cause citrullinemia,Disease,TRUE,citrullinemia,Urea cycle,mutated_proteins,Diseases of the urea cycle,R-HSA-70635,0,FALSE,0,,TRUE
+R-HSA-5655291,Signaling by FGFR4 in disease,Disease,TRUE,cancer,Signaling by FGFR4,mutated_proteins,Signaling by FGFR in disease,R-HSA-5654743,2,FALSE,0,,TRUE
+R-HSA-6802948,Signaling by high-kinase activity BRAF mutants,Disease,TRUE,cancer,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,10,TRUE,0,,TRUE
+R-HSA-6802953,RAS signaling downstream of NF1 loss-of-function variants,Disease,TRUE,cancer; neurofibromatosis,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,0,FALSE,0,,TRUE
+R-HSA-9634285,Constitutive Signaling by Overexpressed ERBB2,Disease,TRUE,cancer,Signaling by ERBB2,mutated_proteins,Signaling by ERBB2 in Cancer,R-HSA-1227986,1,FALSE,0,,TRUE
+R-HSA-9703465,Signaling by FLT3 fusion proteins,Disease,TRUE,cancer,FLT3 Signaling,mutated_proteins,FLT3 signaling in disease,R-HSA-9607240,2,FALSE,1,PIM1,FALSE
+R-HSA-9703648,Signaling by FLT3 ITD and TKD mutants,Disease,TRUE,cancer,FLT3 Signaling,mutated_proteins,FLT3 signaling in disease,R-HSA-9607240,3,TRUE,1,PIM1,FALSE
+R-HSA-3642278,Loss of Function of TGFBR2 in Cancer,Disease,TRUE,cancer,,mutated_proteins,Signaling by TGF-beta Receptor Complex in Cancer,,2,FALSE,,,FALSE
+R-HSA-5619099,"Defective AVP does not bind AVPR1A,B and causes neurohypophyseal diabetes insipidus (NDI)",Disease,TRUE,neurohypophyseal diabetes insipidus,Class A/1 (Rhodopsin-like receptors),mutated_proteins,SLC transporter disorders,R-HSA-373076,0,FALSE,0,,TRUE
+R-HSA-9036092,Defective AVP does not bind AVPR2 and causes neurohypophyseal diabetes insipidus (NDI),Disease,TRUE,neurohypophyseal diabetes insipidus,Vasopressin regulates renal water homeostasis via Aquaporins,mutated_proteins,SLC transporter disorders,R-HSA-432040,0,FALSE,0,,TRUE
+R-HSA-209952,Peptide hormone biosynthesis,Metabolism of proteins,FALSE,,,,Peptide hormone metabolism,,0,FALSE,,,FALSE
+R-HSA-5579031,Defective ACTH causes obesity and POMCD,Disease,TRUE,adrenal gland disease; obesity,Class A/1 (Rhodopsin-like receptors),mutated_proteins,Diseases of metabolism,R-HSA-373076,0,FALSE,0,,TRUE
+R-HSA-209776,Metabolism of amine-derived hormones,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-9968734,Differentiation of Circulating Monocytes,Developmental Biology,FALSE,,,,Developmental Cell Lineages,,1,FALSE,,,FALSE
+R-HSA-8981607,Intracellular oxygen transport,Transport of small molecules,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-1566977,Fibronectin matrix formation,Extracellular matrix organization,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9845619,Enhanced cleavage of VWF variant by ADAMTS13,Disease,TRUE,blood platelet disease,Platelet Adhesion to exposed collagen,mutated_proteins,Defects of platelet adhesion to exposed collagen,R-HSA-75892,0,FALSE,0,,TRUE
+R-HSA-9845620,Enhanced binding of GP1BA variant to VWF multimer:collagen,Disease,TRUE,blood platelet disease,Platelet Adhesion to exposed collagen,mutated_proteins,Defects of platelet adhesion to exposed collagen,R-HSA-75892,0,FALSE,0,,TRUE
+R-HSA-9845621,Defective VWF cleavage by ADAMTS13 variant,Disease,TRUE,blood platelet disease,Platelet Adhesion to exposed collagen,mutated_proteins,Defects of platelet adhesion to exposed collagen,R-HSA-75892,0,FALSE,0,,TRUE
+R-HSA-9845622,Defective VWF binding to collagen type I,Disease,TRUE,blood platelet disease,Platelet Adhesion to exposed collagen,mutated_proteins,Defects of platelet adhesion to exposed collagen,R-HSA-75892,0,FALSE,0,,TRUE
+R-HSA-9846298,Defective binding of VWF variant to GPIb:IX:V,Disease,TRUE,blood platelet disease,Platelet Adhesion to exposed collagen,mutated_proteins,Defects of platelet adhesion to exposed collagen,R-HSA-75892,0,FALSE,0,,TRUE
+R-HSA-9936686,Aggregated β-amyloid interacts with fibrinogen,Disease,TRUE,Alzheimer's disease,Coagulation pathway,mutated_proteins,Defects of Coagulation cascade,R-HSA-9769740,0,FALSE,0,,TRUE
+R-HSA-9619665,EGR2 and SOX10-mediated initiation of Schwann cell myelination,Developmental Biology,FALSE,,,,Nervous system development,,0,FALSE,,,FALSE
+R-HSA-5619050,"Defective SLC4A1 causes hereditary spherocytosis type 4 (HSP4),  distal renal tubular acidosis (dRTA) and dRTA with hemolytic anemia (dRTA-HA)",Disease,TRUE,hereditary spherocytosis; renal tubular acidosis,Erythrocytes take up carbon dioxide and release oxygen,mutated_proteins,SLC transporter disorders,R-HSA-1237044,0,FALSE,0,,TRUE
+R-HSA-6809583,Retinoid metabolism disease events,Disease,TRUE,retinal disease,Retinoid metabolism and transport,mutated_proteins,Diseases associated with visual transduction,R-HSA-975634,0,FALSE,0,,TRUE
+R-HSA-189451,Heme biosynthesis,Metabolism,FALSE,,,,Metabolism of porphyrins,,0,FALSE,,,FALSE
+R-HSA-5661231,Metallothioneins bind metals,Cellular responses to stimuli,FALSE,,,,Response to metal ions,,0,FALSE,,,FALSE
+R-HSA-9686347,Microbial modulation of RIPK1-mediated regulated necrosis,Disease,TRUE,bacterial infectious disease; viral infectious disease,,mutated_proteins,Defective RIPK1-mediated regulated necrosis,,2,FALSE,,,FALSE
+R-HSA-9708296,"tRNA-derived small RNA (tsRNA or tRNA-related fragment, tRF) biogenesis",Gene expression (Transcription),FALSE,,,,Gene Silencing by RNA,,0,FALSE,,,FALSE
+R-HSA-9930483,Defective FV causes thrombophilia,Disease,TRUE,thrombophilia,,mutated_proteins,Defects of Coagulation cascade,,0,FALSE,,,FALSE
+R-HSA-879415,Advanced glycosylation endproduct receptor signaling,Immune System,FALSE,,,,Innate Immune System,,2,FALSE,,,FALSE
+R-HSA-9956529,ASL variants cause argininosuccinate aciduria,Disease,TRUE,argininosuccinic aciduria,Urea cycle,mutated_proteins,Diseases of the urea cycle,R-HSA-70635,0,FALSE,0,,TRUE
+R-HSA-9665230,Drug resistance in ERBB2 KD mutants,Disease,TRUE,cancer,,mutated_proteins,Signaling by ERBB2 in Cancer,,1,FALSE,,,FALSE
+R-HSA-9665737,Drug resistance in ERBB2 TMD/JMD mutants,Disease,TRUE,cancer,Signaling by ERBB2,mutated_proteins,Signaling by ERBB2 in Cancer,R-HSA-1227986,1,FALSE,0,,TRUE
+R-HSA-9723907,Loss of Function of TP53 in Cancer,Disease,TRUE,cancer,,mutated_proteins,Defective Intrinsic Pathway for Apoptosis,,0,FALSE,,,FALSE
+R-HSA-9018678,Biosynthesis of specialized proresolving mediators (SPMs),Metabolism,FALSE,,,,Metabolism of lipids,,0,FALSE,,,FALSE
+R-HSA-5657560,Hereditary fructose intolerance,Disease,TRUE,hereditary fructose intolerance syndrome,Fructose metabolism,mutated_proteins,Diseases of carbohydrate metabolism,R-HSA-5652084,0,FALSE,0,,TRUE
+R-HSA-9956514,ARG1 variants cause hyperargininemia,Disease,TRUE,hyperargininemia,Urea cycle,mutated_proteins,Diseases of the urea cycle,R-HSA-70635,0,FALSE,0,,TRUE
+R-HSA-5579028,Defective CYP17A1 causes AH5,Disease,TRUE,adrenal gland disease,Metabolism of steroid hormones,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-196071,0,FALSE,0,,TRUE
+R-HSA-5579026,Defective CYP11A1 causes AICSR,Disease,TRUE,congenital adrenal insufficiency,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-3323169,Defects in biotin (Btn) metabolism,Disease,TRUE,vitamin metabolic disorder,,mutated_proteins,Defects in vitamin and cofactor metabolism,,0,FALSE,,,FALSE
+R-HSA-9840373,Cellular response to mitochondrial stress,Cellular responses to stimuli,FALSE,,,,Cellular responses to stress,,1,FALSE,,,FALSE
+R-HSA-156842,Eukaryotic Translation Elongation,Metabolism of proteins,FALSE,,,,Translation,,0,FALSE,,,FALSE
+R-HSA-72764,Eukaryotic Translation Termination,Metabolism of proteins,FALSE,,,,Translation,,0,FALSE,,,FALSE
+R-HSA-9834899,Specification of the neural plate border,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-9820865,Z-decay: degradation of maternal mRNAs by zygotically expressed factors,Developmental Biology,FALSE,,,,Maternal to zygotic transition (MZT),,0,FALSE,,,FALSE
+R-HSA-71288,Creatine metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-70370,Galactose catabolism,Metabolism,FALSE,,,,Metabolism of carbohydrates and carbohydrate derivatives,,0,FALSE,,,FALSE
+R-HSA-9830364,Formation of the nephric duct,Developmental Biology,FALSE,,,,Kidney development,,1,FALSE,,,FALSE
+R-HSA-5688031,Defective pro-SFTPB causes SMDP1 and RDS,Disease,TRUE,newborn respiratory distress syndrome; interstitial lung disease,Surfactant metabolism,mutated_proteins,Diseases associated with surfactant metabolism,R-HSA-5683826,0,FALSE,0,,TRUE
+R-HSA-5688849,Defective CSF2RB causes SMDP5,Disease,TRUE,pulmonary alveolar proteinosis,Surfactant metabolism,mutated_proteins,Diseases associated with surfactant metabolism,R-HSA-5683826,0,FALSE,0,,TRUE
+R-HSA-5688890,Defective CSF2RA causes SMDP4,Disease,TRUE,pulmonary alveolar proteinosis; newborn respiratory distress syndrome,Surfactant metabolism,mutated_proteins,Diseases associated with surfactant metabolism,R-HSA-5683826,0,FALSE,0,,TRUE
+R-HSA-5660862,Defective amino acid transport by SLC7A7 causes lysinuric protein intolerance (LPI),Disease,TRUE,amino acid metabolic disorder,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-2206281,Mucopolysaccharidoses,Disease,TRUE,mucopolysaccharidosis,,mutated_proteins,Diseases of carbohydrate metabolism,,0,FALSE,,,FALSE
+R-HSA-5579021,Defective CYP21A2 causes AH3,Disease,TRUE,adrenal gland disease,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-9761174,Formation of intermediate mesoderm,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-9865114,Maple Syrup Urine Disease,Disease,TRUE,maple syrup urine disease,,mutated_proteins,Diseases of branched-chain amino acid catabolism,,0,FALSE,,,FALSE
+R-HSA-5659898,Intestinal saccharidase deficiencies,Disease,TRUE,intestinal disaccharidase deficiency,Digestion,mutated_proteins,Diseases of carbohydrate metabolism,R-HSA-8935690,0,FALSE,0,,TRUE
+R-HSA-9706377,FLT3 signaling by CBL mutants,Disease,TRUE,cancer,FLT3 Signaling,mutated_proteins,FLT3 signaling in disease,R-HSA-9607240,1,FALSE,0,,TRUE
+R-HSA-2395516,Electron transport from NADPH to Ferredoxin,Metabolism,FALSE,,,,Mitochondrial iron-sulfur cluster biogenesis,,0,FALSE,,,FALSE
+R-HSA-1300645,Acrosome Reaction and Sperm:Oocyte Membrane Binding,Reproduction,FALSE,,,,Fertilization,,0,FALSE,,,FALSE
+R-HSA-5676934,Protein repair,Metabolism of proteins,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9669921,KIT mutants bind TKIs,Disease,TRUE,cancer,Signaling by SCF-KIT,mutated_proteins,Signaling by KIT in disease,R-HSA-1433557,1,FALSE,0,,TRUE
+R-HSA-9669933,Signaling by kinase domain mutants of KIT,Disease,TRUE,cancer,Signaling by SCF-KIT,mutated_proteins,Signaling by KIT in disease,R-HSA-1433557,1,FALSE,0,,TRUE
+R-HSA-9669935,Signaling by juxtamembrane domain KIT mutants,Disease,TRUE,cancer,Signaling by SCF-KIT,mutated_proteins,Signaling by KIT in disease,R-HSA-1433557,1,FALSE,0,,TRUE
+R-HSA-9669937,Drug resistance of KIT mutants,Disease,TRUE,cancer,Signaling by SCF-KIT,mutated_proteins,Signaling by KIT in disease,R-HSA-1433557,1,FALSE,0,,TRUE
+R-HSA-9680187,Signaling by extracellular domain mutants of KIT,Disease,TRUE,cancer,Signaling by SCF-KIT,mutated_proteins,Signaling by KIT in disease,R-HSA-1433557,1,FALSE,0,,TRUE
+R-HSA-5619043,Defective SLC2A1 causes GLUT1 deficiency syndrome 1 (GLUT1DS1),Disease,TRUE,early infantile epileptic encephalopathy,Cellular hexose transport,mutated_proteins,SLC transporter disorders,R-HSA-189200,0,FALSE,0,,TRUE
+R-HSA-5619098,Defective SLC2A2 causes Fanconi-Bickel syndrome (FBS),Disease,TRUE,renal tubular transport disease,Intestinal absorption,mutated_proteins,SLC transporter disorders,R-HSA-8963676,0,FALSE,0,,TRUE
+R-HSA-8963676,Intestinal absorption,Digestion and absorption,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5579030,Defective CYP19A1 causes AEXS,Disease,TRUE,pseudohermaphroditism,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5688354,Defective pro-SFTPC causes SMDP2 and RDS,Disease,TRUE,newborn respiratory distress syndrome; interstitial lung disease,Surfactant metabolism,mutated_proteins,Diseases associated with surfactant metabolism,R-HSA-5683826,0,FALSE,0,,TRUE
+R-HSA-9630750,Evasion of Oncogene Induced Senescence Due to p16INK4A Defects,Disease,TRUE,cancer,,mutated_proteins,Diseases of Cellular Senescence,,2,FALSE,,,FALSE
+R-HSA-9632693,Evasion of Oxidative Stress Induced Senescence Due to p16INK4A Defects,Disease,TRUE,cancer,,mutated_proteins,Diseases of Cellular Senescence,,2,FALSE,,,FALSE
+R-HSA-5358508,Mismatch Repair,DNA Repair,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-9758920,Formation of lateral plate mesoderm,Developmental Biology,FALSE,,,,Gastrulation,,0,FALSE,,,FALSE
+R-HSA-5656364,Defective SLC5A1 causes congenital glucose/galactose malabsorption (GGM),Disease,TRUE,glucose intolerance,Cellular hexose transport,mutated_proteins,SLC transporter disorders,R-HSA-189200,0,FALSE,0,,TRUE
+R-HSA-5662702,Melanin biosynthesis,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-112313,Neurotransmitter uptake and metabolism In glial cells,Neuronal System,FALSE,,,,Transmission across Chemical Synapses,,0,FALSE,,,FALSE
+R-HSA-5579017,Defective CYP11B1 causes AH4,Disease,TRUE,adrenal gland disease,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-163358,PKA-mediated phosphorylation of key metabolic factors,Metabolism,FALSE,,,,Integration of energy metabolism,,3,TRUE,,,FALSE
+R-HSA-163767,PP2A-mediated dephosphorylation of key metabolic factors,Metabolism,FALSE,,,,Integration of energy metabolism,,0,FALSE,,,FALSE
+R-HSA-9674415,Drug resistance of PDGFR mutants,Disease,TRUE,cancer,Signaling by PDGF,mutated_proteins,Signaling by PDGFR in disease,R-HSA-186797,1,FALSE,0,,TRUE
+R-HSA-9674428,PDGFR mutants bind TKIs,Disease,TRUE,cancer,Signaling by PDGF,mutated_proteins,Signaling by PDGFR in disease,R-HSA-186797,1,FALSE,0,,TRUE
+R-HSA-73942,DNA Damage Reversal,DNA Repair,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5579009,Defective CYP11B2 causes CMO-1 deficiency,Disease,TRUE,steroid inherited metabolic disorder,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5619056,Defective HK1 causes hexokinase deficiency (HK deficiency),Disease,TRUE,congenital nonspherocytic hemolytic anemia,Glucose metabolism,mutated_proteins,SLC transporter disorders,R-HSA-70326,0,FALSE,0,,TRUE
+R-HSA-5579022,Defective GGT1 causes GLUTH,Disease,TRUE,inherited metabolic disorder,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-9035968,Defective GGT1 in aflatoxin detoxification causes GLUTH,Disease,TRUE,inherited metabolic disorder,Aflatoxin activation and detoxification,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-5423646,0,FALSE,0,,TRUE
+R-HSA-8849175,Threonine catabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-5632927,Defective Mismatch Repair Associated With MSH3,Disease,TRUE,cancer,Mismatch Repair,mutated_proteins,Diseases of Mismatch Repair (MMR),R-HSA-5358508,0,FALSE,0,,TRUE
+R-HSA-5632928,Defective Mismatch Repair Associated With MSH2,Disease,TRUE,cancer,Mismatch Repair,mutated_proteins,Diseases of Mismatch Repair (MMR),R-HSA-5358508,0,FALSE,0,,TRUE
+R-HSA-5660489,MTF1 activates gene expression,Cellular responses to stimuli,FALSE,,,,Response to metal ions,,0,FALSE,,,FALSE
+R-HSA-5579012,Defective MAOA causes BRUNS,Disease,TRUE,disease of mental health,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5678771,"Defective ABCB4 causes PFIC3, ICP3 and GBD1",Disease,TRUE,intrahepatic cholestasis; cholelithiasis,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-9759785,Diseases of propionyl-CoA catabolism,Disease,TRUE,lipid metabolism disorder,Propionyl-CoA catabolism,mutated_proteins,Diseases of mitochondrial beta oxidation,R-HSA-71032,0,FALSE,0,,TRUE
+R-HSA-5579002,Defective UGT1A1 causes hyperbilirubinemia,Disease,TRUE,bilirubin metabolic disorder; Gilbert syndrome; Crigler-Najjar syndrome,Metabolism of porphyrins,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-189445,0,FALSE,0,,TRUE
+R-HSA-5579016,Defective UGT1A4 causes hyperbilirubinemia,Disease,TRUE,bilirubin metabolic disorder; Crigler-Najjar syndrome; Gilbert syndrome,Metabolism of porphyrins,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-189445,0,FALSE,0,,TRUE
+R-HSA-5578997,Defective AHCY causes HMAHCHD,Disease,TRUE,hypermethioninemia,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-5619109,Defective SLC6A2 causes orthostatic intolerance (OI),Disease,TRUE,syndrome,SLC-mediated transport of neurotransmitters,mutated_proteins,SLC transporter disorders,R-HSA-442660,0,FALSE,0,,TRUE
+R-HSA-8964540,Alanine metabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-5579032,Defective TBXAS1 causes GHDD,Disease,TRUE,bone disease; anemia,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-74182,Ketone body metabolism,Metabolism,FALSE,,,,Metabolism of lipids,,0,FALSE,,,FALSE
+R-HSA-9915355,Beta-ketothiolase deficiency,Disease,TRUE,beta-ketothiolase deficiency; amino acid metabolic disorder,Branched-chain amino acid catabolism,mutated_proteins,Diseases of branched-chain amino acid catabolism,R-HSA-70895,0,FALSE,0,,TRUE
+R-HSA-75157,FasL/ CD95L signaling,Signal Transduction,FALSE,,,,Death Receptor Signaling,,0,FALSE,,,FALSE
+R-HSA-9914355,Isovaleric acidemia,Disease,TRUE,isovaleric acidemia,Branched-chain amino acid catabolism,mutated_proteins,Diseases of branched-chain amino acid catabolism,R-HSA-70895,0,FALSE,0,,TRUE
+R-HSA-9652169,Signaling by MAP2K mutants,Disease,TRUE,cancer; cardiofaciocutaneous syndrome,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,4,TRUE,0,,TRUE
+R-HSA-9652817,Signaling by MAPK mutants,Disease,TRUE,cancer,RAF/MAP kinase cascade,mutated_proteins,Oncogenic MAPK signaling,R-HSA-5673001,1,FALSE,0,,TRUE
+R-HSA-163754,Insulin effects increased synthesis of Xylulose-5-Phosphate,Metabolism,FALSE,,,,Integration of energy metabolism,,0,FALSE,,,FALSE
+R-HSA-203754,NOSIP mediated eNOS trafficking,Metabolism,FALSE,,,,Metabolism of nitric oxide: NOS3 activation and regulation,,0,FALSE,,,FALSE
+R-HSA-9916720,Mitochondrial short-chain enoyl-CoA hydratase deficiency 1,Disease,TRUE,mitochondrial short-chain enoyl-CoA hydratase 1 deficiency,Branched-chain amino acid catabolism,mutated_proteins,Diseases of branched-chain amino acid catabolism,R-HSA-70895,0,FALSE,0,,TRUE
+R-HSA-9955542,CPS1 variants cause CPS1 deficiency,Disease,TRUE,carbamoyl phosphate synthetase I deficiency disease,Urea cycle,mutated_proteins,Diseases of the urea cycle,R-HSA-70635,0,FALSE,0,,TRUE
+R-HSA-5579019,Defective FMO3 causes TMAU,Disease,TRUE,inherited metabolic disorder,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5658208,Defective SLC5A2 causes renal glucosuria (GLYS1),Disease,TRUE,renal tubular transport disease,Cellular hexose transport,mutated_proteins,SLC transporter disorders,R-HSA-189200,0,FALSE,0,,TRUE
+R-HSA-75072,mRNA Editing,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5684045,Defective ABCD1 causes ALD,Disease,TRUE,adrenoleukodystrophy,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5619073,Defective GCK causes maturity-onset diabetes of the young 2 (MODY2),Disease,TRUE,maturity-onset diabetes of the young,Glucose metabolism,mutated_proteins,SLC transporter disorders,R-HSA-70326,0,FALSE,0,,TRUE
+R-HSA-5619070,Defective SLC16A1 causes symptomatic deficiency in lactate transport (SDLT),Disease,TRUE,inherited metabolic disorder,SLC-mediated transport of organic anions,mutated_proteins,SLC transporter disorders,R-HSA-9955298,0,FALSE,0,,TRUE
+R-HSA-9673768,Signaling by membrane-tethered fusions of PDGFRA or PDGFRB,Disease,TRUE,cancer,Signaling by PDGF,mutated_proteins,Signaling by PDGFR in disease,R-HSA-186797,1,FALSE,1,KDR,FALSE
+R-HSA-112303,Electric Transmission Across Gap Junctions,Neuronal System,FALSE,,,,Transmission across Electrical Synapses,,0,FALSE,,,FALSE
+R-HSA-9702506,Drug resistance of FLT3 mutants,Disease,TRUE,cancer,FLT3 Signaling,mutated_proteins,FLT3 signaling in disease,R-HSA-9607240,1,FALSE,0,,TRUE
+R-HSA-9702509,FLT3 mutants bind TKIs,Disease,TRUE,cancer,FLT3 Signaling,mutated_proteins,FLT3 signaling in disease,R-HSA-9607240,1,FALSE,0,,TRUE
+R-HSA-6791465,Pentose phosphate pathway disease,Disease,TRUE,carbohydrate metabolic disorder,Metabolism of carbohydrates and carbohydrate derivatives,mutated_proteins,Diseases of carbohydrate metabolism,R-HSA-71387,0,FALSE,0,,TRUE
+R-HSA-9663199,Defective DNA double strand break response due to BRCA1 loss of function,Disease,TRUE,cancer,DNA Double Strand Break Response,mutated_proteins,Diseases of DNA Double-Strand Break Repair,R-HSA-5693606,0,FALSE,0,,TRUE
+R-HSA-9699150,Defective DNA double strand break response due to BARD1 loss of function,Disease,TRUE,cancer,DNA Double Strand Break Response,mutated_proteins,Diseases of DNA Double-Strand Break Repair,R-HSA-5693606,0,FALSE,0,,TRUE
+R-HSA-5545483,Defective Mismatch Repair Associated With MLH1,Disease,TRUE,cancer,Mismatch Repair,mutated_proteins,Diseases of Mismatch Repair (MMR),R-HSA-5358508,0,FALSE,0,,TRUE
+R-HSA-5632987,Defective Mismatch Repair Associated With PMS2,Disease,TRUE,cancer,Mismatch Repair,mutated_proteins,Diseases of Mismatch Repair (MMR),R-HSA-5358508,0,FALSE,0,,TRUE
+R-HSA-5619085,Defective SLC26A3 causes congenital secretory chloride diarrhea 1 (DIAR1),Disease,TRUE,secretory diarrhea,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-9836573,Mitochondrial RNA degradation,Metabolism of RNA,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5619062,Defective SLC1A3 causes episodic ataxia 6 (EA6),Disease,TRUE,episodic ataxia,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-5619067,Defective SLC1A1 is implicated in schizophrenia 18 (SCZD18) and dicarboxylic aminoaciduria (DCBXA),Disease,TRUE,amino acid metabolic disorder; schizophrenia,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-5632968,Defective Mismatch Repair Associated With MSH6,Disease,TRUE,cancer,Mismatch Repair,mutated_proteins,Diseases of Mismatch Repair (MMR),R-HSA-5358508,0,FALSE,0,,TRUE
+R-HSA-9006821,Alternative Lengthening of Telomeres (ALT),Disease,TRUE,cancer,,mutated_proteins,Diseases of Telomere Maintenance,,0,FALSE,,,FALSE
+R-HSA-2644605,FBXW7 Mutants and NOTCH1 in Cancer,Disease,TRUE,cancer,Signaling by NOTCH1,mutated_proteins,Signaling by NOTCH1 in Cancer,R-HSA-1980143,0,FALSE,0,,TRUE
+R-HSA-2892245,"POU5F1 (OCT4), SOX2, NANOG repress genes related to differentiation",Developmental Biology,FALSE,,,,Transcriptional regulation of pluripotent stem cells,,0,FALSE,,,FALSE
+R-HSA-5578999,Defective GCLC causes HAGGSD,Disease,TRUE,hemolytic anemia,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-5579006,Defective GSS causes GSS deficiency,Disease,TRUE,inherited metabolic disorder,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-5619048,"Defective SLC11A2 causes hypochromic microcytic anemia, with iron overload 1 (AHMIO1)",Disease,TRUE,hypochromic microcytic anemia,Iron uptake and transport,mutated_proteins,SLC transporter disorders,R-HSA-917937,0,FALSE,0,,TRUE
+R-HSA-6798163,Choline catabolism,Metabolism,FALSE,,,,Metabolism of amino acids and derivatives,,0,FALSE,,,FALSE
+R-HSA-5657562,Essential fructosuria,Disease,TRUE,carbohydrate metabolic disorder,Fructose metabolism,mutated_proteins,Diseases of carbohydrate metabolism,R-HSA-5652084,0,FALSE,0,,TRUE
+R-HSA-3560792,Defective SLC26A2 causes chondrodysplasias,Disease,TRUE,achondrogenesis type IB; diastrophic dysplasia; atelosteogenesis,Transport and metabolism of PAPS,mutated_proteins,Diseases associated with glycosaminoglycan metabolism; SLC transporter disorders,R-HSA-174362,0,FALSE,0,,TRUE
+R-HSA-5578995,Defective TPMT causes TPMT deficiency,Disease,TRUE,inherited metabolic disorder,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-5619087,Defective SLC12A3 causes Gitelman syndrome (GS),Disease,TRUE,Gitelman syndrome,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-5339700,Signaling by TCF7L2 mutants,Disease,TRUE,colorectal cancer,Degradation of beta-catenin by the destruction complex,mutated_proteins,Signaling by WNT in cancer,R-HSA-195253,0,FALSE,0,,TRUE
+R-HSA-5674404,PTEN Loss of Function in Cancer,Disease,TRUE,cancer,PIP3 activates AKT signaling,mutated_proteins,PI3K/AKT Signaling in Cancer,R-HSA-1257604,0,FALSE,0,,TRUE
+R-HSA-5619072,Defective SLC35A2 causes congenital disorder of glycosylation 2M (CDG2M),Disease,TRUE,congenital disorder of glycosylation type II; early infantile epileptic encephalopathy,"Transport of vitamins, nucleosides, and related molecules",mutated_proteins,SLC transporter disorders,R-HSA-425397,0,FALSE,0,,TRUE
+R-HSA-5619037,Defective transport by SLC35A1 causes congenital disorder of glycosylation 2F (CDG2F),Disease,TRUE,congenital disorder of glycosylation type II,"Transport of vitamins, nucleosides, and related molecules",mutated_proteins,SLC transporter disorders,R-HSA-425397,0,FALSE,0,,TRUE
+R-HSA-5663020,Defective SLC35A1 in sialic acid metabolism causes congenital disorder of glycosylation 2F (CDG2F),Disease,TRUE,congenital disorder of glycosylation type II,Sialic acid metabolism,mutated_proteins,SLC transporter disorders,R-HSA-4085001,0,FALSE,0,,TRUE
+R-HSA-9616333,Defective Base Excision Repair Associated with NTHL1,Disease,TRUE,cancer,,mutated_proteins,Diseases of Base Excision Repair,,0,FALSE,,,FALSE
+R-HSA-5619113,Defective SLC3A1 causes cystinuria (CSNU),Disease,TRUE,cystinuria,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-5660883,Defective amino acid transport by SLC7A9 causes cystinuria (CSNU),Disease,TRUE,cystinuria,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-3304347,Loss of Function of SMAD4 in Cancer,Disease,TRUE,cancer,,mutated_proteins,Signaling by TGF-beta Receptor Complex in Cancer,,0,FALSE,,,FALSE
+R-HSA-5579024,Defective MAT1A causes MATD,Disease,TRUE,hypermethioninemia,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-5619081,Defective neurotransmitter clearance by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS),Disease,TRUE,neurodegenerative disease,Neurotransmitter clearance,mutated_proteins,SLC transporter disorders,R-HSA-112311,0,FALSE,0,,TRUE
+R-HSA-5660724,Defective transport of neurotransmitters by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS),Disease,TRUE,neurodegenerative disease,SLC-mediated transport of neurotransmitters,mutated_proteins,SLC transporter disorders,R-HSA-442660,0,FALSE,0,,TRUE
+R-HSA-5619042,Defective RHAG causes regulator type Rh-null hemolytic anemia (RHN),Disease,TRUE,Rh deficiency syndrome,Miscellaneous transport and binding events,mutated_proteins,SLC transporter disorders,R-HSA-5223345,0,FALSE,0,,TRUE
+R-HSA-5578996,Defective CYP27A1 causes CTX,Disease,TRUE,cerebrotendinous xanthomatosis,Bile acid and bile salt metabolism,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-194068,0,FALSE,0,,TRUE
+R-HSA-5579007,Defective ACY1 causes encephalopathy,Disease,TRUE,toxic encephalopathy,Aflatoxin activation and detoxification,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-5423646,0,FALSE,0,,TRUE
+R-HSA-5619040,Defective SLC34A1 causes hypophosphatemic nephrolithiasis/osteoporosis 1 (NPHLOP1),Disease,TRUE,hypophosphatemia; nephrolithiasis; renal tubular transport disease,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-9645722,Defective Intrinsic Pathway for Apoptosis Due to p14ARF Loss of Function,Disease,TRUE,cancer,Intrinsic Pathway for Apoptosis,mutated_proteins,Defective Intrinsic Pathway for Apoptosis,R-HSA-109606,0,FALSE,0,,TRUE
+R-HSA-5579010,Defective CYP24A1 causes HCAI,Disease,TRUE,hypercalcemia,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5619111,Defective SLC20A2 causes idiopathic basal ganglia calcification 1 (IBGC1),Disease,TRUE,basal ganglia cerebrovascular disease,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-5683177,Defective ABCC8 can cause hypo- and hyper-glycemias,Disease,TRUE,neonatal diabetes mellitus; hyperinsulinemic hypoglycemia; hypoglycemia,Integration of energy metabolism,mutated_proteins,ABC transporter disorders,R-HSA-163685,0,FALSE,0,,TRUE
+R-HSA-5619104,Defective SLC12A1 causes Bartter syndrome 1 (BS1),Disease,TRUE,Bartter disease,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-9914274,3-methylglutaconic aciduria,Disease,TRUE,3-methylglutaconic aciduria,Branched-chain amino acid catabolism,mutated_proteins,Diseases of branched-chain amino acid catabolism,R-HSA-70895,0,FALSE,0,,TRUE
+R-HSA-71737,Pyrophosphate hydrolysis,Metabolism,FALSE,,,,,,0,FALSE,,,FALSE
+R-HSA-5579000,Defective CYP1B1 causes Glaucoma,Disease,TRUE,open-angle glaucoma; primary open angle glaucoma; primary congenital glaucoma; glaucoma,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5619041,Defective SLC36A2 causes iminoglycinuria (IG) and hyperglycinuria (HG),Disease,TRUE,amino acid metabolic disorder,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-9853846,"Defective ANO6 does not expose PS, PE on the platelet membrane",Disease,TRUE,blood coagulation disease,Coagulation pathway,mutated_proteins,Defects of Coagulation cascade,R-HSA-9769740,0,FALSE,0,,TRUE
+R-HSA-5619044,Defective transport of neurotransmitters by SLC6A19 causes Hartnup disorder (HND),Disease,TRUE,Hartnup disease,SLC-mediated transport of neurotransmitters,mutated_proteins,SLC transporter disorders,R-HSA-442660,0,FALSE,0,,TRUE
+R-HSA-5659735,Defective transport of amino acids by SLC6A19 causes Hartnup disorder (HND),Disease,TRUE,Hartnup disease,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-5579005,Defective CYP4F22 causes ARCI5,Disease,TRUE,autosomal recessive congenital ichthyosis,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-9916722,3-hydroxyisobutyryl-CoA hydrolase deficiency,Disease,TRUE,3-hydroxyisobutryl-CoA hydrolase deficiency,Branched-chain amino acid catabolism,mutated_proteins,Diseases of branched-chain amino acid catabolism,R-HSA-70895,0,FALSE,0,,TRUE
+R-HSA-5619108,Defective SLC27A4 causes ichthyosis prematurity syndrome (IPS),Disease,TRUE,autosomal recessive disease,"Transport of vitamins, nucleosides, and related molecules",mutated_proteins,SLC transporter disorders,R-HSA-425397,0,FALSE,0,,TRUE
+R-HSA-5619088,"Defective SLC39A4 causes acrodermatitis enteropathica, zinc-deficiency type (AEZ)",Disease,TRUE,acrodermatitis enteropathica,Metal ion SLC transporters,mutated_proteins,SLC transporter disorders,R-HSA-425410,0,FALSE,0,,TRUE
+R-HSA-5579004,Defective CYP26C1 causes FFDD4,Disease,TRUE,skin benign neoplasm,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5579027,Defective CYP27B1 causes VDDR1B,Disease,TRUE,rickets,Vitamin D (calciferol) metabolism,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-196791,0,FALSE,0,,TRUE
+R-HSA-5619036,Defective SLC24A5 causes oculocutaneous albinism 6 (OCA6),Disease,TRUE,oculocutaneous albinism,Metal ion SLC transporters,mutated_proteins,SLC transporter disorders,R-HSA-425410,0,FALSE,0,,TRUE
+R-HSA-5579011,Defective CYP2U1 causes SPG56,Disease,TRUE,hereditary spastic paraplegia,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5662853,Essential pentosuria,Disease,TRUE,carbohydrate metabolic disorder,Formation of xylulose-5-phosphate,mutated_proteins,Diseases of carbohydrate metabolism,R-HSA-5661270,0,FALSE,0,,TRUE
+R-HSA-5682294,Defective ABCA12 causes ARCI4B,Disease,TRUE,autosomal recessive congenital ichthyosis,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5619052,Defective SLC9A9 causes autism 16 (AUTS16),Disease,TRUE,autistic disorder,Metal ion SLC transporters,mutated_proteins,SLC transporter disorders,R-HSA-425410,0,FALSE,0,,TRUE
+R-HSA-5687868,Defective SFTPA2 causes IPF,Disease,TRUE,idiopathic pulmonary fibrosis; newborn respiratory distress syndrome,Surfactant metabolism,mutated_proteins,Diseases associated with surfactant metabolism,R-HSA-5683826,0,FALSE,0,,TRUE
+R-HSA-880009,Interconversion of 2-oxoglutarate and 2-hydroxyglutarate,Metabolism,FALSE,,,,Aerobic respiration and respiratory electron transport,,0,FALSE,,,FALSE
+R-HSA-5619097,Defective SLC34A3 causes Hereditary hypophosphatemic rickets with hypercalciuria (HHRH),Disease,TRUE,X-linked hypophosphatemia,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-9955693,NAGS variants cause NAGS deficiency,Disease,TRUE,N-acetylglutamate synthase deficiency,Urea cycle,mutated_proteins,Diseases of the urea cycle,R-HSA-70635,0,FALSE,0,,TRUE
+R-HSA-9646303,Evasion of Oncogene Induced Senescence Due to p14ARF Defects,Disease,TRUE,cancer,Oncogene Induced Senescence,mutated_proteins,Diseases of Cellular Senescence,R-HSA-2559585,0,FALSE,0,,TRUE
+R-HSA-9646304,Evasion of Oxidative Stress Induced Senescence Due to p14ARF Defects,Disease,TRUE,cancer,Oxidative Stress Induced Senescence,mutated_proteins,Diseases of Cellular Senescence,R-HSA-2559580,0,FALSE,0,,TRUE
+R-HSA-426496,Post-transcriptional silencing by small RNAs,Gene expression (Transcription),FALSE,,,,Gene Silencing by RNA,,0,FALSE,,,FALSE
+R-HSA-5619076,Defective SLC17A8 causes autosomal dominant deafness 25 (DFNA25),Disease,TRUE,autosomal dominant nonsyndromic deafness,SLC-mediated transport of neurotransmitters,mutated_proteins,SLC transporter disorders,R-HSA-442660,0,FALSE,0,,TRUE
+R-HSA-5619055,Defective SLC24A4 causes hypomineralized amelogenesis imperfecta (AI),Disease,TRUE,amelogenesis imperfecta,Metal ion SLC transporters,mutated_proteins,SLC transporter disorders,R-HSA-425410,0,FALSE,0,,TRUE
+R-HSA-1855191,Synthesis of IPs in the nucleus,Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-9629232,Defective Base Excision Repair Associated with NEIL3,Disease,TRUE,autoimmune hypersensitivity disease,"Base-Excision Repair, AP Site Formation",mutated_proteins,Diseases of Base Excision Repair,R-HSA-73929,0,FALSE,0,,TRUE
+R-HSA-5619092,"Defective SLC9A6 causes  X-linked, syndromic mental retardation,, Christianson type (MRXSCH)",Disease,TRUE,syndromic intellectual disability,Metal ion SLC transporters,mutated_proteins,SLC transporter disorders,R-HSA-425410,0,FALSE,0,,TRUE
+R-HSA-5679001,Defective ABCC2 causes DJS,Disease,TRUE,Dubin-Johnson syndrome,Metabolism of porphyrins,mutated_proteins,ABC transporter disorders,R-HSA-189445,0,FALSE,0,,TRUE
+R-HSA-5619096,Defective SLC5A5 causes thyroid dyshormonogenesis 1 (TDH1),Disease,TRUE,congenital hypothyroidism,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-5619095,"Defective SLCO2A1 causes primary, autosomal recessive hypertrophic osteoarthropathy 2 (PHOAR2)",Disease,TRUE,primary hypertrophic osteoarthropathy,SLC-mediated transport of organic anions,mutated_proteins,SLC transporter disorders,R-HSA-9955298,0,FALSE,0,,TRUE
+R-HSA-5619078,Defective SLC35C1 causes congenital disorder of glycosylation 2C (CDG2C),Disease,TRUE,congenital disorder of glycosylation type II,"Transport of vitamins, nucleosides, and related molecules",mutated_proteins,SLC transporter disorders,R-HSA-425397,0,FALSE,0,,TRUE
+R-HSA-5619066,Defective SLC22A18 causes lung cancer (LNCR) and embryonal rhabdomyosarcoma 1 (RMSE1),Disease,TRUE,lung cancer; rhabdomyosarcoma,SLC-mediated transport of organic cations,mutated_proteins,SLC transporter disorders,R-HSA-549127,0,FALSE,0,,TRUE
+R-HSA-9616334,Defective Base Excision Repair Associated with NEIL1,Disease,TRUE,cancer,"Base-Excision Repair, AP Site Formation",mutated_proteins,Diseases of Base Excision Repair,R-HSA-73929,0,FALSE,0,,TRUE
+R-HSA-9909438,3-Methylcrotonyl-CoA carboxylase deficiency,Disease,TRUE,3-methylcrotonyl-CoA carboxylase deficiency; 3-Methylcrotonyl-CoA carboxylase 1 deficiency; 3-Methylcrotonyl-CoA carboxylase 2 deficiency,Branched-chain amino acid catabolism,mutated_proteins,Diseases of branched-chain amino acid catabolism,R-HSA-70895,0,FALSE,0,,TRUE
+R-HSA-5619071,Defective SLC22A12 causes renal hypouricemia 1 (RHUC1),Disease,TRUE,acquired metabolic disease,SLC-mediated transport of organic anions,mutated_proteins,SLC transporter disorders,R-HSA-9955298,0,FALSE,0,,TRUE
+R-HSA-163316,Mitochondrial transcription termination,Gene expression (Transcription),FALSE,,,,Transcription from mitochondrial promoters,,0,FALSE,,,FALSE
+R-HSA-5683678,Defective ABCA3 causes SMDP3,Disease,TRUE,newborn respiratory distress syndrome,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5688399,Defective ABCA3 causes SMDP3,Disease,TRUE,interstitial lung disease; newborn respiratory distress syndrome,Surfactant metabolism,mutated_proteins,Diseases associated with surfactant metabolism,R-HSA-5683826,0,FALSE,0,,TRUE
+R-HSA-5655799,Defective SLC40A1 causes hemochromatosis 4 (HFE4) (duodenum),Disease,TRUE,hemochromatosis,Iron uptake and transport,mutated_proteins,SLC transporter disorders,R-HSA-917937,0,FALSE,0,,TRUE
+R-HSA-5619063,Defective SLC29A3 causes histiocytosis-lymphadenopathy plus syndrome (HLAS),Disease,TRUE,histiocytosis,"Transport of vitamins, nucleosides, and related molecules",mutated_proteins,SLC transporter disorders,R-HSA-425397,0,FALSE,0,,TRUE
+R-HSA-5619114,Defective SLC5A7 in the neurotransmitter release cycle causes distal hereditary motor neuronopathy 7A (HMN7A),Disease,TRUE,motor peripheral neuropathy,Neurotransmitter release cycle,mutated_proteins,SLC transporter disorders,R-HSA-112310,0,FALSE,0,,TRUE
+R-HSA-5658471,Defective transport by SLC5A7 causes distal hereditary motor neuronopathy 7A (HMN7A),Disease,TRUE,motor peripheral neuropathy,SLC-mediated transport of organic anions,mutated_proteins,SLC transporter disorders,R-HSA-9955298,0,FALSE,0,,TRUE
+R-HSA-5679090,Defective ABCG8 causes GBD4 and sitosterolemia,Disease,TRUE,cholelithiasis; lipid metabolism disorder; atherosclerosis,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5679096,Defective ABCG5 causes sitosterolemia,Disease,TRUE,lipid metabolism disorder,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5340573,LGK974 inhibits PORCN,Disease,TRUE,cancer,WNT ligand biogenesis and trafficking,mutated_proteins,Signaling by WNT in cancer,R-HSA-3238698,0,FALSE,0,,TRUE
+R-HSA-5683371,Defective ABCB6 causes MCOPCB7,Disease,TRUE,microphthalmia,ABC-family protein mediated transport,mutated_proteins,ABC transporter disorders,R-HSA-382556,0,FALSE,0,,TRUE
+R-HSA-5619101,Variant SLC6A20 affecting neurotransmitter transport contributes towards hyperglycinuria (HG) and iminoglycinuria (IG),Disease,TRUE,amino acid metabolic disorder,SLC-mediated transport of neurotransmitters,mutated_proteins,SLC transporter disorders,R-HSA-442660,0,FALSE,0,,TRUE
+R-HSA-5660686,Variant SLC6A20 affecting amino acid transport contributes towards hyperglycinuria (HG) and iminoglycinuria (IG),Disease,TRUE,amino acid metabolic disorder,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-5619058,"Defective SLCO1B3 causes hyperbilirubinemia, Rotor type (HBLRR)",Disease,TRUE,bilirubin metabolic disorder,Metabolism of porphyrins,mutated_proteins,SLC transporter disorders,R-HSA-189445,0,FALSE,0,,TRUE
+R-HSA-5579015,Defective CYP26B1 causes RHFCA,Disease,TRUE,craniosynostosis,Phase I - Functionalization of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-211945,0,FALSE,0,,TRUE
+R-HSA-5619035,Defective SLC17A5 causes Salla disease (SD) and ISSD,Disease,TRUE,inherited metabolic disorder,Sialic acid metabolism,mutated_proteins,SLC transporter disorders,R-HSA-4085001,0,FALSE,0,,TRUE
+R-HSA-5619047,Defective SLC2A9 causes hypouricemia renal 2 (RHUC2),Disease,TRUE,renal tubular transport disease,Cellular hexose transport,mutated_proteins,SLC transporter disorders,R-HSA-189200,0,FALSE,0,,TRUE
+R-HSA-5579020,Defective SLC35D1 causes SCHBCKD,Disease,TRUE,schneckenbecken dysplasia,Phase II - Conjugation of compounds,mutated_proteins,Metabolic disorders of biological oxidation enzymes,R-HSA-156580,0,FALSE,0,,TRUE
+R-HSA-9824856,Defective regulation of TLR7 by endogenous ligand,Disease,TRUE,autoimmune hypersensitivity disease; systemic lupus erythematosus,Regulation of TLR by endogenous ligand,mutated_proteins,Diseases associated with the TLR signaling cascade,R-HSA-5686938,0,FALSE,0,,TRUE
+R-HSA-5619039,"Defective SLC12A6 causes agenesis of the corpus callosum, with peripheral neuropathy (ACCPN)",Disease,TRUE,neuropathy,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE
+R-HSA-9605310,Defective Base Excision Repair Associated with MUTYH,Disease,TRUE,cancer; colorectal cancer; familial adenomatous polyposis,,mutated_proteins,Diseases of Base Excision Repair,,0,FALSE,,,FALSE
+R-HSA-9700649,Drug resistance of ALK mutants,Disease,TRUE,cancer,Signaling by ALK,mutated_proteins,Signaling by ALK in cancer,R-HSA-201556,1,FALSE,0,,TRUE
+R-HSA-5619094,Variant SLC6A14 may confer susceptibility towards obesity,Disease,TRUE,obesity,SLC-mediated transport of amino acids,mutated_proteins,SLC transporter disorders,R-HSA-9958863,0,FALSE,0,,TRUE
+R-HSA-1855231,Synthesis of IPs in the ER lumen,Metabolism,FALSE,,,,Inositol phosphate metabolism,,0,FALSE,,,FALSE
+R-HSA-5619083,"Defective SLC35A3 causes arthrogryposis, mental retardation, and seizures (AMRS)",Disease,TRUE,developmental disorder of mental health; distal arthrogryposis; epilepsy syndrome,"Transport of vitamins, nucleosides, and related molecules",mutated_proteins,SLC transporter disorders,R-HSA-425397,0,FALSE,0,,TRUE
+R-HSA-5619089,Defective SLC6A5 causes hyperekplexia 3 (HKPX3),Disease,TRUE,brain disease,SLC-mediated transport of neurotransmitters,mutated_proteins,SLC transporter disorders,R-HSA-442660,0,FALSE,0,,TRUE
+R-HSA-9956508,SLC25A15 variants cause hyperornithinemia-hyperammonemia-homocitrullinemia syndrome,Disease,TRUE,ornithine translocase deficiency,Urea cycle,mutated_proteins,Diseases of the urea cycle,R-HSA-70635,0,FALSE,0,,TRUE
+R-HSA-5619110,"Defective SLCO1B1 causes hyperbilirubinemia, Rotor type (HBLRR)",Disease,TRUE,bilirubin metabolic disorder,Metabolism of porphyrins,mutated_proteins,SLC transporter disorders,R-HSA-189445,0,FALSE,0,,TRUE
+R-HSA-5619054,"Defective SLC4A4 causes renal tubular acidosis, proximal, with ocular abnormalities and mental retardation (pRTA-OA)",Disease,TRUE,renal tubular acidosis,SLC-mediated transport of inorganic anions,mutated_proteins,SLC transporter disorders,R-HSA-9958790,0,FALSE,0,,TRUE

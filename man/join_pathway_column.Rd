@@ -2,11 +2,11 @@
 % Please edit documentation in R/enrich.R
 \name{join_pathway_column}
 \alias{join_pathway_column}
-\title{Join a \code{pathway} column (comma-joined pathway names per protein) onto \code{nodes}}
+\title{Join a \code{pathway} column (","-joined selector pathway names) onto \code{nodes}}
 \usage{
-join_pathway_column(nodes, short)
+join_pathway_column(nodes, uniprot, short, pathway_table)
 }
 \description{
-Join a \code{pathway} column (comma-joined pathway names per protein) onto \code{nodes}
+Commas inside a pathway name are dropped: \code{\link[=plot_network]{plot_network()}} splits on ",".
 }
 \keyword{internal}

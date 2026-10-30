@@ -23,88 +23,90 @@ library(networkPlot)
 ## 1. Inputs
 
 Everything starts from a `networkGen` result -- its `nodes` and `edges`
-data frames. `nodes` carries `Protein`, `type` (`Kinase`, `Sensitivity`,
-`Protein-Kinase`, ..., or `Hidden` for the Steiner connector nodes PCSF
-added), `prize`, `LogFC`, `degree`. `edges` carries `from`, `to`, `weight`
-(how many of the randomized PCSF runs kept the edge) and `cost` (the
-reference PPI's interaction cost -- lower = a stronger interaction).
+data frames. `nodes` carries `Protein`, `type` (`Kinase` for the input
+kinases, `Hidden` for the Steiner connector nodes PCSF added), `prize`,
+`LogFC` (the kinase statistic), `degree`. `edges` carries `from`, `to`,
+`weight` (how many of the randomized PCSF runs kept the edge) and `cost`
+(the reference PPI's interaction cost -- lower = a stronger interaction).
 
 ```{r toy}
 nodes <- data.frame(
-  Protein = c("EGFR", "AKT1", "MTOR", "RPS6KB1", "MAPK1", "BRAF", "STEINER1"),
-  type    = c("Protein-Kinase", "Kinase", "Kinase", "Kinase", "Kinase", "Kinase", "Hidden"),
-  prize   = c(0.95, 0.9, 0.85, 0.7, 0.8, 0.75, 2),
-  LogFC   = c(2.4, 1.8, -1.2, -2.0, 1.1, 0.6, 0),
-  degree  = c(6, 5, 4, 2, 3, 2, 4)
+  Protein = c("BRAF", "RAF1", "MAP2K1", "MAP2K2", "MAPK1", "MAPK3", "AKT1", "STEINER1"),
+  type    = c(rep("Kinase", 7), "Hidden"),
+  prize   = c(0.95, 0.9, 0.85, 0.7, 0.8, 0.75, 0.6, 2),
+  LogFC   = c(2.4, 1.8, 1.2, 0.9, 1.1, 0.6, -0.8, 0),
+  degree  = c(3, 3, 3, 2, 3, 2, 1, 3)
 )
 edges <- data.frame(
-  from = c("EGFR", "EGFR", "AKT1", "MTOR", "MAPK1", "STEINER1"),
-  to   = c("AKT1", "MAPK1", "MTOR", "RPS6KB1", "STEINER1", "BRAF"),
+  from = c("BRAF", "RAF1", "MAP2K1", "MAP2K2", "MAPK1", "STEINER1"),
+  to   = c("MAP2K1", "MAP2K2", "MAPK1", "MAPK3", "STEINER1", "AKT1"),
   weight = c(8, 7, 8, 5, 3, 6),
   cost   = c(0.08, 0.12, 0.05, 0.30, 0.45, 0.10)
 )
 ```
 
-For enrichment you also need the Reactome reference tables. A snapshot
-ships with the package -- `reactome_refs()` loads it. Refresh it when
-Reactome cuts a new release with `download_reactome_refs(dir)`; it is never
-fetched automatically.
-
 ## 2. Enrichment
 
-`enrich_network()` runs one Enrichr query (via the `enrichR` package) over
-**every node of the network except the Steiner connectors** (`type ==
-"Hidden"`), keeps pathways whose gene overlap is at least `min_hits`, and
-returns the pathway table plus a `pathway` column joined onto `nodes`.
+`enrich_network()` tests the network's **input kinases** for
+over-representation in each pathway; **connector nodes** (PCSF `Hidden`
+nodes, SIGNOR bridges -- see `network_roles()`) are never tested, because
+they are not drawn from the UKA kinase list.
 
-**Only Reactome is wired end to end today.** The reference database is a
-swap point: `databases` is passed straight to Enrichr, which ships many
-libraries (KEGG, WikiPathways, GO, MSigDB Hallmark, ...). Anything
-Reactome-specific -- collapsing redundant terms by shared parent, dropping
-over-general top-level terms, filtering WikiPathways by ontology tag --
-lives in the `postprocess` argument (`reactome_postprocess()` by default;
-pass `NULL` to skip it). Trying the other Enrichr libraries is a planned
-next step.
+- **Pathway set:** Reactome v2 (`reactome_v2_pathway_table()`), Reactome cut
+  at a curated depth per top-level category, bundled with the package.
+  Mutant/defect pathways that only duplicate their normal counterpart are
+  left out (`include_disease = "specific"`, see `filter_disease_pathways()`),
+  judged with the run's own kinase universe.
+  Any table with `pathway_id`, `pathway_name`, `uniprot` can be passed as
+  `pathway_table`.
+- **Background:** the kinases UKA can predict (`ukadb_kinases()`),
+  optionally restricted to the network's interactome (`interactome_ids`),
+  that belong to at least one tested pathway (>= 3 such kinases).
+- **Test:** one-sided Fisher, `p = phyper(k - 1, K, N - K, n, lower.tail =
+  FALSE)`, Benjamini-Hochberg over the tested pathways.
 
 ```{r enrich}
-res <- enrich_network(nodes, databases = "Reactome_Pathways_2024", min_hits = 2)
+res <- enrich_network(nodes)
 ```
 
-`res$short` is one pathway per gene set; the full table can be long, so
-just a peek here -- see the next section for what each column means:
+`res$all` holds every tested pathway with p < 0.1; `res$short` the selected
+pathways, one per hit list (the smallest p; the others with the same hits in
+`also_matches`):
 
 ```{r enrich-table, echo = FALSE}
-knitr::kable(head(res$short, 2), digits = 3, row.names = FALSE, caption = "Top enriched pathways (first 2 rows)")
+knitr::kable(head(res$short[, c("pw_name", "category", "n_hits", "hits", "pw_size_ukadb", "p_value", "fdr", "in_selector")], 3),
+             digits = 4, row.names = FALSE, caption = "Selected pathways, one per hit list (first 3 rows)")
 ```
 
 Pass `out_dir` and `label` (e.g. `label = "DrugA_vs_DMSO_spec0.7"`) to also
-write `pathways_<label>_all.csv` (every candidate) and `pathways_<label>.csv`
-(the *provisional* one-pathway-per-gene-set pick shown above) to a
-`Network_pathways` subfolder of `out_dir` -- omitted here so this vignette
-doesn't write files. `networkGen`'s own output
-(`nodes_*`/`edges_*`/`wc_df_*`/`missing_nodes_*`) lands directly in that
-same `out_dir`, with no subfolder of its own; only the pathway CSVs (here)
-and the HTML (`save_network_html()`, section 4) get one. Once every
-comparison for a `spec_cutoff` is done, `reconcile_pathways_dir(out_dir,
-spec_cutoff)` re-reads the `_all` files and rewrites each short table so
-the pathway that recurs across the most comparisons wins -- that way the
-same biology sits under the same label in every comparison, and the
-combined heatmaps line up. Re-running with `refresh = FALSE` (the default)
-skips the Enrichr call and reads the existing `pathways_<label>.csv` back
-instead.
+write, to a `Network_pathways` subfolder of `out_dir`:
+`pathways_<label>_all.csv` (tested pathways with p < 0.1),
+`pathways_<label>.csv` (one pathway per hit list) and
+`pathways_<label>_pw_params.csv` (background size, pathway set, selector
+rule, ...). `networkGen`'s own output (`nodes_*`/`edges_*`/...) lands
+directly in that same `out_dir`.
+
+`enrich_uka()` runs the same enrichment on UKA data directly, without a
+network: per comparison it takes the input kinases exactly as networkGen
+selects them for a network (`networkGen::uka_top()`) and writes the same
+CSVs to a `UKA_pathways` subfolder. `plot_uka_pathway_heatmaps()` draws its
+result.
 
 ## 3. Reading the pathway output
 
-Each row of the pathway table is one enriched pathway: `Pathway` /
-`Group_Pw` (the name, `Group_Pw` prefixed with its Reactome top group),
-`Genes` (the network genes in it, `;`-joined), `n_hits` / `pathway_size` /
-`overlap`, `Adjusted.P.value.mean`, `Combined.Score.mean`.
+Columns: `pw_id`, `pw_name`, `category` (top-level Reactome category),
+`n_hits` (k) and `hits` (the tested kinases in the pathway, `;`-joined),
+`pw_size_ukadb` (K, the pathway's background kinases), `p_value`, `fdr`,
+`in_selector` (p < 0.05 and >= 3 hits; when more than 20 pass, also FDR <
+0.3) and, in the one-per-hit-list table, `also_matches`.
 
 `plot_pathway_heatmaps(comparisons, out_dir)` (or the folder wrapper
-`plot_pathway_heatmaps_dir()`) draws, per `spec_cutoff`: one pathway x
-kinase `LogFC` heatmap per comparison, a heatmap of the pathways common to
-*all* comparisons, and -- for two comparisons -- a "unique to each"
-heatmap, or for three-plus, one pairwise-overlap heatmap per pair.
+`plot_pathway_heatmaps_dir()`) draws the selected pathways with their hit
+kinases, filled with the kinase statistic. The default `"wrapped"` layout
+gives one small panel per pathway, wrapped into rows: one figure per
+comparison, and one per pair of comparisons with the pathways selected in
+both (`pair_groups`: only pairs within one group, e.g. a UKA Supergroup). `layout = "classic"` draws pathway x kinase heatmaps per comparison
+and across comparisons.
 
 ## 4. The interactive HTML
 
@@ -177,6 +179,4 @@ save_network_html(out$widget, "results/DrugA", "DrugA_vs_DMSO.html")
 ```
 
 Call `enrich_network()` and `plot_network()` separately instead of the
-wrapper when you need `reconcile_pathways()` across several comparisons
-before plotting any of them, or already have an enrichment result from
-elsewhere.
+wrapper when you already have an enrichment result from elsewhere.

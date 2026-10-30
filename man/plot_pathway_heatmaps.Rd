@@ -2,44 +2,67 @@
 % Please edit documentation in R/heatmaps.R
 \name{plot_pathway_heatmaps}
 \alias{plot_pathway_heatmaps}
-\title{Kinase-by-pathway LogFC heatmaps}
+\title{Kinase-by-pathway heatmaps}
 \usage{
 plot_pathway_heatmaps(
   comparisons,
   out_dir,
+  layout = c("wrapped", "classic"),
   min_kinases = 3,
+  max_row_cells = 40,
   w = 20,
   h = 14,
-  w_combined = 25
+  w_combined = 25,
+  pair_groups = NULL
 )
 }
 \arguments{
 \item{comparisons}{Named list, one entry per comparison, each a list
 \verb{list(pathways = <pathway data frame>, nodes = <nodes data frame>)}.
-\code{pathways} needs \code{Group_Pw}, \code{Genes}; \code{nodes} needs \code{Protein}, \code{type},
-\code{LogFC}.}
+\code{pathways} is \code{\link[=enrich_network]{enrich_network()}}'s / \code{\link[=enrich_uka]{enrich_uka()}}'s one-pathway-per-
+hit-list table (\code{pw_id}, \code{pw_name}, \code{category}, \code{hits}, \code{p_value},
+\code{in_selector}); \code{nodes} gives the kinase statistic: \code{Protein} + \code{LogFC}
+(PCSF nodes) or \code{name} + \code{kinase_statistic} (SIGNOR nodes CSV,
+\code{\link[=enrich_uka]{enrich_uka()}}'s input-kinases CSV).}
 
 \item{out_dir}{Directory to write the PNGs into.}
 
-\item{min_kinases}{Keep a pathway row only if it has at least this many
-distinct kinase/artificial nodes.}
+\item{layout}{\code{"wrapped"} (default) or \code{"classic"}.}
 
-\item{w, h, w_combined}{PNG sizes in cm.}
+\item{min_kinases}{Keep a pathway only if it has at least this many hits.}
+
+\item{max_row_cells}{Wrapped layout: maximum kinase columns per row of
+panels.}
+
+\item{w, h, w_combined}{Classic layout: PNG sizes in cm.}
+
+\item{pair_groups}{Optional named character vector, comparison -> group
+(e.g. its UKA Supergroup). Pair figures only for comparisons of the
+same group; a comparison without a group gets none. \code{NULL} (default):
+every pair.}
 }
 \value{
 \code{out_dir}, invisibly.
 }
 \description{
-Ported from
-\code{Network_generation/R/plotting_functions.R::plot_kinase_pathway_heatmaps()}
-and its \verb{create_*} helpers, with the folder discovery split into
-\code{\link[=plot_pathway_heatmaps_dir]{plot_pathway_heatmaps_dir()}}. The dead \code{create_union_combined_heatmap()}
-(its call site was already commented out) is dropped.
+Draws the selected pathways (\code{in_selector}, at least \code{min_kinases} hits)
+of each comparison with their hit kinases, filled with the kinase
+statistic. Two layouts:
 }
 \details{
-For each comparison it draws one heatmap (pathways x kinases, filled with
-\code{LogFC}). Then, across comparisons: a heatmap of the pathways common to
-\emph{all} of them; for exactly two comparisons, a "unique to each" heatmap;
-for three or more, one pairwise-overlap heatmap per pair (in a
+\itemize{
+\item \code{"wrapped"} (default): one small panel per pathway, wrapped into rows;
+one figure per comparison and one per pair of comparisons with the
+pathways selected in both (see \code{\link[=plot_wrapped_heatmaps]{plot_wrapped_heatmaps()}}).
+}
+
+With \code{pair_groups}, pair figures (both layouts) are drawn only for two
+comparisons of the same group, e.g. the same UKA Supergroup.
+\itemize{
+\item \code{"classic"}: for each comparison one heatmap (pathways x kinases).
+Then, across comparisons: a heatmap of the pathways common to \emph{all} of
+them; for exactly two comparisons, a "unique to each" heatmap; for three
+or more, one pairwise-overlap heatmap per pair (in a
 \verb{pairwise_overlaps/} subfolder).
+}
 }

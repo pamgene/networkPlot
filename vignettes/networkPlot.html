@@ -5657,161 +5657,148 @@ HTML.</p>
 <p>Everything starts from a <code>networkGen</code> result – its
 <code>nodes</code> and <code>edges</code> data frames.
 <code>nodes</code> carries <code>Protein</code>, <code>type</code>
-(<code>Kinase</code>, <code>Sensitivity</code>,
-<code>Protein-Kinase</code>, …, or <code>Hidden</code> for the Steiner
-connector nodes PCSF added), <code>prize</code>, <code>LogFC</code>,
-<code>degree</code>. <code>edges</code> carries <code>from</code>,
-<code>to</code>, <code>weight</code> (how many of the randomized PCSF
-runs kept the edge) and <code>cost</code> (the reference PPI’s
-interaction cost – lower = a stronger interaction).</p>
+(<code>Kinase</code> for the input kinases, <code>Hidden</code> for the
+Steiner connector nodes PCSF added), <code>prize</code>,
+<code>LogFC</code> (the kinase statistic), <code>degree</code>.
+<code>edges</code> carries <code>from</code>, <code>to</code>,
+<code>weight</code> (how many of the randomized PCSF runs kept the edge)
+and <code>cost</code> (the reference PPI’s interaction cost – lower = a
+stronger interaction).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">Protein =</span> <span class="fu">c</span>(<span class="st">&quot;EGFR&quot;</span>, <span class="st">&quot;AKT1&quot;</span>, <span class="st">&quot;MTOR&quot;</span>, <span class="st">&quot;RPS6KB1&quot;</span>, <span class="st">&quot;MAPK1&quot;</span>, <span class="st">&quot;BRAF&quot;</span>, <span class="st">&quot;STEINER1&quot;</span>),</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">type    =</span> <span class="fu">c</span>(<span class="st">&quot;Protein-Kinase&quot;</span>, <span class="st">&quot;Kinase&quot;</span>, <span class="st">&quot;Kinase&quot;</span>, <span class="st">&quot;Kinase&quot;</span>, <span class="st">&quot;Kinase&quot;</span>, <span class="st">&quot;Kinase&quot;</span>, <span class="st">&quot;Hidden&quot;</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="at">prize   =</span> <span class="fu">c</span>(<span class="fl">0.95</span>, <span class="fl">0.9</span>, <span class="fl">0.85</span>, <span class="fl">0.7</span>, <span class="fl">0.8</span>, <span class="fl">0.75</span>, <span class="dv">2</span>),</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="at">LogFC   =</span> <span class="fu">c</span>(<span class="fl">2.4</span>, <span class="fl">1.8</span>, <span class="sc">-</span><span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">2.0</span>, <span class="fl">1.1</span>, <span class="fl">0.6</span>, <span class="dv">0</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="at">degree  =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">Protein =</span> <span class="fu">c</span>(<span class="st">&quot;BRAF&quot;</span>, <span class="st">&quot;RAF1&quot;</span>, <span class="st">&quot;MAP2K1&quot;</span>, <span class="st">&quot;MAP2K2&quot;</span>, <span class="st">&quot;MAPK1&quot;</span>, <span class="st">&quot;MAPK3&quot;</span>, <span class="st">&quot;AKT1&quot;</span>, <span class="st">&quot;STEINER1&quot;</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">type    =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;Kinase&quot;</span>, <span class="dv">7</span>), <span class="st">&quot;Hidden&quot;</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="at">prize   =</span> <span class="fu">c</span>(<span class="fl">0.95</span>, <span class="fl">0.9</span>, <span class="fl">0.85</span>, <span class="fl">0.7</span>, <span class="fl">0.8</span>, <span class="fl">0.75</span>, <span class="fl">0.6</span>, <span class="dv">2</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  <span class="at">LogFC   =</span> <span class="fu">c</span>(<span class="fl">2.4</span>, <span class="fl">1.8</span>, <span class="fl">1.2</span>, <span class="fl">0.9</span>, <span class="fl">1.1</span>, <span class="fl">0.6</span>, <span class="sc">-</span><span class="fl">0.8</span>, <span class="dv">0</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  <span class="at">degree  =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>)</span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>edges <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>  <span class="at">from =</span> <span class="fu">c</span>(<span class="st">&quot;EGFR&quot;</span>, <span class="st">&quot;EGFR&quot;</span>, <span class="st">&quot;AKT1&quot;</span>, <span class="st">&quot;MTOR&quot;</span>, <span class="st">&quot;MAPK1&quot;</span>, <span class="st">&quot;STEINER1&quot;</span>),</span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  <span class="at">to   =</span> <span class="fu">c</span>(<span class="st">&quot;AKT1&quot;</span>, <span class="st">&quot;MAPK1&quot;</span>, <span class="st">&quot;MTOR&quot;</span>, <span class="st">&quot;RPS6KB1&quot;</span>, <span class="st">&quot;STEINER1&quot;</span>, <span class="st">&quot;BRAF&quot;</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>  <span class="at">from =</span> <span class="fu">c</span>(<span class="st">&quot;BRAF&quot;</span>, <span class="st">&quot;RAF1&quot;</span>, <span class="st">&quot;MAP2K1&quot;</span>, <span class="st">&quot;MAP2K2&quot;</span>, <span class="st">&quot;MAPK1&quot;</span>, <span class="st">&quot;STEINER1&quot;</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  <span class="at">to   =</span> <span class="fu">c</span>(<span class="st">&quot;MAP2K1&quot;</span>, <span class="st">&quot;MAP2K2&quot;</span>, <span class="st">&quot;MAPK1&quot;</span>, <span class="st">&quot;MAPK3&quot;</span>, <span class="st">&quot;STEINER1&quot;</span>, <span class="st">&quot;AKT1&quot;</span>),</span>
 <span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">6</span>),</span>
 <span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>  <span class="at">cost   =</span> <span class="fu">c</span>(<span class="fl">0.08</span>, <span class="fl">0.12</span>, <span class="fl">0.05</span>, <span class="fl">0.30</span>, <span class="fl">0.45</span>, <span class="fl">0.10</span>)</span>
 <span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>)</span></code></pre></div>
-<p>For enrichment you also need the Reactome reference tables. A
-snapshot ships with the package – <code>reactome_refs()</code> loads it.
-Refresh it when Reactome cuts a new release with
-<code>download_reactome_refs(dir)</code>; it is never fetched
-automatically.</p>
 </div>
 <div id="enrichment" class="section level2">
 <h2>2. Enrichment</h2>
-<p><code>enrich_network()</code> runs one Enrichr query (via the
-<code>enrichR</code> package) over <strong>every node of the network
-except the Steiner connectors</strong> (<code>type == &quot;Hidden&quot;</code>),
-keeps pathways whose gene overlap is at least <code>min_hits</code>, and
-returns the pathway table plus a <code>pathway</code> column joined onto
-<code>nodes</code>.</p>
-<p><strong>Only Reactome is wired end to end today.</strong> The
-reference database is a swap point: <code>databases</code> is passed
-straight to Enrichr, which ships many libraries (KEGG, WikiPathways, GO,
-MSigDB Hallmark, …). Anything Reactome-specific – collapsing redundant
-terms by shared parent, dropping over-general top-level terms, filtering
-WikiPathways by ontology tag – lives in the <code>postprocess</code>
-argument (<code>reactome_postprocess()</code> by default; pass
-<code>NULL</code> to skip it). Trying the other Enrichr libraries is a
-planned next step.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">enrich_network</span>(nodes, <span class="at">databases =</span> <span class="st">&quot;Reactome_Pathways_2024&quot;</span>, <span class="at">min_hits =</span> <span class="dv">2</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; Uploading data to Enrichr... Done.</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;   Querying Reactome_Pathways_2024... Done.</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; Parsing results... Done.</span></span></code></pre></div>
-<p><code>res$short</code> is one pathway per gene set; the full table
-can be long, so just a peek here – see the next section for what each
-column means:</p>
+<p><code>enrich_network()</code> tests the network’s <strong>input
+kinases</strong> for over-representation in each pathway;
+<strong>connector nodes</strong> (PCSF <code>Hidden</code> nodes, SIGNOR
+bridges – see <code>network_roles()</code>) are never tested, because
+they are not drawn from the UKA kinase list.</p>
+<ul>
+<li><strong>Pathway set:</strong> Reactome v2
+(<code>reactome_v2_pathway_table()</code>), Reactome cut at a curated
+depth per top-level category, bundled with the package. Mutant/defect
+pathways that only duplicate their normal counterpart are left out
+(<code>include_disease = &quot;specific&quot;</code>, see
+<code>filter_disease_pathways()</code>). Any table with
+<code>pathway_id</code>, <code>pathway_name</code>, <code>uniprot</code>
+can be passed as <code>pathway_table</code>.</li>
+<li><strong>Background:</strong> the kinases UKA can predict
+(<code>ukadb_kinases()</code>), optionally restricted to the network’s
+interactome (<code>interactome_ids</code>), that belong to at least one
+tested pathway (&gt;= 3 such kinases).</li>
+<li><strong>Test:</strong> one-sided Fisher,
+<code>p = phyper(k - 1, K, N - K, n, lower.tail = FALSE)</code>,
+Benjamini-Hochberg over the tested pathways.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">enrich_network</span>(nodes)</span></code></pre></div>
+<p><code>res$all</code> holds every tested pathway with p &lt; 0.1;
+<code>res$short</code> the selected pathways, one per hit list (the
+smallest p; the others with the same hits in
+<code>also_matches</code>):</p>
 <table>
-<caption>Top enriched pathways (first 2 rows)</caption>
+<caption>Selected pathways, one per hit list (first 3 rows)</caption>
 <colgroup>
-<col width="12%" />
-<col width="9%" />
+<col width="23%" />
+<col width="15%" />
 <col width="5%" />
-<col width="4%" />
-<col width="2%" />
-<col width="4%" />
-<col width="2%" />
-<col width="7%" />
-<col width="6%" />
-<col width="3%" />
-<col width="30%" />
-<col width="4%" />
-<col width="6%" />
+<col width="26%" />
+<col width="10%" />
+<col width="5%" />
+<col width="5%" />
+<col width="8%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Group_Pw</th>
-<th align="left">Pathway</th>
-<th align="left">Genes</th>
-<th align="right">hierarchy_n</th>
+<th align="left">pw_name</th>
+<th align="left">category</th>
 <th align="right">n_hits</th>
-<th align="right">pathway_size</th>
-<th align="right">overlap</th>
-<th align="right">Adjusted.P.value.mean</th>
-<th align="right">Combined.Score.mean</th>
-<th align="left">Clusters</th>
-<th align="left">hierarchy_ids</th>
-<th align="left">pathway_id</th>
-<th align="left">group</th>
+<th align="left">hits</th>
+<th align="right">pw_size_ukadb</th>
+<th align="right">p_value</th>
+<th align="right">fdr</th>
+<th align="left">in_selector</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Signal Transduction_Signaling by PTK6</td>
-<td align="left">Signaling by PTK6</td>
-<td align="left">AKT1;EGFR</td>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">55</td>
-<td align="right">0.036</td>
-<td align="right">0.001</td>
-<td align="right">1713.735</td>
-<td align="left">all</td>
-<td align="left">Signaling by Non-Receptor Tyrosine Kinases;Signal
-Transduction;</td>
-<td align="left">R-HSA-8848021</td>
+<td align="left">MAPK1/MAPK3 signaling</td>
 <td align="left">Signal Transduction</td>
+<td align="right">6</td>
+<td align="left">BRAF;MAP2K1;MAP2K2;MAPK1;MAPK3;RAF1</td>
+<td align="right">41</td>
+<td align="right">0e+00</td>
+<td align="right">0.0030</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Disease_PI3K AKT Signaling in Cancer</td>
-<td align="left">PI3K AKT Signaling in Cancer</td>
-<td align="left">AKT1;EGFR;MTOR</td>
-<td align="right">2</td>
+<td align="left">Signaling by NTRKs</td>
+<td align="left">Signal Transduction</td>
+<td align="right">5</td>
+<td align="left">BRAF;MAP2K1;MAP2K2;MAPK1;MAPK3</td>
+<td align="right">26</td>
+<td align="right">1e-04</td>
+<td align="right">0.0033</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Intrinsic Pathway for Apoptosis</td>
+<td align="left">Programmed Cell Death</td>
 <td align="right">3</td>
-<td align="right">110</td>
-<td align="right">0.027</td>
-<td align="right">0.000</td>
-<td align="right">2351.639</td>
-<td align="left">all</td>
-<td align="left">Diseases of signal transduction by growth factor
-receptors and second messengers;Disease;</td>
-<td align="left">R-HSA-2219528</td>
-<td align="left">Disease</td>
+<td align="left">AKT1;MAPK1;MAPK3</td>
+<td align="right">6</td>
+<td align="right">1e-04</td>
+<td align="right">0.0059</td>
+<td align="left">TRUE</td>
 </tr>
 </tbody>
 </table>
 <p>Pass <code>out_dir</code> and <code>label</code>
-(e.g. <code>label = &quot;DrugA_vs_DMSO_spec0.7&quot;</code>) to also write
-<code>pathways_&lt;label&gt;_all.csv</code> (every candidate) and
-<code>pathways_&lt;label&gt;.csv</code> (the <em>provisional</em>
-one-pathway-per-gene-set pick shown above) to a
-<code>Network_pathways</code> subfolder of <code>out_dir</code> –
-omitted here so this vignette doesn’t write files.
-<code>networkGen</code>’s own output
-(<code>nodes_*</code>/<code>edges_*</code>/<code>wc_df_*</code>/<code>missing_nodes_*</code>)
-lands directly in that same <code>out_dir</code>, with no subfolder of
-its own; only the pathway CSVs (here) and the HTML
-(<code>save_network_html()</code>, section 4) get one. Once every
-comparison for a <code>spec_cutoff</code> is done,
-<code>reconcile_pathways_dir(out_dir, spec_cutoff)</code> re-reads the
-<code>_all</code> files and rewrites each short table so the pathway
-that recurs across the most comparisons wins – that way the same biology
-sits under the same label in every comparison, and the combined heatmaps
-line up. Re-running with <code>refresh = FALSE</code> (the default)
-skips the Enrichr call and reads the existing
-<code>pathways_&lt;label&gt;.csv</code> back instead.</p>
+(e.g. <code>label = &quot;DrugA_vs_DMSO_spec0.7&quot;</code>) to also write, to a
+<code>Network_pathways</code> subfolder of <code>out_dir</code>:
+<code>pathways_&lt;label&gt;_all.csv</code> (tested pathways with p &lt;
+0.1), <code>pathways_&lt;label&gt;.csv</code> (one pathway per hit list)
+and <code>pathways_&lt;label&gt;_pw_params.csv</code> (background size,
+pathway set, selector rule, …). <code>networkGen</code>’s own output
+(<code>nodes_*</code>/<code>edges_*</code>/…) lands directly in that
+same <code>out_dir</code>.</p>
+<p><code>enrich_uka()</code> runs the same enrichment on UKA data
+directly, without a network: per comparison it takes the input kinases
+exactly as networkGen selects them for a network
+(<code>networkGen::uka_top()</code>) and writes the same CSVs to a
+<code>UKA_pathways</code> subfolder.
+<code>plot_uka_pathway_heatmaps()</code> draws its result.</p>
 </div>
 <div id="reading-the-pathway-output" class="section level2">
 <h2>3. Reading the pathway output</h2>
-<p>Each row of the pathway table is one enriched pathway:
-<code>Pathway</code> / <code>Group_Pw</code> (the name,
-<code>Group_Pw</code> prefixed with its Reactome top group),
-<code>Genes</code> (the network genes in it, <code>;</code>-joined),
-<code>n_hits</code> / <code>pathway_size</code> / <code>overlap</code>,
-<code>Adjusted.P.value.mean</code>,
-<code>Combined.Score.mean</code>.</p>
+<p>Columns: <code>pw_id</code>, <code>pw_name</code>,
+<code>category</code> (top-level Reactome category), <code>n_hits</code>
+(k) and <code>hits</code> (the tested kinases in the pathway,
+<code>;</code>-joined), <code>pw_size_ukadb</code> (K, the pathway’s
+background kinases), <code>p_value</code>, <code>fdr</code>,
+<code>in_selector</code> (p &lt; 0.05 and &gt;= 3 hits; when more than
+20 pass, also FDR &lt; 0.3) and, in the one-per-hit-list table,
+<code>also_matches</code>.</p>
 <p><code>plot_pathway_heatmaps(comparisons, out_dir)</code> (or the
-folder wrapper <code>plot_pathway_heatmaps_dir()</code>) draws, per
-<code>spec_cutoff</code>: one pathway x kinase <code>LogFC</code>
-heatmap per comparison, a heatmap of the pathways common to <em>all</em>
-comparisons, and – for two comparisons – a “unique to each” heatmap, or
-for three-plus, one pairwise-overlap heatmap per pair.</p>
+folder wrapper <code>plot_pathway_heatmaps_dir()</code>) draws the
+selected pathways with their hit kinases, filled with the kinase
+statistic. The default <code>&quot;wrapped&quot;</code> layout gives one small
+panel per pathway, wrapped into rows: one figure per comparison, and one
+per pair of comparisons with the pathways selected in both
+(<code>pair_groups</code>: only pairs within one group, e.g. a UKA
+Supergroup). <code>layout = &quot;classic&quot;</code> draws pathway x kinase
+heatmaps per comparison and across comparisons.</p>
 </div>
 <div id="the-interactive-html" class="section level2">
 <h2>4. The interactive HTML</h2>
@@ -5826,8 +5813,8 @@ multi-select dropdown – try it:</p>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">theme =</span> <span class="fu">networkplot_theme</span>(<span class="at">edge_width =</span> <span class="fu">list</span>(<span class="at">column =</span> <span class="st">&quot;cost&quot;</span>, <span class="at">invert =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>)</span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>w</span></code></pre></div>
-<div class="visNetwork html-widget html-fill-item" id="htmlwidget-132534988b6450ad625a" style="width:288px;height:288px;"></div>
-<script type="application/json" data-for="htmlwidget-132534988b6450ad625a">{"x":{"nodes":{"Protein":["EGFR","AKT1","MTOR","RPS6KB1","MAPK1","BRAF","STEINER1"],"type":["Protein-Kinase","Kinase","Kinase","Kinase","Kinase","Kinase","Hidden"],"prize":[0.95,0.9,0.85,0.7,0.8,0.75,2],"LogFC":[2.4,1.8,-1.2,-2,1.1,0.6,0],"degree":[6,5,4,2,3,2,4],"pathway":["Signal Transduction_Signaling by PTK6,Disease_PI3K AKT Signaling in Cancer,Signal Transduction_Extra-nuclear Estrogen Signaling,Signal Transduction_PIP3 Activates AKT Signaling,Signal Transduction_MAPK1 MAPK3 Signaling,Developmental Biology_L1CAM Interactions","Signal Transduction_Signaling by PTK6,Disease_PI3K AKT Signaling in Cancer,Gene expression (Transcription)_Transcriptional Regulation by RUNX2,Signal Transduction_Extra-nuclear Estrogen Signaling,Signal Transduction_PIP3 Activates AKT Signaling,Signal Transduction_PTEN Regulation,Cellular responses to stimuli_Response of Endothelial Cells to Shear Stress","Disease_PI3K AKT Signaling in Cancer,Signal Transduction_PIP3 Activates AKT Signaling,Signal Transduction_PTEN Regulation,Cellular responses to stimuli_Response of Endothelial Cells to Shear Stress,Cellular responses to stimuli_Cellular Response to Heat Stress,Signal Transduction_mTORC1-mediated Signalling","Signal Transduction_mTORC1-mediated Signalling","Gene expression (Transcription)_Transcriptional Regulation by RUNX2,Signal Transduction_Extra-nuclear Estrogen Signaling,Signal Transduction_PIP3 Activates AKT Signaling,Signal Transduction_PTEN Regulation,Disease_Oncogenic MAPK Signaling,Signal Transduction_MAPK1 MAPK3 Signaling,Developmental Biology_L1CAM Interactions,Cellular responses to stimuli_Cellular Response to Heat Stress","Disease_Oncogenic MAPK Signaling,Signal Transduction_MAPK1 MAPK3 Signaling",null],"id":["EGFR","AKT1","MTOR","RPS6KB1","MAPK1","BRAF","STEINER1"],"group":["Protein-Kinase","Kinase","Kinase","Kinase","Kinase","Kinase","Hidden"],"value":[0.95,0.9,0.85,0.7,0.8,0.75,2],"label":["EGFR","AKT1","MTOR","RPS6KB1","MAPK1","BRAF","STEINER1"],"pathway_multi":["Signal Transduction_Signaling by PTK6;Disease_PI3K AKT Signaling in Cancer;Signal Transduction_Extra-nuclear Estrogen Signaling;Signal Transduction_PIP3 Activates AKT Signaling;Signal Transduction_MAPK1 MAPK3 Signaling;Developmental Biology_L1CAM Interactions","Signal Transduction_Signaling by PTK6;Disease_PI3K AKT Signaling in Cancer;Gene expression Transcription_Transcriptional Regulation by RUNX2;Signal Transduction_Extra-nuclear Estrogen Signaling;Signal Transduction_PIP3 Activates AKT Signaling;Signal Transduction_PTEN Regulation;Cellular responses to stimuli_Response of Endothelial Cells to Shear Stress","Disease_PI3K AKT Signaling in Cancer;Signal Transduction_PIP3 Activates AKT Signaling;Signal Transduction_PTEN Regulation;Cellular responses to stimuli_Response of Endothelial Cells to Shear Stress;Cellular responses to stimuli_Cellular Response to Heat Stress;Signal Transduction_mTORC1-mediated Signalling","Signal Transduction_mTORC1-mediated Signalling","Gene expression Transcription_Transcriptional Regulation by RUNX2;Signal Transduction_Extra-nuclear Estrogen Signaling;Signal Transduction_PIP3 Activates AKT Signaling;Signal Transduction_PTEN Regulation;Disease_Oncogenic MAPK Signaling;Signal Transduction_MAPK1 MAPK3 Signaling;Developmental Biology_L1CAM Interactions;Cellular responses to stimuli_Cellular Response to Heat Stress","Disease_Oncogenic MAPK Signaling;Signal Transduction_MAPK1 MAPK3 Signaling",null],"shape":["diamond","dot","dot","dot","dot","dot","text"],"color.background":["#C62828","#C53333","#4747C6","#0000CC","#C26969","#BF8E8E","#BDBDBD"],"color.border":["#4C9900","#4C9900","#454545","#454545","#454545","#454545","#454545"],"borderWidth":[2.5,2.5,1,1,1,1,1],"x":[0.0001320533262423318,-0.3643908520607645,-0.707931462656502,-1,0.3636554623771799,1,0.7086425552907487],"y":[0.0001954609482885949,-0.3643386131342335,-0.7079062750147693,-1,0.3637019521078881,1,0.7086725809772529]},"edges":{"from":["EGFR","EGFR","AKT1","MTOR","MAPK1","STEINER1"],"to":["AKT1","MAPK1","MTOR","RPS6KB1","STEINER1","BRAF"],"weight":[8,7,8,5,3,6],"cost":[0.08,0.12,0.05,0.3,0.45,0.1],"color":["#000000","#000000","#000000","#000000","#000000","#000000"],"width":[5.625,5.125,6,2.875,1,5.374999999999999]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":10},"physics":false},"manipulation":{"enabled":false},"physics":{"stabilization":false},"edges":{"smooth":false},"interaction":{"multiselect":true,"zoomSpeed":1}},"groups":["Protein-Kinase","Kinase","Hidden"],"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":true,"style":"width: 150px; height: 26px","multiple":true,"hideColor":"rgba(200,200,200,0.5)","highlight":false,"variable":"pathway","main":"Select Pathway:","values":["Cellular responses to stimuli_Cellular Response to Heat Stress","Cellular responses to stimuli_Response of Endothelial Cells to Shear Stress","Developmental Biology_L1CAM Interactions","Disease_Oncogenic MAPK Signaling","Disease_PI3K AKT Signaling in Cancer","Gene expression (Transcription)_Transcriptional Regulation by RUNX2","Signal Transduction_Extra-nuclear Estrogen Signaling","Signal Transduction_MAPK1 MAPK3 Signaling","Signal Transduction_mTORC1-mediated Signalling","Signal Transduction_PIP3 Activates AKT Signaling","Signal Transduction_PTEN Regulation","Signal Transduction_Signaling by PTK6"]},"main":{"text":"DrugA vs DMSO","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Kinase","Protein-Kinase","Hidden","<= -1.95","0 (neutral)",">= 1.95","thicker edge = stronger interaction"],"shape":["dot","diamond","text","dot","dot","dot","dot"],"color":["#BDBDBD","#BDBDBD","#BDBDBD","#0000CC","#BDBDBD","#C62828","#FFFFFF"],"borderWidth":[1,1,1,0,0,0,0],"font.size":[12,12,12,12,12,12,12]},"nodesToDataframe":true},"highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"}},"evals":[],"jsHooks":[]}</script>
+<div class="visNetwork html-widget html-fill-item" id="htmlwidget-cf3e0d4292f1cd338134" style="width:288px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-cf3e0d4292f1cd338134">{"x":{"nodes":{"Protein":["BRAF","RAF1","MAP2K1","MAP2K2","MAPK1","MAPK3","AKT1","STEINER1"],"type":["Kinase","Kinase","Kinase","Kinase","Kinase","Kinase","Kinase","Hidden"],"prize":[0.95,0.9,0.85,0.7,0.8,0.75,0.6,2],"LogFC":[2.4,1.8,1.2,0.9,1.1,0.6,-0.8,0],"degree":[3,3,3,2,3,2,1,3],"pathway":["MAPK1/MAPK3 signaling,Signaling by NTRKs,Signaling by FGFR","MAPK1/MAPK3 signaling,Platelet activation signaling and aggregation,Interferon Signaling","MAPK1/MAPK3 signaling,Signaling by NTRKs,Signaling by Interleukins,Axon guidance,Toll-like Receptor Cascades","MAPK1/MAPK3 signaling,Signaling by NTRKs,Axon guidance","MAPK1/MAPK3 signaling,Signaling by NTRKs,Intrinsic Pathway for Apoptosis,Platelet activation signaling and aggregation,Signaling by FGFR,Interferon Signaling,Signaling by Interleukins,Axon guidance,Toll-like Receptor Cascades","MAPK1/MAPK3 signaling,Signaling by NTRKs,Intrinsic Pathway for Apoptosis,Platelet activation signaling and aggregation,Signaling by FGFR,Interferon Signaling,Signaling by Interleukins,Axon guidance,Toll-like Receptor Cascades","Intrinsic Pathway for Apoptosis,Platelet activation signaling and aggregation,Signaling by Interleukins",null],"id":["BRAF","RAF1","MAP2K1","MAP2K2","MAPK1","MAPK3","AKT1","STEINER1"],"group":["Kinase","Kinase","Kinase","Kinase","Kinase","Kinase","Kinase","Hidden"],"value":[0.95,0.9,0.85,0.7,0.8,0.75,0.6,2],"label":["BRAF","RAF1","MAP2K1","MAP2K2","MAPK1","MAPK3","AKT1","STEINER1"],"pathway_multi":["MAPK1/MAPK3 signaling;Signaling by NTRKs;Signaling by FGFR","MAPK1/MAPK3 signaling;Platelet activation signaling and aggregation;Interferon Signaling","MAPK1/MAPK3 signaling;Signaling by NTRKs;Signaling by Interleukins;Axon guidance;Toll-like Receptor Cascades","MAPK1/MAPK3 signaling;Signaling by NTRKs;Axon guidance","MAPK1/MAPK3 signaling;Signaling by NTRKs;Intrinsic Pathway for Apoptosis;Platelet activation signaling and aggregation;Signaling by FGFR;Interferon Signaling;Signaling by Interleukins;Axon guidance;Toll-like Receptor Cascades","MAPK1/MAPK3 signaling;Signaling by NTRKs;Intrinsic Pathway for Apoptosis;Platelet activation signaling and aggregation;Signaling by FGFR;Interferon Signaling;Signaling by Interleukins;Axon guidance;Toll-like Receptor Cascades","Intrinsic Pathway for Apoptosis;Platelet activation signaling and aggregation;Signaling by Interleukins",null],"shape":["dot","dot","dot","dot","dot","dot","dot","text"],"color.background":["#C62828","#C62828","#C35050","#C16B6B","#C35959","#C08787","#6262C4","#BDBDBD"],"color.border":["#454545","#454545","#454545","#454545","#454545","#454545","#454545","#454545"],"borderWidth":[1,1,1,1,1,1,1,1],"x":[-0.3614472220582476,-1,0.2274166467971837,-0.6678067328756442,0.7440408989690566,-0.2624175316496303,0.9837698847771437,1],"y":[-1,0.1028793035245581,-0.8785736815177458,0.5747333179408602,-0.5174305707662022,1,0.6387074795127738,0.05817597392661122]},"edges":{"from":["BRAF","RAF1","MAP2K1","MAP2K2","MAPK1","STEINER1"],"to":["MAP2K1","MAP2K2","MAPK1","MAPK3","STEINER1","AKT1"],"weight":[8,7,8,5,3,6],"cost":[0.08,0.12,0.05,0.3,0.45,0.1],"color":["#000000","#000000","#000000","#000000","#000000","#000000"],"width":[5.625,5.125,6,2.875,1,5.374999999999999]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","font":{"size":10},"physics":false},"manipulation":{"enabled":false},"physics":{"stabilization":false},"edges":{"smooth":false},"interaction":{"multiselect":true,"zoomSpeed":1}},"groups":["Kinase","Hidden"],"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":true,"style":"width: 150px; height: 26px","multiple":true,"hideColor":"rgba(200,200,200,0.5)","highlight":false,"variable":"pathway","main":"Select Pathway:","values":["Axon guidance","Interferon Signaling","Intrinsic Pathway for Apoptosis","MAPK1/MAPK3 signaling","Platelet activation signaling and aggregation","Signaling by FGFR","Signaling by Interleukins","Signaling by NTRKs","Toll-like Receptor Cascades"]},"main":{"text":"DrugA vs DMSO","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","igraphlayout":{"type":"square"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Kinase","Hidden","<= -1.65","0 (neutral)",">= 1.65","thicker edge = stronger interaction"],"shape":["dot","text","dot","dot","dot","dot"],"color":["#BDBDBD","#BDBDBD","#0000CC","#BDBDBD","#C62828","#FFFFFF"],"borderWidth":[1,1,0,0,0,0],"font.size":[12,12,12,12,12,12]},"nodesToDataframe":true},"highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"}},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">save_network_html</span>(w, <span class="st">&quot;results/DrugA&quot;</span>, <span class="st">&quot;DrugA_vs_DMSO.html&quot;</span>) <span class="co"># -&gt; results/DrugA/Network_html/DrugA_vs_DMSO.html</span></span></code></pre></div>
 <p><code>save_network_html()</code> always writes into a
 <code>Network_html</code> subfolder of the output folder you give it –
@@ -5919,10 +5906,8 @@ not re-run here):</p>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>)</span>
 <span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="fu">save_network_html</span>(out<span class="sc">$</span>widget, <span class="st">&quot;results/DrugA&quot;</span>, <span class="st">&quot;DrugA_vs_DMSO.html&quot;</span>)</span></code></pre></div>
 <p>Call <code>enrich_network()</code> and <code>plot_network()</code>
-separately instead of the wrapper when you need
-<code>reconcile_pathways()</code> across several comparisons before
-plotting any of them, or already have an enrichment result from
-elsewhere.</p>
+separately instead of the wrapper when you already have an enrichment
+result from elsewhere.</p>
 </div>
 
 

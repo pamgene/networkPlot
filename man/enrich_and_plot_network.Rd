@@ -8,20 +8,16 @@ enrich_and_plot_network(
   nodes,
   edges,
   title,
-  databases = "Reactome_Pathways_2024",
-  min_hits = 2,
-  postprocess = reactome_postprocess(reactome_refs()),
   out_dir = NULL,
   label = NULL,
-  refresh = FALSE,
   clusters = NULL,
   colour_by = "pathway",
-  theme = networkplot_theme()
+  theme = networkplot_theme(),
+  ...
 )
 }
 \arguments{
-\item{nodes}{A \code{networkGen} result's \code{nodes} data frame (needs
-\code{Protein}, \code{type}).}
+\item{nodes}{The network's node table.}
 
 \item{edges}{Data frame with columns \code{from}, \code{to} (and, for
 \code{theme$edge_width}, whatever column it names -- typically \code{cost} or
@@ -29,27 +25,13 @@ enrich_and_plot_network(
 
 \item{title}{Network title, shown as the widget heading.}
 
-\item{databases}{Character vector of Enrichr library names.}
+\item{out_dir}{If given, write the pathway CSVs to its \code{Network_pathways}
+subfolder (\code{\link[=network_pathways_dir]{network_pathways_dir()}}): \verb{pathways_<label>_all.csv},
+\verb{pathways_<label>.csv} (the selected pathways, one per hit list) and
+\verb{pathways_<label>_pw_params.csv}. Requires \code{label}.}
 
-\item{min_hits}{Keep a pathway when its overlap with the gene list is
-\verb{>= min_hits} genes.}
-
-\item{postprocess}{\verb{function(pathway_df) -> pathway_df} applied to the
-filtered hits, or \code{NULL} to skip. Default
-\code{reactome_postprocess(reactome_refs())}.}
-
-\item{out_dir}{If given, write \verb{pathways_<label>_all.csv} (all candidates)
-and \verb{pathways_<label>.csv} (a provisional one-pathway-per-gene-set
-pick) to its \code{Network_pathways} subfolder (\code{\link[=network_pathways_dir]{network_pathways_dir()}}).
-Requires \code{label}.}
-
-\item{label}{Filename stem for \code{out_dir} output -- use
-\code{"<comparison>_spec<cutoff>"} so \code{\link[=reconcile_pathways_dir]{reconcile_pathways_dir()}} /
+\item{label}{Filename stem -- use \code{"<comparison>_spec<cutoff>"} so
 \code{\link[=plot_pathway_heatmaps_dir]{plot_pathway_heatmaps_dir()}} can parse it back.}
-
-\item{refresh}{If \code{FALSE} (default) and
-\verb{out_dir/Network_pathways/pathways_<label>.csv} already exists, read it
-and skip the Enrichr call. \code{TRUE} always calls Enrichr.}
 
 \item{clusters}{Optional data frame with columns \code{id}, \code{cluster}
 (a \code{networkGen} result's \code{wc_df}); merged onto the nodes for reference.}
@@ -59,12 +41,14 @@ dropdown when a \code{pathway} column is present; anything else leaves it
 off.}
 
 \item{theme}{A \code{\link[=networkplot_theme]{networkplot_theme()}} object.}
+
+\item{...}{Passed to \code{\link[=enrich_network]{enrich_network()}} / \code{\link[=enrich_kinases]{enrich_kinases()}}.}
 }
 \value{
-A list: \code{enrichment} (the \code{\link[=enrich_network]{enrich_network()}} result: \code{all},
-\code{short}, \code{nodes}) and \code{widget} (the \code{visNetwork} htmlwidget, built from
-\code{enrichment$nodes} so its \code{pathway} column drives \code{plot_network()}'s
-pathway multi-select and colouring).
+A list: \code{enrichment} (the \code{\link[=enrich_network]{enrich_network()}} result) and \code{widget}
+(the \code{visNetwork} htmlwidget, built from \code{enrichment$nodes} so its
+\code{pathway} column drives \code{plot_network()}'s pathway multi-select and
+colouring).
 }
 \description{
 Convenience wrapper combining \code{\link[=enrich_network]{enrich_network()}} and \code{\link[=plot_network]{plot_network()}}
@@ -75,11 +59,7 @@ through to \code{plot_network()} yourself.
 \details{
 Equivalent to:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{enrichment <- enrich_network(nodes, databases, min_hits, postprocess, out_dir, label, refresh)
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{enrichment <- enrich_network(nodes, out_dir, label, ...)
 widget <- plot_network(enrichment$nodes, edges, title, clusters, colour_by, theme)
 }\if{html}{\out{</div>}}
-
-Call \code{\link[=enrich_network]{enrich_network()}} and \code{\link[=plot_network]{plot_network()}} separately instead when you
-need to \code{\link[=reconcile_pathways]{reconcile_pathways()}} across several comparisons before
-plotting, or already have an enrichment result from elsewhere.
 }
